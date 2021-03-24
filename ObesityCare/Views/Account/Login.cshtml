@@ -1,0 +1,70 @@
+﻿@using ObesityCare.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+<section id="loginForm">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="section" style="background-color:lightgray">
+
+            <div class="container col-5">
+                <div class="col-lg-8 text-center mx-auto">
+                    <h2>Welcome to ObesityCare</h2>
+                </div>
+                <div class=" col-lg-8 mx-auto">
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <h4>@ViewBag.Title</h4>
+                        <hr />
+
+                        <div class="row">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.LabelFor(m => m.Email, new { @class = "col-4 mb-3" })
+                            @Html.TextBoxFor(m => m.Email, new { @class = "col-6 mb-3" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            @Html.LabelFor(m => m.Password, new { @class = "col-4 mb-3" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "col-6 mb-3" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+
+
+                            <div class="checkbox mb-3">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+
+
+
+                            <div class="col-12">
+                                <input type="submit" value="Log in" class="btn btn-primary mb-3" />
+
+                            </div>
+                            @Html.ActionLink("Register as a new user", "Register")
+                        </div>
+                            @* Enable this once you have account confirmation enabled for password reset functionality
+        <p>
+            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+        </p>*@
+
+                        </div>
+                </div>
+            </div>
+            <div class="col-lg-8  mx-auto">
+                <section id="socialLoginForm">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>
+        </div>
+    }
+
+</section>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
