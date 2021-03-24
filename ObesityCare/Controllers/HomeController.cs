@@ -32,5 +32,11 @@ namespace ObesityCare.Controllers
 
             return View();
         }
+        public ActionResult Activities()
+        {
+            ViewBag.Message = "Recommended Activities";
+
+            return View();
+        }
     }
 }
