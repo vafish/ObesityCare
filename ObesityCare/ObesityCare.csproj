@@ -180,6 +180,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ObesityCare_Db.mdf" />
+    <Content Include="App_Data\ObesityCare_Db_log.ldf">
+      <DependentUpon>ObesityCare_Db.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -197,6 +201,7 @@
     <Content Include="fonts\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\chen.jpg" />
     <Content Include="images\gal_1.jpg" />
     <Content Include="images\gal_2.jpg" />
     <Content Include="images\gal_3.jpg" />
@@ -220,7 +225,10 @@
     <Content Include="images\person_sq_1.jpg" />
     <Content Include="images\person_sq_2.jpg" />
     <Content Include="images\person_sq_3.jpg" />
+    <Content Include="images\wang.jpg" />
     <Content Include="images\world-dotted-map.png" />
+    <Content Include="images\yu.jpg" />
+    <Content Include="images\zhao.jpg" />
     <Content Include="js\aos.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\counter.js" />
@@ -284,9 +292,7 @@
     <Content Include="Views\Home\BMI.cshtml" />
     <Content Include="Views\Home\Activities.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
