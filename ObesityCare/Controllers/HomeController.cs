@@ -77,7 +77,7 @@ namespace ObesityCare.Controllers
             try
             {
                 ViewBag.DataPoints = JsonConvert.SerializeObject(db.BOY_BMI.ToList(), _jsonSetting);
-
+                ViewBag.DataPoints2 = JsonConvert.SerializeObject(db.GIRL_BMI.ToList(), _jsonSetting);
                 return View();
             }
             catch (System.Data.Entity.Core.EntityException)

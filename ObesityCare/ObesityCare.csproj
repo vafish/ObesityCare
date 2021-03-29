@@ -342,6 +342,9 @@
     <Content Include="fonts\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\background1.jpg" />
+    <Content Include="images\background2.jpg" />
+    <Content Include="images\BMI_Cal.jpg" />
     <Content Include="images\chen.jpg" />
     <Content Include="images\gal_1.jpg" />
     <Content Include="images\gal_2.jpg" />
@@ -351,6 +354,7 @@
     <Content Include="images\gal_6.jpg" />
     <Content Include="images\gal_7.jpg" />
     <Content Include="images\gal_8.jpg" />
+    <Content Include="images\health.jpg" />
     <Content Include="images\hero_bg.jpg" />
     <Content Include="images\hero_bg_1.jpg" />
     <Content Include="images\hero_bg_2.jpg" />
@@ -372,6 +376,7 @@
     <Content Include="images\zhao.jpg" />
     <Content Include="js\aos.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\canvasjs.min.js" />
     <Content Include="js\counter.js" />
     <Content Include="js\custom.js" />
     <Content Include="js\navbar.js" />
