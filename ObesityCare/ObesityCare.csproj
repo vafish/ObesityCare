@@ -410,6 +410,7 @@
     <Content Include="Models\BMI_MODEL.edmx.diagram">
       <DependentUpon>BMI_MODEL.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Properties\PublishProfiles\ObesityCare20210328173014 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
