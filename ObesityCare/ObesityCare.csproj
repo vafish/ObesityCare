@@ -171,6 +171,9 @@
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.6.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -291,6 +294,27 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BMI_MODEL.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BMI_MODEL.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BMI_MODEL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BMI_MODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BMI_MODEL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BMI_MODEL.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BOY_BMI.cs">
+      <DependentUpon>BMI_MODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GIRL_BMI.cs">
+      <DependentUpon>BMI_MODEL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -352,6 +376,16 @@
     <Content Include="js\custom.js" />
     <Content Include="js\navbar.js" />
     <Content Include="js\tiny-slider.js" />
+    <Content Include="Models\BMI_MODEL.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BMI_MODEL.edmx</DependentUpon>
+      <LastGenOutput>BMI_MODEL.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BMI_MODEL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BMI_MODEL.edmx</DependentUpon>
+      <LastGenOutput>BMI_MODEL.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\Flaticon.eot" />
@@ -361,6 +395,13 @@
     <Content Include="fonts\icomoon.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
+    <EntityDeploy Include="Models\BMI_MODEL.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BMI_MODEL.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BMI_MODEL.edmx.diagram">
+      <DependentUpon>BMI_MODEL.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\ObesityCare20210328173014 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -410,7 +451,9 @@
     <Content Include="Views\Home\BMI.cshtml" />
     <Content Include="Views\Home\Activities.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

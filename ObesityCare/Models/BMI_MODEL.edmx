@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ObesityCare_BMI_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BOY_BMI">
+          <Key>
+            <PropertyRef Name="Age_in_months" />
+          </Key>
+          <Property Name="Age_in_months" Type="numeric" Precision="5" Scale="1" Nullable="false" />
+          <Property Name="third_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="fifth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="tenth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="twenty_fifth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="fiftieth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="seventy_fifth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="eightieth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninetieth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninety_fifth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninety_seventh_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GIRL_BMI">
+          <Key>
+            <PropertyRef Name="Age_in_months" />
+          </Key>
+          <Property Name="Age_in_months" Type="numeric" Precision="5" Scale="1" Nullable="false" />
+          <Property Name="third_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="fifth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="tenth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="twenty_fifth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="fiftieth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="seventy_fifth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="eightieth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninetieth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninety_fifth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninety_seventh_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ObesityCare_BMI_dbModelStoreContainer">
+          <EntitySet Name="BOY_BMI" EntityType="Self.BOY_BMI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIRL_BMI" EntityType="Self.GIRL_BMI" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ObesityCare_BMI_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BOY_BMI">
+          <Key>
+            <PropertyRef Name="Age_in_months" />
+          </Key>
+          <Property Name="Age_in_months" Type="Decimal" Precision="5" Scale="1" Nullable="false" />
+          <Property Name="third_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="fifth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="tenth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="twenty_fifth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="fiftieth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="seventy_fifth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="eightieth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninetieth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninety_fifth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninety_seventh_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GIRL_BMI">
+          <Key>
+            <PropertyRef Name="Age_in_months" />
+          </Key>
+          <Property Name="Age_in_months" Type="Decimal" Precision="5" Scale="1" Nullable="false" />
+          <Property Name="third_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="fifth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="tenth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="twenty_fifth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="fiftieth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="seventy_fifth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="eightieth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninetieth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninety_fifth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+          <Property Name="ninety_seventh_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ObesityCare_BMI_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BOY_BMI" EntityType="Self.BOY_BMI" />
+          <EntitySet Name="GIRL_BMI" EntityType="Self.GIRL_BMI" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ObesityCare_BMI_dbModelStoreContainer" CdmEntityContainer="ObesityCare_BMI_Entities">
+          <EntitySetMapping Name="BOY_BMI">
+            <EntityTypeMapping TypeName="ObesityCare_BMI_dbModel.BOY_BMI">
+              <MappingFragment StoreEntitySet="BOY_BMI">
+                <ScalarProperty Name="Age_in_months" ColumnName="Age_in_months" />
+                <ScalarProperty Name="third_Percentile" ColumnName="third_Percentile" />
+                <ScalarProperty Name="fifth_Percentile" ColumnName="fifth_Percentile" />
+                <ScalarProperty Name="tenth_Percentile" ColumnName="tenth_Percentile" />
+                <ScalarProperty Name="twenty_fifth_Percentile" ColumnName="twenty_fifth_Percentile" />
+                <ScalarProperty Name="fiftieth_Percentile" ColumnName="fiftieth_Percentile" />
+                <ScalarProperty Name="seventy_fifth_Percentile" ColumnName="seventy_fifth_Percentile" />
+                <ScalarProperty Name="eightieth_Percentile" ColumnName="eightieth_Percentile" />
+                <ScalarProperty Name="ninetieth_Percentile" ColumnName="ninetieth_Percentile" />
+                <ScalarProperty Name="ninety_fifth_Percentile" ColumnName="ninety_fifth_Percentile" />
+                <ScalarProperty Name="ninety_seventh_Percentile" ColumnName="ninety_seventh_Percentile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GIRL_BMI">
+            <EntityTypeMapping TypeName="ObesityCare_BMI_dbModel.GIRL_BMI">
+              <MappingFragment StoreEntitySet="GIRL_BMI">
+                <ScalarProperty Name="Age_in_months" ColumnName="Age_in_months" />
+                <ScalarProperty Name="third_Percentile" ColumnName="third_Percentile" />
+                <ScalarProperty Name="fifth_Percentile" ColumnName="fifth_Percentile" />
+                <ScalarProperty Name="tenth_Percentile" ColumnName="tenth_Percentile" />
+                <ScalarProperty Name="twenty_fifth_Percentile" ColumnName="twenty_fifth_Percentile" />
+                <ScalarProperty Name="fiftieth_Percentile" ColumnName="fiftieth_Percentile" />
+                <ScalarProperty Name="seventy_fifth_Percentile" ColumnName="seventy_fifth_Percentile" />
+                <ScalarProperty Name="eightieth_Percentile" ColumnName="eightieth_Percentile" />
+                <ScalarProperty Name="ninetieth_Percentile" ColumnName="ninetieth_Percentile" />
+                <ScalarProperty Name="ninety_fifth_Percentile" ColumnName="ninety_fifth_Percentile" />
+                <ScalarProperty Name="ninety_seventh_Percentile" ColumnName="ninety_seventh_Percentile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "BMI";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -13,9 +12,61 @@
 
                     <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0">BMI Calculator</h1>
                     <p class="text-white" data-aos="fade-up" data-aos-delay="100">xxxxxxxxx</p>
+
                 </div>
 
             </div>
         </div>
     </div>
 </div>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script>
+    window.onload = function () {
+
+    var result = @Html.Raw(ViewBag.DataPoints);
+    var dataPoints = [];
+    var dataPoints2 = [];
+    for(var i = 0; i < result.length; i++){
+    dataPoints.push({ x: result[i].Age_in_months, y: result[i].third_Percentile });
+    dataPoints.push({ x: result[i].Age_in_months, y: result[i].fifth_Percentile });
+    //dataPoints.push({ x: result[i].Age_in_months, y: result[i].tenth_Percentile });
+    //dataPoints.push({ x: result[i].Age_in_months, y: result[i].twenty_fifth_Percentile });
+    //dataPoints.push({ x: result[i].Age_in_months, y: result[i].fiftieth_Percentile });
+    //dataPoints.push({ x: result[i].Age_in_months, y: result[i].seventy_fifth_Percentile });
+    //dataPoints.push({ x: result[i].Age_in_months, y: result[i].eightieth_Percentile });
+    //dataPoints.push({ x: result[i].Age_in_months, y: result[i].ninetieth_Percentile });
+    //dataPoints.push({ x: result[i].Age_in_months, y: result[i].ninety_fifth_Percentile });
+    //dataPoints.push({ x: result[i].Age_in_months, y: result[i].ninety_seventh_Percentile });
+    }
+    for (var i = 0; i < result.length; i++) {
+        dataPoints2.push({ x: result[i].Age_in_months, y: result[i].fifth_Percentile });
+        //dataPoints.push({ x: result[i].Age_in_months, y: result[i].tenth_Percentile });
+        //dataPoints.push({ x: result[i].Age_in_months, y: result[i].twenty_fifth_Percentile });
+        //dataPoints.push({ x: result[i].Age_in_months, y: result[i].fiftieth_Percentile });
+        //dataPoints.push({ x: result[i].Age_in_months, y: result[i].seventy_fifth_Percentile });
+        //dataPoints.push({ x: result[i].Age_in_months, y: result[i].eightieth_Percentile });
+        //dataPoints.push({ x: result[i].Age_in_months, y: result[i].ninetieth_Percentile });
+        //dataPoints.push({ x: result[i].Age_in_months, y: result[i].ninety_fifth_Percentile });
+        //dataPoints.push({ x: result[i].Age_in_months, y: result[i].ninety_seventh_Percentile });
+    }
+
+var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    title: {
+        text: "ASP.NET MVC Column Chart from Database"
+    },
+    data: [
+    {
+            type: "spline",
+            dataPoints: dataPoints,
+            dataPoints: dataPoints2,
+    }
+    ]
+});
+chart.render();
+
+};
+</script>
+
