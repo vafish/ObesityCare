@@ -333,6 +333,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-ObesityCare-20210323105530.mdf" />
+    <Content Include="App_Data\aspnet-ObesityCare-20210323105530_log.ldf" />
     <Content Include="App_Data\ObesityCare_Db.mdf" />
     <Content Include="App_Data\ObesityCare_Db_log.ldf">
       <DependentUpon>ObesityCare_Db.mdf</DependentUpon>

@@ -11,21 +11,8 @@
     <link href="~/fonts/style.css" rel="stylesheet" />
     <link href="~/CSS/tiny-slider.css" rel="stylesheet" />
     <link href="~/CSS/aos.css" rel="stylesheet" />
-    <link href="~/CSS/style.css" rel="stylesheet" />
-    <script type="text/javascript">
-                
-        loopy()        
-        
-        function loopy() {
-            var sWord = ""
-            
-            while (sWord != "OC") {
-                sWord = prompt("Please input correct password")
-            }
-            alert("Welcome to ObesityCare")
-            enter = true
-        }
-    </script>
+    <link href="~/CSS/style.css" rel="stylesheet" />  
+
     <title>ObesityCare &mdash; for 10-12 Children</title>
 </head>
 <body>
@@ -65,7 +52,7 @@
                     <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                     <li>@Html.ActionLink("BMI", "BMI", "Home")</li>
                     <li>@Html.ActionLink("Activities", "Activities", "Home")</li>
-                    <li>@Html.Partial("_LoginPartial")</li>
+                    @*<li>@Html.Partial("_LoginPartial")</li>*@
                 </ul>
 
                 <a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
@@ -144,7 +131,23 @@
     </div> <!-- /.site-footer -->
 
 
+    <script language="JavaScript">
+        var password;
+        var pass = "ob";
 
+        if (!localStorage.getItem('psd')) {
+
+            do {
+                password = prompt('Welcome to ObsesityCare, you need a code to view the page!', '');
+                if (password == pass) {
+                    window.location = '#';
+                    localStorage.setItem('psd', 'ob');
+                } else {
+                    password = prompt('Wrong password, please the correct password', '');
+                }
+            } while (password != pass);
+        }
+    </script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/tiny-slider.js"></script>
     <script src="~/js/aos.js"></script>
@@ -155,7 +158,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    
+
 
 </body>
 
