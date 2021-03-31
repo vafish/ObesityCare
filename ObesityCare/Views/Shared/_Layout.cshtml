@@ -29,7 +29,7 @@
             } while (password != pass);
         }
     </script>
-    <title>ObesityCare &mdash; for 10-12 Children</title>
+    <title >ObesityCare &mdash; for 10-12 Children</title>
 </head>
 <body>
 
@@ -45,9 +45,9 @@
     <nav class="site-nav">
         <div class="container">
             <div class="site-navigation">
-                <div class="logo m-0 float-left">ObesityCare</div>
+                <div class="logo m-0 float-left" style="font-size:30px;">ObesityCare</div>
                 <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-                    <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
 
                     <li class="has-children">
                         <a href="#">Activities</a>
@@ -158,7 +158,90 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <style>
+        * {
+            box-sizing: border-box
+        }
 
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            position: relative;
+            background: #f1f1f1f1;
+        }
+
+        /* Slides */
+        .mySlides {
+            display: none;
+            padding: 30px;
+            text-align: center;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px;
+            color: #888;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            position: absolute;
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover, .next:hover {
+                background-color: rgba(0,0,0,0.8);
+                color: white;
+            }
+
+        /* The dot/bullet/indicator container */
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 5px;
+            width: 5px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+            /* Add a background color to the active dot/circle */
+            .actives, .dot:hover {
+                background-color: #717171;
+            }
+
+        /* Add an italic font style to all quotes */
+        q {
+            font-style: italic;
+        }
+
+        /* Add a blue color to the author */
+        .author {
+            color: cornflowerblue;
+        }
+    </style>
 
 </body>
 
