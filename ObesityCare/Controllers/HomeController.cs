@@ -163,5 +163,23 @@ namespace ObesityCare.Controllers
 
             return View();
         }
+        public ActionResult DodgeBall()
+        {
+            ViewBag.Message = "DodgeBall";
+
+            return View();
+        }
+        public ActionResult Hopscotch()
+        {
+            ViewBag.Message = "Hopscotch";
+
+            return View();
+        }
+        public ActionResult Jumprope()
+        {
+            ViewBag.Message = "Jumprope";
+
+            return View();
+        }
     }
 }

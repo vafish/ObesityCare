@@ -7,11 +7,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="~/fonts/flaticon.css" rel="stylesheet" />
     <link href="~/fonts/style.css" rel="stylesheet" />
     <link href="~/CSS/tiny-slider.css" rel="stylesheet" />
     <link href="~/CSS/aos.css" rel="stylesheet" />
     <link href="~/CSS/style.css" rel="stylesheet" />
+
     <script language="JavaScript">
         var password;
         var pass = "ob";
@@ -29,7 +31,7 @@
             } while (password != pass);
         }
     </script>
-    <title >ObesityCare &mdash; for 10-12 Children</title>
+    <title>ObesityCare &mdash; for 10-12 Children</title>
 </head>
 <body>
 
@@ -48,32 +50,14 @@
                 <div class="logo m-0 float-left" style="font-size:30px;">ObesityCare</div>
                 <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-
-                    <li class="has-children">
-                        <a href="#">Activities</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Activitity 1</a></li>
-                            <li class="has-children">
-                                <a href="#">Activitity 2</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">One</a></li>
-                                    <li><a href="#">Two</a></li>
-                                    <li><a href="#">Three</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Activity 3</a></li>
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                     <li>@Html.ActionLink("BMI", "BMI", "Home")</li>
                     <li>@Html.ActionLink("Activities", "Activities", "Home")</li>
+                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                     @*<li>@Html.Partial("_LoginPartial")</li>*@
                 </ul>
 
-                <a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
-                    <span></span>
-                </a>
+               
 
             </div>
         </div>
@@ -172,6 +156,8 @@
         .slideshow-container {
             position: relative;
             background: #f1f1f1f1;
+            width:1600px;
+            height:350px;
         }
 
         /* Slides */
@@ -187,7 +173,7 @@
             position: absolute;
             top: 50%;
             width: auto;
-            margin-top: -30px;
+            margin-top: 30px;
             padding: 16px;
             color: #888;
             font-weight: bold;
@@ -240,6 +226,9 @@
         /* Add a blue color to the author */
         .author {
             color: cornflowerblue;
+        }
+        .fa {
+            color: green;
         }
     </style>
 

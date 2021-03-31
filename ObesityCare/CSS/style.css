@@ -6035,7 +6035,10 @@ textarea.form-control-lg {
   margin-right: 1.5rem !important; }
 
 .me-5 {
-  margin-right: 3rem !important; }
+  margin-right: 10rem !important; }
+.me-6 {
+   margin-right:5rem !important;
+}
 
 .me-auto {
   margin-right: auto !important; }
@@ -9123,6 +9126,18 @@ textarea {
     min-height: 600px; }
   .hero.hero-2:before {
     display: none; }
+  .hero.hero-2, .hero.hero-2 > .container > .row {
+    height: 100vh;
+    min-height: 600px; }
+  .hero.hero-3:before {
+    display: none; }
+  .hero.hero-3, .hero.hero-3 > .container > .row {
+        max-height: 600px;
+        min-height: 300px;
+  }
+  .hero.hero-3:before {
+            display: none;
+  }
   .hero:after {
     content: "";
     position: absolute;
@@ -9139,13 +9154,13 @@ textarea {
       color: #fff;
       font-size: 13px; }
     .hero > .container .heading {
-      font-size: 50px;
+      font-size: 30px;
       font-weight: 700;
       color: #fff;
       margin-bottom: 50px; }
       @media (max-width: 991.98px) {
         .hero > .container .heading {
-          font-size: 40px; } }
+          font-size: 30px; } }
 
 .testionial-hero {
   max-width: 300px; }
@@ -9162,13 +9177,15 @@ textarea {
     font-size: 16px;
     font-style: italic;
     color: #fff; }
-  .testionial-hero .author .img {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 40px;
-    flex: 0 0 40px;
-    margin-right: 20px; }
+    .testionial-hero .author .img {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 40px;
+        flex: 0 0 40px;
+        width: 80px;
+        margin-right: 20px;
+    }
     .testionial-hero .author .img img {
-      width: 40px;
+      width: 80px;
       border-radius: 50%; }
   .testionial-hero .author .text {
     color: #fff;
@@ -9238,7 +9255,7 @@ textarea {
 
 .media-entry > a {
   display: block;
-  background-color: #000;
+  background-color: #fff;
   background-size: cover;
   background-position: center center;
   height: 200px;

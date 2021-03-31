@@ -390,6 +390,7 @@
     <Content Include="CSS\bootstrap-reboot.css" />
     <Content Include="CSS\bootstrap-utilities.css" />
     <Content Include="CSS\bootstrap.css" />
+    <Content Include="CSS\font-awesome.min.css" />
     <Content Include="CSS\style.css" />
     <Content Include="CSS\tiny-slider.css" />
     <Content Include="favicon.ico" />
@@ -397,11 +398,14 @@
     <Content Include="fonts\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\activity_icon.png" />
     <Content Include="images\background1.jpg" />
     <Content Include="images\background2.jpg" />
     <Content Include="images\BMI_Cal.jpg" />
     <Content Include="images\bully.jpg" />
     <Content Include="images\chen.jpg" />
+    <Content Include="images\CycoPathsLogoHD.png" />
+    <Content Include="images\dodgeball.jpg" />
     <Content Include="images\flag.jpg" />
     <Content Include="images\gal_1.jpg" />
     <Content Include="images\gal_2.jpg" />
@@ -415,10 +419,12 @@
     <Content Include="images\hero_bg.jpg" />
     <Content Include="images\hero_bg_1.jpg" />
     <Content Include="images\hero_bg_2.jpg" />
+    <Content Include="images\hopscotch.jpg" />
     <Content Include="images\img_1.jpg" />
     <Content Include="images\img_2.jpg" />
     <Content Include="images\img_3.jpg" />
     <Content Include="images\img_4.jpg" />
+    <Content Include="images\jumprope.jpg" />
     <Content Include="images\medicine.jpg" />
     <Content Include="images\obeseadult.jpg" />
     <Content Include="images\obesekid.jpg" />
@@ -620,6 +626,9 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Home\Dodgeball.cshtml" />
+    <Content Include="Views\Home\Hopscotch.cshtml" />
+    <Content Include="Views\Home\Jumprope.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -631,6 +640,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
