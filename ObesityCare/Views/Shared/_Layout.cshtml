@@ -11,8 +11,24 @@
     <link href="~/fonts/style.css" rel="stylesheet" />
     <link href="~/CSS/tiny-slider.css" rel="stylesheet" />
     <link href="~/CSS/aos.css" rel="stylesheet" />
-    <link href="~/CSS/style.css" rel="stylesheet" />  
+    <link href="~/CSS/style.css" rel="stylesheet" />
+    <script language="JavaScript">
+        var password;
+        var pass = "ob";
 
+        if (!localStorage.getItem('psd')) {
+
+            do {
+                password = prompt('Welcome to ObsesityCare, you need a code to view the page!', '');
+                if (password == pass) {
+                    window.location = '#';
+                    localStorage.setItem('psd', 'ob');
+                } else {
+                    password = prompt('Wrong password, please the correct password', '');
+                }
+            } while (password != pass);
+        }
+    </script>
     <title>ObesityCare &mdash; for 10-12 Children</title>
 </head>
 <body>
@@ -131,23 +147,7 @@
     </div> <!-- /.site-footer -->
 
 
-    <script language="JavaScript">
-        var password;
-        var pass = "ob";
 
-        if (!localStorage.getItem('psd')) {
-
-            do {
-                password = prompt('Welcome to ObsesityCare, you need a code to view the page!', '');
-                if (password == pass) {
-                    window.location = '#';
-                    localStorage.setItem('psd', 'ob');
-                } else {
-                    password = prompt('Wrong password, please the correct password', '');
-                }
-            } while (password != pass);
-        }
-    </script>
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/tiny-slider.js"></script>
     <script src="~/js/aos.js"></script>
