@@ -151,11 +151,16 @@ namespace ObesityCare.Controllers
             }
         }
         JsonSerializerSettings _jsonSetting = new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore };
-            //return View();
-        
-        //}
+        //return View();
 
-        
+        //}
+        public ActionResult Facts()
+        {
+            ViewBag.Message = "Facts about childhood obesity";
+
+            return View();
+        }
+
 
         public ActionResult Activities()
         {
