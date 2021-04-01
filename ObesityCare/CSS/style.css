@@ -13250,6 +13250,13 @@ textarea {
 
     padding-left:50px;
 }
+.subheading2 {
+    color: #000;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-bottom:20px;
+}
 .p1 {
     padding-left: 100px;
 }
