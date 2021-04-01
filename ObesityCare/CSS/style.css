@@ -13180,7 +13180,7 @@ textarea {
 }
 
 .hero.hero-2, .hero.hero-2 > .container > .row {
-    height: 100vh;
+    height: 120vh;
     min-height: 600px;
 }
 
