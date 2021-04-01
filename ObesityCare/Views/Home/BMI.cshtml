@@ -7,76 +7,90 @@
 <div class="hero hero-2" style="background-image: url('../../images/background2.jpg');">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-8 text-center mx-auto">
+            <div class="col-lg-10 mx-auto">
                 <div class="intro">
 
-                    <h2 class="text-white subheading " style="padding-top:100px;padding-bottom :20px; font-size: 20px;"  data-aos="fade-up" data-aos-delay="0">Body Mass Index Calculator</h2>
+                    <h2 class="text-white subheading text-center" style="padding-top:100px;padding-bottom :20px; font-size: 20px;"  data-aos="fade-up" data-aos-delay="0">Body Mass Index Calculator</h2>
                     <div class=" col-lg-8 mx-auto">
+                        
                         <div data-aos="fade-up" data-aos-delay="200">
-                            <p class="text-white">
-                                Height: <input type="text" id="height" />
-                                <select type="multiple" id="heightunits">
-                                    <option value="centimetres" selected="selected">centimetres</option>
-                                    <option value="inches">inches</option>
-                                </select>
-                            </p>
-                            <p class="text-white">
-                                Weight: <input type="text" id="weight" />
-                                <select type="multiple" id="weightunits">
-                                    <option value="kg" selected="selected">kilograms</option>
-                                    <option value="lb">pounds</option>
-                                </select>
-                            </p>
-                            <table  class="col-lg-8 mx-auto">
-                                <tr>
-                                    <td>
-                                        <p class="text-white">
-                                            Age: 
-                                            <select type="multiple" id="year">
-                                                <option value=10 selected="selected">10</option>
-                                                <option value=11>11</option>
-                                                <option value=l2>12</option>
-                                            </select>
+                            <div class="text-center">
+                                <p class="text-white">
+                                    Height: <input type="text" id="height" />
+                                    <select type="multiple" id="heightunits">
+                                        <option value="centimetres" selected="selected">centimetres</option>
+                                        <option value="inches">inches</option>
+                                    </select>
+                                </p>
+                                <p class="text-white">
+                                    Weight: <input type="text" id="weight" />
+                                    <select type="multiple" id="weightunits">
+                                        <option value="kg" selected="selected">kilograms</option>
+                                        <option value="lb">pounds</option>
+                                    </select>
+                                </p>
+                                <table class="col-lg-8 mx-auto">
+                                    <tr>
+                                        <td>
+                                            <p class="text-white">
+                                                Age:
+                                                <select type="multiple" id="year">
+                                                    <option value=10 selected="selected">10</option>
+                                                    <option value=11>11</option>
+                                                    <option value=12>12</option>
 
-                                        </p>
-                                       
-                                    </td>
-                                    <td>
-                                        <p class="text-white">
-                                            Month: 
-                                            <select type="multiple" id="month">
-                                                <option value=0 selected="selected">0</option>
-                                                <option value=1>1</option>
-                                                <option value=2>2</option>
-                                                <option value=3>3</option>
-                                                <option value=4>4</option>
-                                                <option value=5>5</option>
-                                                <option value=6>6</option>
-                                                <option value=7>7</option>
-                                                <option value=8>8</option>
-                                                <option value=9>9</option>
-                                                <option value=10>10</option>
-                                                <option value=11>11</option>
-                                                <option value=12>12</option>
-                                            </select>
+                                                </select>
 
-                                        </p>
-<td>
-                                </tr>
-                            </table>
-                            
-                            
-                            <p class="text-white">
-                                Gender:
-                                <select type="multiple" id="gender">
-                                    <option value="male" selected="selected">boy</option>
-                                    <option value="female">girl</option>
-                                </select>
-                            </p>
-                            <input type="submit" value="computeBMI" id="compute" onclick="computeBMI();">
-                            <p class="text-white">Your child's BMI is: <span id="output"></span></p>
+                                            </p>
 
-                            <p class="text-white"><span id="comment"></span></p>
+                                        </td>
+                                        <td>
+                                            <p class="text-white">
+                                                Month:
+                                                <select type="multiple" id="month">
+                                                    <option value=0 selected="selected">0</option>
+                                                    <option value=1>1</option>
+                                                    <option value=2>2</option>
+                                                    <option value=3>3</option>
+                                                    <option value=4>4</option>
+                                                    <option value=5>5</option>
+                                                    <option value=6>6</option>
+                                                    <option value=7>7</option>
+                                                    <option value=8>8</option>
+                                                    <option value=9>9</option>
+                                                    <option value=10>10</option>
+                                                    <option value=11>11</option>
+                                                    <option value=12>12</option>
+                                                </select>
+
+                                            </p>
+                                        <td>
+                                    </tr>
+                                </table>
+
+
+                                <p class="text-white">
+                                    Gender:
+                                    <select type="multiple" id="gender">
+                                        <option value="male" selected="selected">boy</option>
+                                        <option value="female">girl</option>
+                                    </select>
+                                </p>
+                                <input type="submit" value="ComputeBMI" id="compute" onclick="computeBMI();">
+
+                                <p class="text-white"><br>Your child's BMI is: <span id="output"></span></p>
+
+                                <p class="text-white"><span id="comment"></span></p>
+                            </div>
+                            <div class="text-left">
+                                <p class="subheading1 text-white">Tips: </p>
+                                <p class="p1 text-white " >                               
+                                    •	A healthy weight: a BMI for age that falls between the 5th and 85th percentiles.<br />
+                                    •	Overweight: a BMI for age between the 85th and 95th percentiles.<br />
+                                    •	Obesity: a BMI for age of 95th percentile or higher.<br />
+
+                                </p>
+                            </div>
 
                         </div>
 
@@ -88,166 +102,11 @@
     </div>
 </div>
 <script src="~/js/canvasjs.min.js"></script>
-
-<script>
-    @*window.onload = function () {
-        var result = @Html.Raw(ViewBag.DataPoints);
-        var dataPoints1 = [];
-        var dataPoints2 = [];
-        var dataPoints3 = [];
-        var dataPoints4 = [];
-        var dataPoints5 = [];
-        var dataPoints6 = [];
-        var dataPoints7 = [];
-        var dataPoints8 = [];
-        var dataPoints9 = [];
-        var dataPoints10 = [];
-        for (var i = 0; i < result.length; i++) {
-            dataPoints1.push({ x: result[i].Age_in_months, y: result[i].third_Percentile });
-            dataPoints2.push({ x: result[i].Age_in_months, y: result[i].fifth_Percentile });
-            dataPoints3.push({ x: result[i].Age_in_months, y: result[i].tenth_Percentile });
-            dataPoints4.push({ x: result[i].Age_in_months, y: result[i].twenty_fifth_Percentile });
-            dataPoints5.push({ x: result[i].Age_in_months, y: result[i].fiftieth_Percentile });
-            dataPoints6.push({ x: result[i].Age_in_months, y: result[i].seventy_fifth_Percentile });
-            dataPoints7.push({ x: result[i].Age_in_months, y: result[i].eightieth_Percentile });
-            dataPoints8.push({ x: result[i].Age_in_months, y: result[i].ninetieth_Percentile });
-            dataPoints9.push({ x: result[i].Age_in_months, y: result[i].ninety_fifth_Percentile });
-            dataPoints10.push({ x: result[i].Age_in_months, y: result[i].ninety_seventh_Percentile });
-        }
-        var height = Number(document.getElementById("height").value);
-        var weight = Number(document.getElementById("weight").value);
-        var bmi = weight / Math.pow(height, 2) * 10000;
-        var age = Number(document.getElementById("age").value);
-        var kid = [];
-        var kid_intro=""
-        var gender = document.getElementById("gender").value;
-        if (gender == "male") {
-            kid.push([age, bmi])
-            kid_intro = "Your boy's BMI"
-        }
-        var chart = new CanvasJS.Chart("chartContainer", {
-            theme: "light2",
-            animationEnabled: true,
-            title: {
-                text: "10-12 Boy BMI",
-                margin: 25,
-                padding: 4,
-                maxWidth: 150,
-                borderThickness: 2,
-            },
-            axisY: {
-                title: "Age(month) ",
-                suffix: "month"
-            },
-            toolTip: {
-                shared: "true"
-            },
-            legend: {
-                cursor: "pointer",
-                itemclick: toggleDataSeries
-            },
-            data: [
-                {
-                    type: "spline",
-                    visible: true,
-                    showInLegend: true,
-                    yValueFormatString: "##.00mn",
-                    name: "third_Percentile",
-                    dataPoints: dataPoints1
-                },
-                {
-                    type: "spline",
-                    showInLegend: true,
-                    visible: true,
-                    yValueFormatString: "##.00mn",
-                    name: "fifth_Percentile",
-                    dataPoints: dataPoints2
-                },
-                {
-                    type: "spline",
-                    visible: true,
-                    showInLegend: true,
-                    yValueFormatString: "##.00mn",
-                    name: "tenth_Percentile",
-                    dataPoints: dataPoints3
-                },
-                {
-                    type: "spline",
-                    visible: true,
-                    showInLegend: true,
-                    yValueFormatString: "##.00mn",
-                    name: "twenty_fifth_Percentile",
-                    dataPoints: dataPoints4
-                },
-                {
-                    type: "spline",
-                    visible: true,
-                    showInLegend: true,
-                    yValueFormatString: "##.00mn",
-                    name: "fiftieth_Percentile",
-                    dataPoints: dataPoints5
-                },
-                {
-                    type: "spline",
-                    visible: true,
-                    showInLegend: true,
-                    yValueFormatString: "##.00mn",
-                    name: "seventy_fifth_Percentile",
-                    dataPoints: dataPoints6
-                },
-                {
-                    type: "spline",
-                    visible: true,
-                    showInLegend: true,
-                    yValueFormatString: "##.00mn",
-                    name: "eightieth_Percentile",
-                    dataPoints: dataPoints7
-                },
-                {
-                    type: "spline",
-                    visible: true,
-                    showInLegend: true,
-                    yValueFormatString: "##.00mn",
-                    name: "ninetieth_Percentile",
-                    dataPoints: dataPoints8
-                },
-                {
-                    type: "spline",
-                    visible: true,
-                    showInLegend: true,
-                    yValueFormatString: "##.00mn",
-                    name: "ninety_fifth_Percentile",
-                    dataPoints: dataPoints9
-                },
-                {
-                    type: "spline",
-                    visible: true,
-                    showInLegend: true,
-                    yValueFormatString: "##.00mn",
-                    name: "ninety_seventh_Percentile",
-                    dataPoints: dataPoints10
-                }
-            ]
-        });
-        chart.render();
-
-        function toggleDataSeries(e) {
-            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                e.dataSeries.visible = false;
-            } else {
-                e.dataSeries.visible = true;
-            }
-            chart.render();
-        }
-
-    }*@
-</script>
 <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
 <script src="https://www.amcharts.com/lib/3/xy.js"></script>
 
 <script type="text/javascript">
    
-
     function computeBMI() {
         // user inputs
         var height = Number(document.getElementById("height").value);
@@ -290,7 +149,7 @@
 
         if (gender == "male") {
             for (var i = 0; i < result.length; i++) {
-                if (result[i].Age_in_months >= 120 && result[i].Age_in_months <= 144) {
+                if (result[i].Age_in_months >= 120 && result[i].Age_in_months <= 160) {
                     dataPoints1.push({ x: result[i].Age_in_months, y: result[i].third_Percentile });
                     dataPoints2.push({ x: result[i].Age_in_months, y: result[i].fifth_Percentile });
                     dataPoints3.push({ x: result[i].Age_in_months, y: result[i].tenth_Percentile });
@@ -334,7 +193,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00mn",
                         name: "third_Percentile",
-                        dataPoints: dataPoints1
+                        dataPoints: dataPoints1,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -342,7 +202,8 @@
                         visible: false,
                         yValueFormatString: "##.00mn",
                         name: "fifth_Percentile",
-                        dataPoints: dataPoints2
+                        dataPoints: dataPoints2,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -350,7 +211,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00mn",
                         name: "tenth_Percentile",
-                        dataPoints: dataPoints3
+                        dataPoints: dataPoints3,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -358,7 +220,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00mn",
                         name: "twenty_fifth_Percentile",
-                        dataPoints: dataPoints4
+                        dataPoints: dataPoints4,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -366,7 +229,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00mn",
                         name: "fiftieth_Percentile",
-                        dataPoints: dataPoints5
+                        dataPoints: dataPoints5,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -374,7 +238,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00mn",
                         name: "seventy_fifth_Percentile",
-                        dataPoints: dataPoints6
+                        dataPoints: dataPoints6,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -382,7 +247,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00mn",
                         name: "eightieth_Percentile",
-                        dataPoints: dataPoints7
+                        dataPoints: dataPoints7,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -390,7 +256,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00mn",
                         name: "ninetieth_Percentile",
-                        dataPoints: dataPoints8
+                        dataPoints: dataPoints8,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -398,7 +265,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00mn",
                         name: "ninety_fifth_Percentile",
-                        dataPoints: dataPoints9
+                        dataPoints: dataPoints9,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -406,7 +274,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00mn",
                         name: "ninety_seventh_Percentile",
-                        dataPoints: dataPoints10
+                        dataPoints: dataPoints10,
+                        markerType: "none"
                     }
                     ,
                     {
@@ -428,7 +297,7 @@
         if (gender == "female") {
       
             for (var i = 0; i < result2.length; i++) {
-                if (result2[i].Age_in_months >= 120 && result2[i].Age_in_months <= 144) {
+                if (result2[i].Age_in_months >= 120 && result2[i].Age_in_months <= 160) {
                     dataPoints11.push({ x: result2[i].Age_in_months, y: result2[i].third_Percentile });
                     dataPoints12.push({ x: result2[i].Age_in_months, y: result2[i].fifth_Percentile });
                     dataPoints13.push({ x: result2[i].Age_in_months, y: result2[i].tenth_Percentile });
@@ -471,7 +340,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00",
                         name: "third_Percentile",
-                        dataPoints: dataPoints11
+                        dataPoints: dataPoints11,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -479,7 +349,8 @@
                         visible: false,
                         yValueFormatString: "##.00",
                         name: "fifth_Percentile",
-                        dataPoints: dataPoints12
+                        dataPoints: dataPoints12,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -487,7 +358,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00",
                         name: "tenth_Percentile",
-                        dataPoints: dataPoints13
+                        dataPoints: dataPoints13,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -495,7 +367,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00",
                         name: "twenty_fifth_Percentile",
-                        dataPoints: dataPoints14
+                        dataPoints: dataPoints14,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -503,7 +376,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00",
                         name: "fiftieth_Percentile",
-                        dataPoints: dataPoints15
+                        dataPoints: dataPoints15,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -511,7 +385,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00",
                         name: "seventy_fifth_Percentile",
-                        dataPoints: dataPoints16
+                        dataPoints: dataPoints16,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -519,7 +394,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00",
                         name: "eightieth_Percentile",
-                        dataPoints: dataPoints17
+                        dataPoints: dataPoints17,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -527,7 +403,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00",
                         name: "ninetieth_Percentile",
-                        dataPoints: dataPoints18
+                        dataPoints: dataPoints18,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -535,7 +412,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00",
                         name: "ninety_fifth_Percentile",
-                        dataPoints: dataPoints19
+                        dataPoints: dataPoints19,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
@@ -543,7 +421,8 @@
                         showInLegend: true,
                         yValueFormatString: "##.00",
                         name: "ninety_seventh_Percentile",
-                        dataPoints: dataPoints20
+                        dataPoints: dataPoints20,
+                        markerType: "none"
                     },
                     {
                         type: "spline",
