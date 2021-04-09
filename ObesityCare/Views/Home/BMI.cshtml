@@ -72,8 +72,8 @@
                                 <p class="text-white">
                                     Gender:
                                     <select type="multiple" id="gender">
-                                        <option value="male" selected="selected">boy</option>
-                                        <option value="female">girl</option>
+                                        <option value="male" selected="selected">Boy</option>
+                                        <option value="female">Girl</option>
                                     </select>
                                 </p>
                                 <input type="submit" value="View Result" id="compute" onclick="computeBMI();">
@@ -101,8 +101,8 @@
 </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js" integrity="sha512-dnUg2JxjlVoXHVdSMWDYm2Y5xcIrJg1N+juOuRi0yLVkku/g26rwHwysJDAMwahaDfRpr1AxFz43ktuMPr/l1A==" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js"></script>
+
 
 
 <script type="text/javascript">
@@ -143,11 +143,11 @@
         // document.getElementById("answer").value = output;
 
         var result = @Html.Raw(ViewBag.DataPoints);
-        var result2 = @Html.Raw(ViewBag.DataPoints2);
+
         var dataPoints1x = [];
-        var dataPoints11x = [];
+
         var dataPoints1y = [], dataPoints2y = [], dataPoints3y = [], dataPoints4y = [], dataPoints5y = [], dataPoints6y = [], dataPoints7y = [], dataPoints8y = [], dataPoints9y = [], dataPoints10y = [];
-        var dataPoints11y = [], dataPoints12y = [], dataPoints13y = [], dataPoints14y = [], dataPoints15y = [], dataPoints16y = [], dataPoints17y = [], dataPoints18y = [], dataPoints19y = [], dataPoints20y = [];
+
 
         if (gender == "male") {
             for (var i = 0; i < result.length; i++) {
@@ -276,12 +276,12 @@
                             pointRadius: 0,
                             tension: 0.3,
                             color: "#FFFFFF",
-                            
+
 
                         },
                         {
-                        data: [{ x: age, y: BMI }],
-                        label: "Your boy's BMI",
+                            data: [{ x: age, y: BMI }],
+                            label: "Your boy's BMI",
                             borderColor: "#00FD1F",
                             fill: true,
                             pointStyle: 'rectRot',
@@ -291,45 +291,31 @@
                     ]
                 },
                 options: {
-                    legend: {
-                        labels: {
-                            fontColor: 'white'
-                        }
-                    },
+
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Age 10-12 Boy BMI',
-                            fontColor: 'white',
+                            text: 'Age 10-12 Boy BMI'
+
                         },
                         responsive: true,
                         maintainAspectRatio: true,
                         filler: {
                             propagate: true
                         }
-                    },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: false,
-                                fontColor: '#FFFFFF'
-                            },
-                        }],
-                        xAxes: [{
-                            ticks: {
-                                fontColor: 'white'
-                            },
-                        }]
                     }
                 }
             });
 
 
         }
+        var result2 = @Html.Raw(ViewBag.DataPoints2);
+        var dataPoints11x = [];
+        var dataPoints11y = [], dataPoints12y = [], dataPoints13y = [], dataPoints14y = [], dataPoints15y = [], dataPoints16y = [], dataPoints17y = [], dataPoints18y = [], dataPoints19y = [], dataPoints20y = [];
         if (gender == "female") {
             for (var i = 0; i < result2.length; i++) {
                 if (result2[i].Age_in_months >= 120 && result2[i].Age_in_months <= 160) {
-                    dataPoints11x.push(result2[i].Age_in_months);
+                    dataPoints11x.push(result2[i].Age_in_months-0.5);
                     dataPoints11y.push(result2[i].third_Percentile);
                     dataPoints12y.push(result2[i].fifth_Percentile);
                     dataPoints13y.push(result2[i].tenth_Percentile);
@@ -351,9 +337,10 @@
             }
             window.chart = new Chart(grapharea, {
                 type: 'line',
-                backgroundColor: 'rgba(0, 0, 0, 0)',
+
                 data: {
                     labels: dataPoints11x,
+
                     datasets: [{
                         data: dataPoints11y,
                         label: "third_Percentile",
@@ -361,7 +348,6 @@
                         fill: false,
                         hidden: true,
                         pointRadius: 0,
-                        tension: 0.3,
                         color: "#FFFFFF"
                     }, {
                         data: dataPoints12y,
@@ -369,9 +355,9 @@
                         borderColor: "#64EF48",
                         fill: "end",
                         pointRadius: 0,
-                        tension: 0.3,
                         color: "#FFFFFF",
                         backgroundColor: "rgba(199, 255, 221,0.4)"
+
                     }, {
                         data: dataPoints13y,
                         label: "tenth_Percentile",
@@ -379,7 +365,6 @@
                         fill: false,
                         hidden: true,
                         pointRadius: 0,
-                        tension: 0.3,
                         color: "#FFFFFF"
                     }, {
                         data: dataPoints14y,
@@ -388,7 +373,6 @@
                         fill: false,
                         hidden: true,
                         pointRadius: 0,
-                        tension: 0.3,
                         color: "#FFFFFF"
                     },
                     {
@@ -398,7 +382,6 @@
                         fill: false,
                         hidden: true,
                         pointRadius: 0,
-                        tension: 0.3,
                         color: "#FFFFFF"
                     },
                     {
@@ -408,7 +391,6 @@
                         fill: false,
                         hidden: true,
                         pointRadius: 0,
-                        tension: 0.3,
                         color: "#FFFFFF"
                     },
                     {
@@ -417,7 +399,6 @@
                         borderColor: "#EF2A87",
                         fill: "end",
                         pointRadius: 0,
-                        tension: 0.3,
                         color: "#FFFFFF",
                         backgroundColor: "rgba(252, 131, 10,0.4)"
                     },
@@ -428,7 +409,7 @@
                         fill: false,
                         hidden: true,
                         pointRadius: 0,
-                        tension: 0.3,
+                        
                         color: "#FFFFFF"
 
                     },
@@ -438,7 +419,7 @@
                         borderColor: "#FA0F36",
                         fill: "end",
                         pointRadius: 0,
-                        tension: 0.3,
+                        
                         color: "#FFFFFF",
                         backgroundColor: "rgba(255, 0, 0,0.6)"
                     },
@@ -449,18 +430,19 @@
                         fill: false,
                         hidden: true,
                         pointRadius: 0,
-                        tension: 0.3,
-                        color: "#FFFFFF"
+                        
+                        color: "#FFFFFF",
+
 
                     },
                     {
-                        data: [{ x: age, y: BMI }],
-                        label: "Your girl's BMI",
-                        borderColor: "#00FD1F",
-                        fill: true,
-                        pointStyle: 'rectRot',
-                        pointRadius: 10,
-                        color:"#FFFFFF"
+                            data: [{ x: age, y: BMI }],
+                            label: "Your girl's BMI",
+                            borderColor: "#00FD1F",
+                            fill: false,
+                            pointStyle: 'rectRot',
+                            pointRadius: 10,
+                            color: "#FFFFFF"
                     }
                     ]
                 },
@@ -470,17 +452,17 @@
                         title: {
                             display: true,
                             text: 'Age 10-12 Girl BMI'
+
                         },
                         responsive: true,
                         maintainAspectRatio: true,
-
+                        
                     }
                 }
             });
 
 
         }
-
 
 
         //function toggleDataSeries(e) {
