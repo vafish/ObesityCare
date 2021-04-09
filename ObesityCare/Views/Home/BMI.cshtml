@@ -4,15 +4,15 @@
 }
 
 
-<div class="hero hero-2" style="background-image: url('../../images/background2.jpg');">
+<div class="hero hero-2" style="background-image: url('../../images/background2.jpg')">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-10 mx-auto">
                 <div class="intro">
 
-                    <h2 class="text-white subheading text-center" style="padding-top:100px;padding-bottom :20px; font-size: 20px;"  data-aos="fade-up" data-aos-delay="0">Body Mass Index Calculator</h2>
+                    <h2 class="text-white subheading text-center" style="padding-top:100px;padding-bottom :20px; font-size: 20px;" data-aos="fade-up" data-aos-delay="0">Body Mass Index Calculator</h2>
                     <div class=" col-lg-8 mx-auto">
-                        
+
                         <div data-aos="fade-up" data-aos-delay="200">
                             <div class="text-center">
                                 <p class="text-white">
@@ -76,38 +76,40 @@
                                         <option value="female">girl</option>
                                     </select>
                                 </p>
-                                <input type="submit" value="ComputeBMI" id="compute" onclick="computeBMI();">
+                                <input type="submit" value="View Result" id="compute" onclick="computeBMI();">
 
-                                <p class="text-white"><br>Your child's BMI is: <span id="output"></span></p>
+                                <p id="result" class="subheading1 text-white" style="visibility:hidden"><br>Your child's BMI is: <span id="output"></span></p>
 
-                                <p class="text-white"><span id="comment"></span></p>
-                            </div>
-                            <div class="text-left">
-                                <p class="subheading1 text-white">Tips: </p>
-                                <p class="p1 text-white " >                               
-                                    •	A healthy weight: a BMI for age that falls between the 5th and 85th percentiles.<br />
-                                    •	Overweight: a BMI for age between the 85th and 95th percentiles.<br />
-                                    •	Obesity: a BMI for age of 95th percentile or higher.<br />
-
-                                </p>
+                                <p class="text-white "><span id="comment"></span></p>
                             </div>
 
+
+                            <div id="canvas" style="width:100%;height:400px; background-color:white; visibility:hidden">
+                                <canvas id="myChart" />
+                            </div>
                         </div>
 
                     </div>
-                    <div id="chartContainer" style="height: 300px; width: 100%;" />
+
                 </div>
             </div>
+
+            @*<div id="chartContainer" style="height: 320px; width: 100%;" />*@
         </div>
+
     </div>
 </div>
-<script src="~/js/canvasjs.min.js"></script>
-<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-<script src="https://www.amcharts.com/lib/3/xy.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js" integrity="sha512-dnUg2JxjlVoXHVdSMWDYm2Y5xcIrJg1N+juOuRi0yLVkku/g26rwHwysJDAMwahaDfRpr1AxFz43ktuMPr/l1A==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+
 
 <script type="text/javascript">
-   
+
     function computeBMI() {
+        document.getElementById("canvas").style.visibility = "visible"
+        document.getElementById("result").style.visibility = "visible"
         // user inputs
         var height = Number(document.getElementById("height").value);
         var heightunits = document.getElementById("heightunits").value;
@@ -142,320 +144,359 @@
 
         var result = @Html.Raw(ViewBag.DataPoints);
         var result2 = @Html.Raw(ViewBag.DataPoints2);
-        var dataPoints1 = [], dataPoints2 = [],dataPoints3 = [], dataPoints4 = [],dataPoints5 = [], dataPoints6 = [], dataPoints7 = [],dataPoints8 = [], dataPoints9 = [], dataPoints10 = [];
-        var dataPoints11 = [], dataPoints12 = [],dataPoints13 = [],dataPoints14 = [],dataPoints15 = [],dataPoints16 = [],dataPoints17 = [],dataPoints18 = [],dataPoints19 = [], dataPoints20 = [];
-        var dataPoints21 = [], dataPoints22 = [];
-
+        var dataPoints1x = [];
+        var dataPoints11x = [];
+        var dataPoints1y = [], dataPoints2y = [], dataPoints3y = [], dataPoints4y = [], dataPoints5y = [], dataPoints6y = [], dataPoints7y = [], dataPoints8y = [], dataPoints9y = [], dataPoints10y = [];
+        var dataPoints11y = [], dataPoints12y = [], dataPoints13y = [], dataPoints14y = [], dataPoints15y = [], dataPoints16y = [], dataPoints17y = [], dataPoints18y = [], dataPoints19y = [], dataPoints20y = [];
 
         if (gender == "male") {
             for (var i = 0; i < result.length; i++) {
                 if (result[i].Age_in_months >= 120 && result[i].Age_in_months <= 160) {
-                    dataPoints1.push({ x: result[i].Age_in_months, y: result[i].third_Percentile });
-                    dataPoints2.push({ x: result[i].Age_in_months, y: result[i].fifth_Percentile });
-                    dataPoints3.push({ x: result[i].Age_in_months, y: result[i].tenth_Percentile });
-                    dataPoints4.push({ x: result[i].Age_in_months, y: result[i].twenty_fifth_Percentile });
-                    dataPoints5.push({ x: result[i].Age_in_months, y: result[i].fiftieth_Percentile });
-                    dataPoints6.push({ x: result[i].Age_in_months, y: result[i].seventy_fifth_Percentile });
-                    dataPoints7.push({ x: result[i].Age_in_months, y: result[i].eightieth_Percentile });
-                    dataPoints8.push({ x: result[i].Age_in_months, y: result[i].ninetieth_Percentile });
-                    dataPoints9.push({ x: result[i].Age_in_months, y: result[i].ninety_fifth_Percentile });
-                    dataPoints10.push({ x: result[i].Age_in_months, y: result[i].ninety_seventh_Percentile });
-                    dataPoints21.push({ x: age, y: BMI });
+                    dataPoints1x.push(result[i].Age_in_months);
+                    dataPoints1y.push(result[i].third_Percentile);
+                    dataPoints2y.push(result[i].fifth_Percentile);
+                    dataPoints3y.push(result[i].tenth_Percentile);
+                    dataPoints4y.push(result[i].twenty_fifth_Percentile);
+                    dataPoints5y.push(result[i].fiftieth_Percentile);
+                    dataPoints6y.push(result[i].seventy_fifth_Percentile);
+                    dataPoints7y.push(result[i].eightieth_Percentile);
+                    dataPoints8y.push(result[i].ninetieth_Percentile);
+                    dataPoints9y.push(result[i].ninety_fifth_Percentile);
+                    dataPoints10y.push(result[i].ninety_seventh_Percentile);
+
                 }
+
             }
-            var boychart = new CanvasJS.Chart("chartContainer", {
-                theme: "light2",
-                animationEnabled: true,
-                title: {
-                    dockInsidePlotArea: true,
-                    text: "Age 10-12 Boy BMI",
-                    margin: 25,
-                    padding: 4,
-                },
-                axisX: {
-                    title: "Age(in months)"
-                },
-                
-                axisY: {
-                    title: "BMI(kg/m^2) "
-                },
-                toolTip: {
-                    shared: "true"
-                },
-                legend: {
-                    cursor: "pointer",
-                    itemclick: toggleDataSeries
-                },
-                data: [
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "third_Percentile",
-                        dataPoints: dataPoints1,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        showInLegend: true,
-                        visible: true,
-                        yValueFormatString: "##.00",
-                        name: "fifth_Percentile",
-                        dataPoints: dataPoints2,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "tenth_Percentile",
-                        dataPoints: dataPoints3,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "twenty_fifth_Percentile",
-                        dataPoints: dataPoints4,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "fiftieth_Percentile",
-                        dataPoints: dataPoints5,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "seventy_fifth_Percentile",
-                        dataPoints: dataPoints6,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: true,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "eightyfifth_Percentile",
-                        dataPoints: dataPoints7,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "ninetieth_Percentile",
-                        dataPoints: dataPoints8,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: true,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "ninety_fifth_Percentile",
-                        dataPoints: dataPoints9,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "ninety_seventh_Percentile",
-                        dataPoints: dataPoints10,
-                        markerType: "none"
+
+            var grapharea = document.getElementById("myChart").getContext("2d");
+            if (window.chart != null) {
+                window.chart.destroy();
+            }
+            window.chart = new Chart(grapharea, {
+                type: 'line',
+
+                data: {
+                    labels: dataPoints1x,
+
+                    datasets: [{
+                        data: dataPoints1y,
+                        label: "third_Percentile",
+                        borderColor: "#232323",
+                        fill: false,
+                        hidden: true,
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF"
+                    }, {
+                        data: dataPoints2y,
+                        label: "fifth_Percentile",
+                            borderColor:"#64EF48",
+                            fill: "end",
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF",
+                            backgroundColor: "rgba(199, 255, 221,0.4)"
+
+                    }, {
+                        data: dataPoints3y,
+                        label: "tenth_Percentile",
+                            borderColor: "#48EF9B",
+                            fill: false,
+                            hidden: true,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF"
+                    }, {
+                        data: dataPoints4y,
+                        label: "twenty_fifth_Percentile",
+                            borderColor: "#48EFDB",
+                            fill: false,
+                            hidden: true,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF"
+                        },
+                        {
+                            data: dataPoints5y,
+                            label: "fiftieth_Percentile",
+                            borderColor: "#48A8EF",
+                            fill: false,
+                            hidden: true,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF"
+                        },
+                        {
+                            data: dataPoints6y,
+                            label: "seventy_fifth_Percentile",
+                            borderColor: "#4873EF",
+                            fill: false,
+                            hidden: true,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF"
+                        },
+                        {
+                            data: dataPoints7y,
+                            label: "eightieth_fifth_Percentile",
+                            borderColor: "#EF2A87",
+                            fill: "end",
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF",
+                            backgroundColor: "rgba(252, 131, 10,0.4)"
+                        },
+                        {
+                            data: dataPoints8y,
+                            label: "ninetieth_Percentile",
+                            borderColor: "#FC2D88",
+                            fill: false,
+                            hidden: true,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF"
+
+                        },
+                        {
+                            data: dataPoints9y,
+                            label: "ninety_fifth_Percentile",
+                            borderColor: "#FA0F36",
+                            fill: "end",
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF",
+                            backgroundColor: "rgba(255, 0, 0,0.6)"
+                        },
+                        {
+                            data: dataPoints10y,
+                            label: "ninety_seventh_Percentile",
+                            borderColor: "#FD0000",
+                            fill: false,
+                            hidden: true,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF",
+                            
+
+                        },
+                        {
+                        data: [{ x: age, y: BMI }],
+                        label: "Your boy's BMI",
+                            borderColor: "#00FD1F",
+                            fill: true,
+                            pointStyle: 'rectRot',
+                            pointRadius: 10,
+                            color: "#FFFFFF"
                     }
-                    ,
-                    {
-                        type: "spline",
-                        visible: true,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "Your boy's BMI",
-                        dataPoints: dataPoints21,
-                        indexLabel: "Your boy's BMI",
-                        markerColor: "red",
-                        markerType: "triangle"
+                    ]
+                },
+                options: {
+                    legend: {
+                        labels: {
+                            fontColor: 'white'
+                        }
                     },
-                ]
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Age 10-12 Boy BMI',
+                            fontColor: 'white',
+                        },
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        filler: {
+                            propagate: true
+                        }
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: false,
+                                fontColor: '#FFFFFF'
+                            },
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                fontColor: 'white'
+                            },
+                        }]
+                    }
+                }
             });
 
-            boychart.render();
+
         }
         if (gender == "female") {
-      
             for (var i = 0; i < result2.length; i++) {
                 if (result2[i].Age_in_months >= 120 && result2[i].Age_in_months <= 160) {
-                    dataPoints11.push({ x: result2[i].Age_in_months, y: result2[i].third_Percentile });
-                    dataPoints12.push({ x: result2[i].Age_in_months, y: result2[i].fifth_Percentile });
-                    dataPoints13.push({ x: result2[i].Age_in_months, y: result2[i].tenth_Percentile });
-                    dataPoints14.push({ x: result2[i].Age_in_months, y: result2[i].twenty_fifth_Percentile });
-                    dataPoints15.push({ x: result2[i].Age_in_months, y: result2[i].fiftieth_Percentile });
-                    dataPoints16.push({ x: result2[i].Age_in_months, y: result2[i].seventy_fifth_Percentile });
-                    dataPoints17.push({ x: result2[i].Age_in_months, y: result2[i].eightieth_Percentile });
-                    dataPoints18.push({ x: result2[i].Age_in_months, y: result2[i].ninetieth_Percentile });
-                    dataPoints19.push({ x: result2[i].Age_in_months, y: result2[i].ninety_fifth_Percentile });
-                    dataPoints20.push({ x: result2[i].Age_in_months, y: result2[i].ninety_seventh_Percentile });
-                    dataPoints22.push({ x: age, y: BMI });
+                    dataPoints11x.push(result2[i].Age_in_months);
+                    dataPoints11y.push(result2[i].third_Percentile);
+                    dataPoints12y.push(result2[i].fifth_Percentile);
+                    dataPoints13y.push(result2[i].tenth_Percentile);
+                    dataPoints14y.push(result2[i].twenty_fifth_Percentile);
+                    dataPoints15y.push(result2[i].fiftieth_Percentile);
+                    dataPoints16y.push(result2[i].seventy_fifth_Percentile);
+                    dataPoints17y.push(result2[i].eightieth_Percentile);
+                    dataPoints18y.push(result2[i].ninetieth_Percentile);
+                    dataPoints19y.push(result2[i].ninety_fifth_Percentile);
+                    dataPoints20y.push(result2[i].ninety_seventh_Percentile);
+
                 }
+
             }
-            var girlchart = new CanvasJS.Chart("chartContainer", {
-                theme: "light2",
-                animationEnabled: true,
-                title: {
-                    text: "Age 10-12 Girl BMI",
-                    margin: 25,
-                    padding: 4,
-                    dockInsidePlotArea: true,
+
+            var grapharea = document.getElementById("myChart").getContext("2d");
+            if (window.chart != null) {
+                window.chart.destroy();
+            }
+            window.chart = new Chart(grapharea, {
+                type: 'line',
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                data: {
+                    labels: dataPoints11x,
+                    datasets: [{
+                        data: dataPoints11y,
+                        label: "third_Percentile",
+                        borderColor: "#232323",
+                        fill: false,
+                        hidden: true,
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF"
+                    }, {
+                        data: dataPoints12y,
+                        label: "fifth_Percentile",
+                        borderColor: "#64EF48",
+                        fill: "end",
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF",
+                        backgroundColor: "rgba(199, 255, 221,0.4)"
+                    }, {
+                        data: dataPoints13y,
+                        label: "tenth_Percentile",
+                        borderColor: "#48EF9B",
+                        fill: false,
+                        hidden: true,
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF"
+                    }, {
+                        data: dataPoints14y,
+                        label: "twenty_fifth_Percentile",
+                        borderColor: "#48EFDB",
+                        fill: false,
+                        hidden: true,
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF"
+                    },
+                    {
+                        data: dataPoints15y,
+                        label: "fiftieth_Percentile",
+                        borderColor: "#48A8EF",
+                        fill: false,
+                        hidden: true,
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF"
+                    },
+                    {
+                        data: dataPoints16y,
+                        label: "seventy_fifth_Percentile",
+                        borderColor: "#4873EF",
+                        fill: false,
+                        hidden: true,
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF"
+                    },
+                    {
+                        data: dataPoints17y,
+                        label: "eightieth_fifth_Percentile",
+                        borderColor: "#EF2A87",
+                        fill: "end",
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF",
+                        backgroundColor: "rgba(252, 131, 10,0.4)"
+                    },
+                    {
+                        data: dataPoints18y,
+                        label: "ninetieth_Percentile",
+                        borderColor: "#FC2D88",
+                        fill: false,
+                        hidden: true,
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF"
+
+                    },
+                    {
+                        data: dataPoints19y,
+                        label: "ninety_fifth_Percentile",
+                        borderColor: "#FA0F36",
+                        fill: "end",
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF",
+                        backgroundColor: "rgba(255, 0, 0,0.6)"
+                    },
+                    {
+                        data: dataPoints20y,
+                        label: "ninety_seventh_Percentile",
+                        borderColor: "#FD0000",
+                        fill: false,
+                        hidden: true,
+                        pointRadius: 0,
+                        tension: 0.3,
+                        color: "#FFFFFF"
+
+                    },
+                    {
+                        data: [{ x: age, y: BMI }],
+                        label: "Your girl's BMI",
+                        borderColor: "#00FD1F",
+                        fill: true,
+                        pointStyle: 'rectRot',
+                        pointRadius: 10,
+                        color:"#FFFFFF"
+                    }
+                    ]
                 },
-                axisX: {
-                    title: "Age(in months)"
-                },
-                axisY: {
-                    title: "BMI(kg/m^2)"
-                },
-                toolTip: {
-                    shared: "true"
-                },
-                legend: {
-                    cursor: "pointer",
-                    itemclick: toggleDataSeries
-                },
-                data: [
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "third_Percentile",
-                        dataPoints: dataPoints11,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        showInLegend: true,
-                        visible: true,
-                        yValueFormatString: "##.00",
-                        name: "fifth_Percentile",
-                        dataPoints: dataPoints12,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "tenth_Percentile",
-                        dataPoints: dataPoints13,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "twenty_fifth_Percentile",
-                        dataPoints: dataPoints14,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "fiftieth_Percentile",
-                        dataPoints: dataPoints15,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "seventy_fifth_Percentile",
-                        dataPoints: dataPoints16,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: true,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "eightyfifth_Percentile",
-                        dataPoints: dataPoints17,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "ninetieth_Percentile",
-                        dataPoints: dataPoints18,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: true,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "ninety_fifth_Percentile",
-                        dataPoints: dataPoints19,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: false,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "ninety_seventh_Percentile",
-                        dataPoints: dataPoints20,
-                        markerType: "none"
-                    },
-                    {
-                        type: "spline",
-                        visible: true,
-                        showInLegend: true,
-                        yValueFormatString: "##.00",
-                        name: "Your girl's BMI",
-                        dataPoints: dataPoints22,
-                        indexLabel: "Your girl's BMI",
-                        markerColor: "red",
-                        markerType: "triangle"
-                    },
-                ]
+                options: {
+
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Age 10-12 Girl BMI'
+                        },
+                        responsive: true,
+                        maintainAspectRatio: true,
+
+                    }
+                }
             });
-            girlchart.render();
-        }
 
-        
-    
-        function toggleDataSeries(e) {
-            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                e.dataSeries.visible = false;
-            } else {
-                e.dataSeries.visible = true;
-            }
-            if (gender == "male") {
-                boychart.render();
-            }
-            if (gender == "female") {
-                girlchart.render();
-            }
 
         }
+
+
+
+        //function toggleDataSeries(e) {
+        //    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+        //        e.dataSeries.visible = false;
+        //    } else {
+        //        e.dataSeries.visible = true;
+        //    }
+        //    if (gender == "male") {
+        //        boychart.render();
+        //    }
+        //    if (gender == "female") {
+        //        girlchart.render();
+        //    }
+
+        //}
     }
 </script>
 

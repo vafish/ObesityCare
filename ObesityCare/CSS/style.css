@@ -13179,17 +13179,14 @@ textarea {
     }
 }
 
-.hero.hero-2, .hero.hero-2 > .container > .row {
-    height: 120vh;
-    min-height: 600px;
-}
+
 
     .hero.hero-2:before {
         display: none;
     }
 
     .hero.hero-2, .hero.hero-2 > .container > .row {
-        height: 100vh;
+        height: 125vh;
         min-height: 600px;
     }
 
@@ -13202,9 +13199,7 @@ textarea {
     min-height: 300px;
 }
 
-    .hero.hero-3:before {
-        display: none;
-    }
+
 
 .hero.hero-4, .hero.hero-4 > .container > .row {
     height: 80vh;
@@ -13215,10 +13210,7 @@ textarea {
         display: none;
     }
 
-    .hero.hero-4, .hero.hero-4 > .container > .row {
-        height: 80vh;
-        min-height: 600px;
-    }
+
 
 .hero:after {
     content: "";
