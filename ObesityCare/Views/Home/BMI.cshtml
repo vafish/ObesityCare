@@ -102,7 +102,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js"></script>
-
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>*@
 
 
 <script type="text/javascript">
@@ -147,8 +147,17 @@
         var dataPoints1x = [];
 
         var dataPoints1y = [], dataPoints2y = [], dataPoints3y = [], dataPoints4y = [], dataPoints5y = [], dataPoints6y = [], dataPoints7y = [], dataPoints8y = [], dataPoints9y = [], dataPoints10y = [];
-
-
+        //let myLineExtend = Chart.controllers.line.prototype.draw;
+        //Chart.helpers.extend(Chart.controllers.line.prototype, {
+        //    draw: function () {
+        //        myLineExtend.apply(this, arguments);
+        //        this.chart.chart.ctx.textAlign = "center"                
+        //        this.chart.chart.ctx.fillText("Non-Obese", 400, 270)
+        //        this.chart.chart.ctx.fillText("Overweight", 400, 200)
+        //        this.chart.chart.ctx.fillText("Obese", 400, 100)
+        //    }
+        //});
+        
         if (gender == "male") {
             for (var i = 0; i < result.length; i++) {
                 if (result[i].Age_in_months >= 120 && result[i].Age_in_months <= 160) {
@@ -169,9 +178,12 @@
             }
 
             var grapharea = document.getElementById("myChart").getContext("2d");
+           
             if (window.chart != null) {
                 window.chart.destroy();
+
             }
+            
             window.chart = new Chart(grapharea, {
                 type: 'line',
 
@@ -464,7 +476,7 @@
 
         }
 
-
+    
         //function toggleDataSeries(e) {
         //    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
         //        e.dataSeries.visible = false;
