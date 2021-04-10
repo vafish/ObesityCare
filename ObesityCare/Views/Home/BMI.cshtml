@@ -83,7 +83,9 @@
                                 <p class="text-white "><span id="comment"></span></p>
                             </div>
 
-
+                            <span id="noneob"class='noneob'>None-Obese</span>
+                            <span id="overweight" class='overweight'>Overweight</span>
+                            <span id="obese"class='obese'>Obese</span>
                             <div id="canvas" style="width:100%;height:400px; background-color:white; visibility:hidden">
                                 <canvas id="myChart" />
                             </div>
@@ -100,6 +102,39 @@
     </div>
 </div>
 
+<style>
+    .noneob {
+        font-size: 30px;
+        font-weight: bold;
+        opacity: 0.2;
+        z-index: 1;
+        margin-top: 230px;
+        margin-left: 50px;
+        position: absolute;
+        visibility: hidden;
+    }
+    .overweight {
+        font-size: 30px;
+        font-weight: bold;
+        opacity: 0.2;
+        z-index: 1;
+        margin-top: 170px;
+        margin-left: 50px;
+        position: absolute;
+        visibility: hidden;
+    }
+    .obese {
+        font-size: 30px;
+        font-weight: bold;
+        opacity: 0.2;
+        z-index: 1;
+        margin-top: 120px;
+        margin-left: 50px;
+        position: absolute;
+        visibility: hidden;
+    }
+</style>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js"></script>
 @*<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.js"></script>*@
@@ -110,6 +145,9 @@
     function computeBMI() {
         document.getElementById("canvas").style.visibility = "visible"
         document.getElementById("result").style.visibility = "visible"
+        document.getElementById("noneob").style.visibility = "visible"
+        document.getElementById("overweight").style.visibility = "visible"
+        document.getElementById("obese").style.visibility = "visible"
         // user inputs
         var height = Number(document.getElementById("height").value);
         var heightunits = document.getElementById("heightunits").value;
@@ -151,13 +189,13 @@
         //Chart.helpers.extend(Chart.controllers.line.prototype, {
         //    draw: function () {
         //        myLineExtend.apply(this, arguments);
-        //        this.chart.chart.ctx.textAlign = "center"                
+        //        this.chart.chart.ctx.textAlign = "center"
         //        this.chart.chart.ctx.fillText("Non-Obese", 400, 270)
         //        this.chart.chart.ctx.fillText("Overweight", 400, 200)
         //        this.chart.chart.ctx.fillText("Obese", 400, 100)
         //    }
         //});
-        
+
         if (gender == "male") {
             for (var i = 0; i < result.length; i++) {
                 if (result[i].Age_in_months >= 120 && result[i].Age_in_months <= 160) {
@@ -178,12 +216,12 @@
             }
 
             var grapharea = document.getElementById("myChart").getContext("2d");
-           
+
             if (window.chart != null) {
                 window.chart.destroy();
 
             }
-            
+
             window.chart = new Chart(grapharea, {
                 type: 'line',
 
@@ -421,7 +459,7 @@
                         fill: false,
                         hidden: true,
                         pointRadius: 0,
-                        
+
                         color: "#FFFFFF"
 
                     },
@@ -431,7 +469,7 @@
                         borderColor: "#FA0F36",
                         fill: "end",
                         pointRadius: 0,
-                        
+
                         color: "#FFFFFF",
                         backgroundColor: "rgba(255, 0, 0,0.6)"
                     },
@@ -442,7 +480,7 @@
                         fill: false,
                         hidden: true,
                         pointRadius: 0,
-                        
+
                         color: "#FFFFFF",
 
 
@@ -468,7 +506,7 @@
                         },
                         responsive: true,
                         maintainAspectRatio: true,
-                        
+
                     }
                 }
             });
@@ -476,7 +514,7 @@
 
         }
 
-    
+
         //function toggleDataSeries(e) {
         //    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
         //        e.dataSeries.visible = false;
