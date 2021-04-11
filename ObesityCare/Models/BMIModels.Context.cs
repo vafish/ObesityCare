@@ -13,10 +13,10 @@ namespace ObesityCare.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ObesityCare_BMI_Entities : DbContext
+    public partial class ObesityCare_dbEntities : DbContext
     {
-        public ObesityCare_BMI_Entities()
-            : base("name=ObesityCare_BMI_Entities")
+        public ObesityCare_dbEntities()
+            : base("name=ObesityCare_dbEntities")
         {
         }
     
@@ -27,6 +27,5 @@ namespace ObesityCare.Models
     
         public virtual DbSet<BOY_BMI> BOY_BMI { get; set; }
         public virtual DbSet<GIRL_BMI> GIRL_BMI { get; set; }
-
     }
 }

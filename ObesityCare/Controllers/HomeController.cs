@@ -133,7 +133,7 @@ namespace ObesityCare.Controllers
         public ActionResult BMI()
         {
             ViewBag.Message = "BMI Calculator";
-            ObesityCare_BMI_Entities db = new ObesityCare_BMI_Entities();
+            ObesityCare_dbEntities db = new ObesityCare_dbEntities();
 
             try
             {

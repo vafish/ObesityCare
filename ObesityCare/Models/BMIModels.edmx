@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ObesityCare_BMI_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ObesityCare_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BOY_BMI">
           <Key>
             <PropertyRef Name="Age_in_months" />
@@ -37,14 +37,15 @@
           <Property Name="ninety_fifth_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
           <Property Name="ninety_seventh_Percentile" Type="numeric" Precision="8" Scale="5" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="ObesityCare_BMI_dbModelStoreContainer">
+        <EntityContainer Name="ObesityCare_dbModelStoreContainer">
           <EntitySet Name="BOY_BMI" EntityType="Self.BOY_BMI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GIRL_BMI" EntityType="Self.GIRL_BMI" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ObesityCare_BMI_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ObesityCare_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="BOY_BMI">
           <Key>
             <PropertyRef Name="Age_in_months" />
@@ -77,7 +78,7 @@
           <Property Name="ninety_fifth_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
           <Property Name="ninety_seventh_Percentile" Type="Decimal" Precision="8" Scale="5" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="ObesityCare_BMI_Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ObesityCare_dbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BOY_BMI" EntityType="Self.BOY_BMI" />
           <EntitySet Name="GIRL_BMI" EntityType="Self.GIRL_BMI" />
         </EntityContainer>
@@ -86,9 +87,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ObesityCare_BMI_dbModelStoreContainer" CdmEntityContainer="ObesityCare_BMI_Entities">
+        <EntityContainerMapping StorageEntityContainer="ObesityCare_dbModelStoreContainer" CdmEntityContainer="ObesityCare_dbEntities">
           <EntitySetMapping Name="BOY_BMI">
-            <EntityTypeMapping TypeName="ObesityCare_BMI_dbModel.BOY_BMI">
+            <EntityTypeMapping TypeName="ObesityCare_dbModel.BOY_BMI">
               <MappingFragment StoreEntitySet="BOY_BMI">
                 <ScalarProperty Name="Age_in_months" ColumnName="Age_in_months" />
                 <ScalarProperty Name="third_Percentile" ColumnName="third_Percentile" />
@@ -105,7 +106,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GIRL_BMI">
-            <EntityTypeMapping TypeName="ObesityCare_BMI_dbModel.GIRL_BMI">
+            <EntityTypeMapping TypeName="ObesityCare_dbModel.GIRL_BMI">
               <MappingFragment StoreEntitySet="GIRL_BMI">
                 <ScalarProperty Name="Age_in_months" ColumnName="Age_in_months" />
                 <ScalarProperty Name="third_Percentile" ColumnName="third_Percentile" />

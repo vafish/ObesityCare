@@ -349,26 +349,26 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BMI_MODEL.Context.cs">
+    <Compile Include="Models\BMIModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BMI_MODEL.Context.tt</DependentUpon>
+      <DependentUpon>BMIModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BMI_MODEL.cs">
+    <Compile Include="Models\BMIModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BMI_MODEL.tt</DependentUpon>
+      <DependentUpon>BMIModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BMI_MODEL.Designer.cs">
+    <Compile Include="Models\BMIModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BMI_MODEL.edmx</DependentUpon>
+      <DependentUpon>BMIModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\BOY_BMI.cs">
-      <DependentUpon>BMI_MODEL.tt</DependentUpon>
+      <DependentUpon>BMIModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GIRL_BMI.cs">
-      <DependentUpon>BMI_MODEL.tt</DependentUpon>
+      <DependentUpon>BMIModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -376,12 +376,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-ObesityCare-20210323105530.mdf" />
-    <Content Include="App_Data\aspnet-ObesityCare-20210323105530_log.ldf" />
-    <Content Include="App_Data\ObesityCare_Db.mdf" />
-    <Content Include="App_Data\ObesityCare_Db_log.ldf">
-      <DependentUpon>ObesityCare_Db.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -450,15 +444,15 @@
     <Content Include="js\custom.js" />
     <Content Include="js\navbar.js" />
     <Content Include="js\tiny-slider.js" />
-    <Content Include="Models\BMI_MODEL.Context.tt">
+    <Content Include="Models\BMIModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BMI_MODEL.edmx</DependentUpon>
-      <LastGenOutput>BMI_MODEL.Context.cs</LastGenOutput>
+      <DependentUpon>BMIModels.edmx</DependentUpon>
+      <LastGenOutput>BMIModels.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BMI_MODEL.tt">
+    <Content Include="Models\BMIModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BMI_MODEL.edmx</DependentUpon>
-      <LastGenOutput>BMI_MODEL.cs</LastGenOutput>
+      <DependentUpon>BMIModels.edmx</DependentUpon>
+      <LastGenOutput>BMIModels.cs</LastGenOutput>
     </Content>
     <Content Include="fonts\Flaticon.eot" />
     <Content Include="fonts\Flaticon.ttf" />
@@ -467,19 +461,19 @@
     <Content Include="fonts\icomoon.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
-    <EntityDeploy Include="Models\BMI_MODEL.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BMI_MODEL.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\BMI_MODEL.edmx.diagram">
-      <DependentUpon>BMI_MODEL.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="Models\BMIModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BMIModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BMIModels.edmx.diagram">
+      <DependentUpon>BMIModels.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Properties\PublishProfiles\ObesityCare20210328173014 - Web Deploy.pubxml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -499,6 +493,7 @@
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Properties\PublishProfiles\ObesityCareIteration2 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
