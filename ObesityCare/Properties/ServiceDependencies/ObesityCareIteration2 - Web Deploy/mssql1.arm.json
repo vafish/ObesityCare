@@ -7,7 +7,7 @@
       "defaultValue": "DefaultResourceGroup-CAU",
       "metadata": {
         "_parameterType": "resourceGroup",
-        "description": "Name of the resource group for the resource. It is recommended to put resources under same resource group for better tracking."
+        "description": "资源的资源组名称。建议将资源放在同一个资源组中，以便更好地进行跟踪。"
       }
     },
     "resourceGroupLocation": {
@@ -15,7 +15,7 @@
       "defaultValue": "australiacentral",
       "metadata": {
         "_parameterType": "location",
-        "description": "Location of the resource group. Resource groups could have different location than resources."
+        "description": "资源组的位置。资源组的位置可能与资源不同。"
       }
     },
     "resourceLocation": {
@@ -23,7 +23,7 @@
       "defaultValue": "[parameters('resourceGroupLocation')]",
       "metadata": {
         "_parameterType": "location",
-        "description": "Location of the resource. By default use resource group's location, unless the resource provider is not supported there."
+        "description": "资源的位置。默认情况下使用资源组的位置，除非资源提供程序不受支持。"
       }
     }
   },

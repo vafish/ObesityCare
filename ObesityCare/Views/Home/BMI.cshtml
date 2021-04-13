@@ -82,10 +82,10 @@
 
                                 <p class="text-white "><span id="comment"></span></p>
                             </div>
-
-                            <span id="noneob"class='noneob'>None-Obese</span>
+                            <span id="BMItitle" class='BMItitle'></span>
+                            <span id="noneob" class='noneob'>Non-Obese</span>
                             <span id="overweight" class='overweight'>Overweight</span>
-                            <span id="obese"class='obese'>Obese</span>
+                            <span id="obese" class='obese'>Obese</span>
                             <div id="canvas" style="width:100%;height:400px; background-color:white; visibility:hidden">
                                 <canvas id="myChart" />
                             </div>
@@ -104,9 +104,9 @@
 
 <style>
     .noneob {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: bold;
-        opacity: 0.2;
+        opacity: 0.6;
         z-index: 1;
         margin-top: 230px;
         margin-left: 50px;
@@ -114,24 +114,32 @@
         visibility: hidden;
     }
     .overweight {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: bold;
-        opacity: 0.2;
+        opacity: 0.6;
         z-index: 1;
-        margin-top: 170px;
+        margin-top: 140px;
         margin-left: 50px;
         position: absolute;
         visibility: hidden;
     }
     .obese {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: bold;
-        opacity: 0.2;
+        opacity: 0.6;
         z-index: 1;
-        margin-top: 120px;
+        margin-top: 60px;
         margin-left: 50px;
         position: absolute;
         visibility: hidden;
+    }
+    .BMItitle {
+        font-size: 25px;
+        font-weight: bold;
+        margin-top:5px;
+        margin-left:50px;
+        position: absolute;
+        margin-bottom: 20px;
     }
 </style>
 
@@ -148,6 +156,7 @@
         document.getElementById("noneob").style.visibility = "visible"
         document.getElementById("overweight").style.visibility = "visible"
         document.getElementById("obese").style.visibility = "visible"
+        
         // user inputs
         var height = Number(document.getElementById("height").value);
         var heightunits = document.getElementById("heightunits").value;
@@ -197,6 +206,7 @@
         //});
 
         if (gender == "male") {
+            document.getElementById("BMItitle").innerText = "Age 10-12 Boy BMI";
             for (var i = 0; i < result.length; i++) {
                 if (result[i].Age_in_months >= 120 && result[i].Age_in_months <= 160) {
                     dataPoints1x.push(result[i].Age_in_months);
@@ -229,17 +239,17 @@
                     labels: dataPoints1x,
 
                     datasets: [{
-                        data: dataPoints1y,
-                        label: "third_Percentile",
-                        borderColor: "#232323",
-                        fill: false,
-                        hidden: true,
-                        pointRadius: 0,
-                        tension: 0.3,
-                        color: "#FFFFFF"
+                            data: dataPoints1y,
+                /*        label: "third_Percentile",*/
+                            borderColor: "#232323",
+                            fill: false,
+                            hidden: true,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            color: "#FFFFFF"
                     }, {
                         data: dataPoints2y,
-                        label: "fifth_Percentile",
+                     /*   label: "fifth_Percentile",*/
                             borderColor:"#64EF48",
                             fill: "end",
                             pointRadius: 0,
@@ -249,7 +259,7 @@
 
                     }, {
                         data: dataPoints3y,
-                        label: "tenth_Percentile",
+                    /*    label: "tenth_Percentile",*/
                             borderColor: "#48EF9B",
                             fill: false,
                             hidden: true,
@@ -258,7 +268,7 @@
                             color: "#FFFFFF"
                     }, {
                         data: dataPoints4y,
-                        label: "twenty_fifth_Percentile",
+                       /* label: "twenty_fifth_Percentile",*/
                             borderColor: "#48EFDB",
                             fill: false,
                             hidden: true,
@@ -268,7 +278,7 @@
                         },
                         {
                             data: dataPoints5y,
-                            label: "fiftieth_Percentile",
+                           /* label: "fiftieth_Percentile",*/
                             borderColor: "#48A8EF",
                             fill: false,
                             hidden: true,
@@ -278,7 +288,7 @@
                         },
                         {
                             data: dataPoints6y,
-                            label: "seventy_fifth_Percentile",
+                           /* label: "seventy_fifth_Percentile",*/
                             borderColor: "#4873EF",
                             fill: false,
                             hidden: true,
@@ -288,7 +298,7 @@
                         },
                         {
                             data: dataPoints7y,
-                            label: "eightieth_fifth_Percentile",
+                            /*label: "eightieth_fifth_Percentile",*/
                             borderColor: "#EF2A87",
                             fill: "end",
                             pointRadius: 0,
@@ -298,7 +308,7 @@
                         },
                         {
                             data: dataPoints8y,
-                            label: "ninetieth_Percentile",
+                           /* label: "ninetieth_Percentile",*/
                             borderColor: "#FC2D88",
                             fill: false,
                             hidden: true,
@@ -309,7 +319,7 @@
                         },
                         {
                             data: dataPoints9y,
-                            label: "ninety_fifth_Percentile",
+                           /* label: "ninety_fifth_Percentile",*/
                             borderColor: "#FA0F36",
                             fill: "end",
                             pointRadius: 0,
@@ -319,7 +329,7 @@
                         },
                         {
                             data: dataPoints10y,
-                            label: "ninety_seventh_Percentile",
+                           /* label: "ninety_seventh_Percentile",*/
                             borderColor: "#FD0000",
                             fill: false,
                             hidden: true,
@@ -335,17 +345,27 @@
                             borderColor: "#00FD1F",
                             fill: true,
                             pointStyle: 'rectRot',
-                            pointRadius: 10,
-                            color: "#FFFFFF"
+                            pointRadius: 5,
+                            color: "#FFFFFF",
+                            borderWidth: 5,
                     }
                     ]
                 },
                 options: {
+                    
 
                     plugins: {
+                        legend: {
+                            display: false
+                        },
                         title: {
                             display: true,
-                            text: 'Age 10-12 Boy BMI'
+                            text: '   ',
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                            }
+                            
 
                         },
                         responsive: true,
@@ -363,6 +383,7 @@
         var dataPoints11x = [];
         var dataPoints11y = [], dataPoints12y = [], dataPoints13y = [], dataPoints14y = [], dataPoints15y = [], dataPoints16y = [], dataPoints17y = [], dataPoints18y = [], dataPoints19y = [], dataPoints20y = [];
         if (gender == "female") {
+            document.getElementById("BMItitle").innerText = "Age 10-12 Girl BMI";
             for (var i = 0; i < result2.length; i++) {
                 if (result2[i].Age_in_months >= 120 && result2[i].Age_in_months <= 160) {
                     dataPoints11x.push(result2[i].Age_in_months-0.5);
@@ -393,7 +414,7 @@
 
                     datasets: [{
                         data: dataPoints11y,
-                        label: "third_Percentile",
+                        //label: "third_Percentile",
                         borderColor: "#232323",
                         fill: false,
                         hidden: true,
@@ -401,7 +422,7 @@
                         color: "#FFFFFF"
                     }, {
                         data: dataPoints12y,
-                        label: "fifth_Percentile",
+                        //label: "fifth_Percentile",
                         borderColor: "#64EF48",
                         fill: "end",
                         pointRadius: 0,
@@ -410,7 +431,7 @@
 
                     }, {
                         data: dataPoints13y,
-                        label: "tenth_Percentile",
+                        //label: "tenth_Percentile",
                         borderColor: "#48EF9B",
                         fill: false,
                         hidden: true,
@@ -418,7 +439,7 @@
                         color: "#FFFFFF"
                     }, {
                         data: dataPoints14y,
-                        label: "twenty_fifth_Percentile",
+                        //label: "twenty_fifth_Percentile",
                         borderColor: "#48EFDB",
                         fill: false,
                         hidden: true,
@@ -427,7 +448,7 @@
                     },
                     {
                         data: dataPoints15y,
-                        label: "fiftieth_Percentile",
+                        //label: "fiftieth_Percentile",
                         borderColor: "#48A8EF",
                         fill: false,
                         hidden: true,
@@ -436,7 +457,7 @@
                     },
                     {
                         data: dataPoints16y,
-                        label: "seventy_fifth_Percentile",
+                        //label: "seventy_fifth_Percentile",
                         borderColor: "#4873EF",
                         fill: false,
                         hidden: true,
@@ -445,7 +466,7 @@
                     },
                     {
                         data: dataPoints17y,
-                        label: "eightieth_fifth_Percentile",
+                        //label: "eightieth_fifth_Percentile",
                         borderColor: "#EF2A87",
                         fill: "end",
                         pointRadius: 0,
@@ -454,7 +475,7 @@
                     },
                     {
                         data: dataPoints18y,
-                        label: "ninetieth_Percentile",
+                        //label: "ninetieth_Percentile",
                         borderColor: "#FC2D88",
                         fill: false,
                         hidden: true,
@@ -465,7 +486,7 @@
                     },
                     {
                         data: dataPoints19y,
-                        label: "ninety_fifth_Percentile",
+                        //label: "ninety_fifth_Percentile",
                         borderColor: "#FA0F36",
                         fill: "end",
                         pointRadius: 0,
@@ -475,7 +496,7 @@
                     },
                     {
                         data: dataPoints20y,
-                        label: "ninety_seventh_Percentile",
+                       // label: "ninety_seventh_Percentile",
                         borderColor: "#FD0000",
                         fill: false,
                         hidden: true,
@@ -491,22 +512,38 @@
                             borderColor: "#00FD1F",
                             fill: false,
                             pointStyle: 'rectRot',
-                            pointRadius: 10,
-                            color: "#FFFFFF"
+                            pointRadius: 5,
+                            color: "#FFFFFF",
+                            borderWidth:5,
                     }
                     ]
                 },
                 options: {
-
+                    
                     plugins: {
+                        legend: {
+                            display: false
+                        },
                         title: {
                             display: true,
-                            text: 'Age 10-12 Girl BMI'
+                            text: '   ',
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                            }
+
 
                         },
                         responsive: true,
                         maintainAspectRatio: true,
 
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.yLabel;
+                            }
+                        }
                     }
                 }
             });
