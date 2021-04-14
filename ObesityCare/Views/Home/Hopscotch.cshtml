@@ -34,7 +34,7 @@
         <div class="col-sm-12 col-md-12 col-lg-12" data-aos="fade-up" data-aos-delay="0">
             <div class="block-testimonial d-flex ">
                 <div class="img col-lg-6">
-                    <img src="~/images/hopscotch.jpg" alt="Image" class="img-fluid" style="height:500px;"/>
+                    <img src="~/images/hopscotch.jpg" alt="Image" class="img-fluid" style="height:500px;" />
                 </div>
 
                 <div class="col-lg-6" style="padding-left:10px;">
@@ -52,7 +52,7 @@
                     </p>
                     <p>
                         Star Count: <span class="fa fa-star checked"></span>
-                        
+
                     </p>
                     <p>
                         Equipment Needed: Chalk
@@ -67,31 +67,36 @@
                         </a>
 
                     </div>
+
+                    <a href="@Url.Action("MapSearch", "Home")" class="d-flex float-end block-testimonial">
+                        <span class="label">Find places for exercising</span>
+                        <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                    </a>
                 </div>
 
 
             </div>
-            <nav class="site-nav">
-                <div class="container" style="margin-top:500px;">
-                    <div class="site-navigation">
-                        <div class="js-clone-nav block-testimonial text-start site-menu float-left">
-                            <div class="has-children">
-                                <p>Other Activities</p>
-                                <ul class="dropdown">
-                                    <li><a href="@Url.Action("Dodgeball", "Home")">Dodgeball</a></li>
-                                    <li>
-                                        <a href="@Url.Action("Jumprope", "Home")">Jump Rope</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
+
+        </div>
+        <div class="site-nav" style="margin-top:1700px">
+            <div class="site-navigation">
+                <div class="js-clone-nav block-testimonial text-start site-menu float-left">
+                    <div class="has-children">
+                        <p>Other Activities</p>
+                        <ul class="dropdown">
+                            <li><a href="@Url.Action("Dodgeball", "Home")">Dodgeball</a></li>
+                            <li>
+                                <a href="@Url.Action("Jumprope", "Home")">Jump Rope</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </nav>
-        </div>
 
+            </div>
+        </div>
 
 
     </div>
 </div>
+

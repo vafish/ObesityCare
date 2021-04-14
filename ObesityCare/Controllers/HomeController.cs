@@ -187,6 +187,11 @@ namespace ObesityCare.Controllers
             return View();
         }
 
+        public ActionResult MapSearch()
+        {
+            ViewBag.Message = "MapSearch";
 
+            return View();
+        }
     }
 }
