@@ -29,5 +29,7 @@ namespace ObesityCare.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ObesityCare.Models.Record> Records { get; set; }
     }
 }

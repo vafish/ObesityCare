@@ -27,5 +27,7 @@ namespace ObesityCare.Models
     
         public virtual DbSet<BOY_BMI> BOY_BMI { get; set; }
         public virtual DbSet<GIRL_BMI> GIRL_BMI { get; set; }
+
+        public System.Data.Entity.DbSet<ObesityCare.Models.Record> Records { get; set; }
     }
 }
