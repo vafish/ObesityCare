@@ -10,8 +10,7 @@
             <div class="col-lg-10 mx-auto">
                 <div class="intro">
 
-                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0">Daily Energy Expenditure Calculator</h1>
-                    <h class="subheading " data-aos="fade-up" data-aos-delay="100"><br />Background Information</h>
+                    <h2 class="subheading " data-aos="fade-up" data-aos-delay="100"><br />Background Information</h2>
                     <p class="text-white" data-aos="fade-up" data-aos-delay="100">This calculator would be the Total daily Energy Expenditure (TEE) to calculate your child’s calories needs.</p>
 
                     <h2 class="text-white subheading text-center" style="padding-top:100px;padding-bottom :20px; font-size: 20px;" data-aos="fade-up" data-aos-delay="0">Daily Energy Expenditure Calculator</h2>
@@ -28,6 +27,14 @@
                                 </p>
 
                                 <p class="text-white">
+                                    Weight: <input type="text" id="weight" />
+                                    <select type="multiple" id="weightunits">
+                                        <option value="kg" selected="selected">kilograms</option>
+                                        <option value="lb">pounds</option>
+                                    </select>
+                                </p>
+
+                                <p class="text-white">
                                     Height: <input type="text" id="height" />
                                     <select type="multiple" id="heightunits">
                                         <option value="centimetres" selected="selected">centimetres</option>
@@ -35,13 +42,6 @@
                                     </select>
                                 </p>
 
-                                <p class="text-white">
-                                    Weight: <input type="text" id="weight" />
-                                    <select type="multiple" id="weightunits">
-                                        <option value="kg" selected="selected">kilograms</option>
-                                        <option value="lb">pounds</option>
-                                    </select>
-                                </p>
                                 <table class="col-lg-8 mx-auto">
                                     <tr>
                                         <td>
@@ -77,23 +77,30 @@
                                                 </select>
 
                                             </p>
-                                        <td>
+                                        </td>
+
                                     </tr>
                                 </table>
 
-                                <input type="submit" value="View Result" id="compute" onclick="computeBMI();">
+                                <p class="text-white">
+                                    Activity Factor:
+                                    <select type="multiple" id="activityfactor">
+                                        <option value=0 selected="selected">1.2 PAL(Sedentary, little or no exercise)</option>
+                                        <option value=1>1.375 PAL(Light exercise/sports 1-3 days/week)</option>
+                                        <option value=2>1.55 PAL(Moderate exercise/sports 3-5 days/week)</option>
+                                        <option value=3>1.725 PAL(Hard exercise/sports 6-7 days a week)</option>
+                                        <option value=4>1.9 PAL(Very hard exercise/sports & a physical job)</option>
+                                    </select>
+                                </p>
 
-                                <p id="result" class="subheading1 text-white" style="visibility:hidden"><br>Your child's BMI is: <span id="output"></span></p>
+                                <input type="submit" value="View Result" id="compute" onclick="computeDEE();">
 
-                                <p class="text-white "><span id="comment"></span></p>
+                                <p id="need" class="text-white" data-aos="fade-up" data-aos-delay="100"><br>Your child’s total calorie need (kcal): <span id="output"></span></p>
+
+                                <p id="burn" class="text-white" data-aos="fade-up" data-aos-delay="100"><br>Recommended Calories to Burn Per Day: <span id="output_1"></span></p>
+
                             </div>
-                            <span id="BMItitle" class='BMItitle'></span>
-                            <span id="noneob" class='noneob'>Non-Obese</span>
-                            <span id="overweight" class='overweight'>Overweight</span>
-                            <span id="obese" class='obese'>Obese</span>
-                            <div id="canvas" style="width:100%;height:400px; background-color:white; visibility:hidden">
-                                <canvas id="myChart" />
-                            </div>
+                            
                         </div>
 
                     </div>
@@ -106,3 +113,25 @@
 
     </div>
 </div>
+
+<script>
+    // user inputs
+    var height = Number(document.getElementById("height").value);
+    var heightunits = document.getElementById("heightunits").value;
+    var weight = Number(document.getElementById("weight").value);
+    var weightunits = document.getElementById("weightunits").value;
+    var age = Number(document.getElementById("year").value) * 12 + Number(document.getElementById("month").value);
+    var activityfactor = document.getElementById("activityfactor").value;
+
+    //Convert all units to metric
+    if (heightunits == "inches") height /= 39.3700787;
+    if (weightunits == "lb") weight /= 2.20462;
+
+    var BMI = Math.round((weight / Math.pow(height, 2) * 10000) * 100) / 100;
+    BMR = (10 * weight(kg) + 6.25 x height(cm) – 5 x age(years) + 5) x Activity Factor
+
+    var BMI = Math.round((weight / Math.pow(height, 2) * 10000) * 100) / 100;
+
+    //Display result of calculation
+    document.getElementById("output").innerText = BMR;
+</script>
