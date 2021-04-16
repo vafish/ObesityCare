@@ -193,5 +193,12 @@ namespace ObesityCare.Controllers
 
             return View();
         }
+
+        public ActionResult MoreActivities()
+        {
+            ViewBag.Message = "MoreActivities";
+
+            return View();
+        }
     }
 }

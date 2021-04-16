@@ -11,13 +11,15 @@
             <div class="col-lg-6 text-center mx-auto">
                 <div class="intro">
 
-                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0">Activities</h1>
+                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0">Find your interests here!</h1>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
+
+
 
 <div class="post-entries section">
     <div class="container">
@@ -25,56 +27,317 @@
             <div class="col-lg-6 mx-auto" data-aos="fade-up" data-aos-delay="0">
                 <div class="line mx-auto mb-3"></div>
                 <h2 class="heading mb-5 text-center">Activities</h2>
+
+                <div class="box">
+                    <div class="searchBox">
+                        <input type="text" onkeyup="myFunction()" placeholder="Search for activities" class="searchInput" id="myInput" style="padding-left: 10px;">
+                        <input type="button" value="Search" class="searchButton">
+                    </div>
+                </div>
             </div>
+
+            <div class="container_1">
+                
+                    <div id="myBtnContainer">
+                        <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                        <button class="btn" onclick="filterSelection('a')"> ABCD</button>
+                        <button class="btn" onclick="filterSelection('e')"> EFGH</button>
+                        <button class="btn" onclick="filterSelection('i')"> IJKL</button>
+                        <button class="btn" onclick="filterSelection('m')"> MNOP</button>
+                        <button class="btn" onclick="filterSelection('q')"> QRST</button>
+                        <button class="btn" onclick="filterSelection('u')"> UVWX</button>
+                        <button class="btn" onclick="filterSelection('y')"> YZ</button>
+
+
+
+                    </div>
+                    <div class="tab-content" id="tabContent">
+                        <ul class="content active" id="myUL">
+                            <li class="filterDiv a">
+                                <a href="@Url.Action("Dodgeball", "Home")">Dodgeball</a>
+                            </li>
+                            <li class="filterDiv e">
+                                <a href="@Url.Action("Hopscotch", "Home")">Hoscotch</a>
+                            </li>
+                            <li class="filterDiv i">
+                                <a href="@Url.Action("Jumprope", "Home")">Jump Rope</a>
+
+                            </li>
+                        </ul>
+
+
+
+                        <div class="content"></div>
+                        <div class="content"></div>
+                        <div class="content"></div>
+                        <div class="content"></div>
+
+                    </div>
+                
+                
+            </div>
+
+
         </div>
-
-        <div class="row align-items-stretch">
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="media-entry h-100">
-                    <a href="@Url.Action("Dodgeball", "Home")" style="background-image: url('../../images/dodgeball.jpg')" src='@Url.Content("~/images/gal_1.jpg")' />
-
-
-                    <div class="bg-white m-body">
-                        <p class="text-dark text-center">Dodgeball</p>
-
-                        <a href="@Url.Action("Dodgeball", "Home")" class="more d-flex align-items-center float-end">
-                            <span class="label">Let's play</span>
-                            <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="media-entry h-100">
-                    <a href="@Url.Action("Hopscotch", "Home")" style="background-image: url('../../images/hopscotch.jpg')" src='@Url.Content("~/images/gal_1.jpg")' />
-                    <div class="bg-white m-body">
-                        @*<span class="date">May 14, 2020</span>*@
-                        <p class="text-dark text-center ">Hopscotch</p>
-
-
-                        <a href="@Url.Action("Hopscotch", "Home")" class="more d-flex align-items-center float-end">
-                            <span class="label">Let's play</span>
-                            <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="media-entry h-100">
-                    <a href="@Url.Action("Jumprope", "Home")" style="background-image: url('../../images/jumprope.jpg')" src='@Url.Content("~/images/gal_1.jpg")' />
-
-                    <div class="bg-white m-body">
-
-                        <p class="text-dark text-center">Jump rope</p>
-
-                        <a href="@Url.Action("Jumprope", "Home")" class="more d-flex align-items-center float-end">
-                            <span class="label">Let's play</span>
-                            <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>
+
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById('myInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName('li');
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
+
+
+</script>
+<script>
+    filterSelection("all")
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    // Show filtered elements
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+            }
+        }
+    }
+
+    // Hide elements that are not selected
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    // Add active class to the current control button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
+<style>
+    .box {
+        margin: 10px auto;
+        height: 50px;
+        width: 100%;
+    }
+
+    .searchBox {
+        margin: 0 auto;
+        width: 60%;
+        position: relative;
+       
+    }
+
+    .searchInput {
+        display: inline-block;
+        width: 80%;
+        height: 38px;
+        border: 1px solid #cccccc;
+        float: left;
+        box-sizing: border-box;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
+    .searchButton {
+        display: inline-block;
+        width: 20%;
+        height: 38px;
+        line-height: 40px;
+        float: left;
+        background-color: #00a0e9;
+        font-size: 16px;
+        cursor: pointer;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        border: none;
+        color: #fff;
+    }
+
+    .container {
+        overflow: hidden;
+    }
+
+    .filterDiv {
+        float: left;
+        background-color: lightcyan;
+        color: #ffffff;
+        width: 120px;
+        line-height: 30px;
+        text-align: center;
+        margin: 5px;
+        display: none; /* Hidden by default */
+    }
+
+    /* The "show" class is added to the filtered elements */
+    .show {
+        display: block;
+    }
+
+    /* Style the buttons */
+    .btn {
+        border: none;
+        outline: none;
+        padding: 12px 16px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+
+        /* Add a light grey background on mouse-over */
+        .btn:hover {
+            background-color: #ddd;
+        }
+
+        /* Add a dark background to the active button */
+        .btn.active {
+            background-color: #666;
+            color: white;
+        }
+</style>
+
+<style>
+    ul,
+    ul li {
+        list-style: none;
+    }
+
+    .container_1 {
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .activity-picker {
+        width: 100%;
+        min-height: 72px;
+       
+    }
+
+    .tab {
+        display: flex;
+        height: 42px;
+        margin: 0;
+        padding: 0;
+    }
+
+        .tab li {
+            flex: 1;
+            position: relative;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+
+            .tab li span {
+                display: block;
+                width: 100%;
+                height: 100%;
+                color: #333;
+            }
+
+            .tab li.active {
+                background: #00a0e9;
+                color: #00a0e9;
+            }
+
+                .tab li.active span {
+                    color: #fff;
+                }
+
+    .tab-content {
+        width: 100%;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+
+        .tab-content .content {
+            display: none;
+            float: left;
+            width: 100%;
+            height: 100%;
+            min-height: 20px;
+            border: 1px solid #00a0e9;
+            border-radius: 3px;
+            /**-webkit-transition: all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -moz-transition: all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -ms-transition: all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -o-transition: all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    transition: all 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955);**/
+        }
+
+            .tab-content .content.active {
+                display: block;
+            }
+
+            .tab-content .content dl {
+                display: block;
+                padding: 5px;
+                margin: 5px;
+                color: #00a0e9;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+                .tab-content .content dl dt {
+                    display: block;
+                    width: 100%;
+                    line-height: 2;
+                    color: #00a0e9;
+                    padding-left: 10px;
+                }
+
+                .tab-content .content dl dd {
+                    display: inline-block;
+                    padding: 0 5px;
+                    margin: 5px;
+                    color: #333;
+                    font-size: 14px;
+                }
+
+                    .tab-content .content dl dd:hover {
+                        background: #00a0e9;
+                        color: #fff;
+                    }
+</style>

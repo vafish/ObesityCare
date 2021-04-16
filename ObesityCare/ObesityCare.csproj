@@ -669,6 +669,7 @@
     <Content Include="Views\Records\Details.cshtml" />
     <Content Include="Views\Records\Edit.cshtml" />
     <Content Include="Views\Records\Index.cshtml" />
+    <Content Include="Views\Home\MoreActivities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
