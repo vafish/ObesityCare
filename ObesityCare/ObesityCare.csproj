@@ -672,6 +672,13 @@
     <Content Include="Views\Home\MoreActivities.cshtml" />
     <Content Include="Views\Home\DEECal.cshtml" />
     <Content Include="Views\Home\CommonExercises.cshtml" />
+    <Content Include="Views\Home\HideNSeek.cshtml" />
+    <Content Include="Views\Home\HulaHoop.cshtml" />
+    <Content Include="Views\Home\MusicalChairs.cshtml" />
+    <Content Include="Views\Home\PotatoDrop.cshtml" />
+    <Content Include="Views\Home\Tag.cshtml" />
+    <Content Include="Views\Home\Twister.cshtml" />
+    <Content Include="Views\Home\Wolf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
