@@ -207,5 +207,11 @@ namespace ObesityCare.Controllers
 
             return View();
         }
+        public ActionResult CommonExercises()
+        {
+            ViewBag.Message = "CommonExercises";
+
+            return View();
+        }
     }
 }
