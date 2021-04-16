@@ -200,5 +200,12 @@ namespace ObesityCare.Controllers
 
             return View();
         }
+
+        public ActionResult DEECal()
+        {
+            ViewBag.Message = "DailyEnergyExpenditureCalculator";
+
+            return View();
+        }
     }
 }
