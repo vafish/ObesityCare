@@ -87,6 +87,7 @@
                             <span id="overweight" class='overweight'>Overweight</span>
                             <span id="obese" class='obese'>Obese</span>
                             <div id="canvas" style="width:100%;height:400px; background-color:white; visibility:hidden">
+                                <canvas id="myChart" />
                             </div>
                         </div>
 
@@ -151,6 +152,11 @@
 
 
 <script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("height").value = localStorage.getItem("height");
+        document.getElementById("weight").value = localStorage.getItem("weight");
+
+    };
 
     function computeBMI() {
         document.getElementById("canvas").style.visibility = "visible"
@@ -166,6 +172,10 @@
         var weightunits = document.getElementById("weightunits").value;
         var age = Number(document.getElementById("year").value)*12 + Number(document.getElementById("month").value);
         var gender = document.getElementById("gender").value;
+
+
+       localStorage.setItem("height", height);
+       localStorage.setItem("weight", weight);
 
 
         //Convert all units to metric

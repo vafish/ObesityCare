@@ -4,25 +4,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="hero hero-2" style="background-image: url('../../images/background2.jpg')">
+<div class="hero hero-4" style="background-image: url('../../images/background2.jpg')">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-10 mx-auto">
                 <div class="intro">
 
-                    <h2 class="subheading " data-aos="fade-up" data-aos-delay="100"><br />Background Information</h2>
-                    <p class="text-white" data-aos="fade-up" data-aos-delay="100">This calculator would be the Total daily Energy Expenditure (TEE) to calculate your child’s calories needs.</p>
+                    <h2 class="text-white subheading text-center" style="font-size: 20px;" data-aos="fade-up" data-aos-delay="0">
+                        Total Daily Energy Expenditure Calculator
+                        <button class="btn-outline-info text-center" style="color:black;border-color:white; " onclick="TDEE()">i</button>
+                    </h2>
+                  
 
-                    <h2 class="text-white subheading text-center" style="padding-top:100px;padding-bottom :20px; font-size: 20px;" data-aos="fade-up" data-aos-delay="0">Daily Energy Expenditure Calculator</h2>
+                    <div id="tdee">
+                        <p class="text-white text-center block-testimonial" data-aos="fade-up" data-aos-delay="100" style="font-size:14px;">This calculator computes total daily energy expenditure (TDEE), which is the number of calories you need to consume daily</p>
+
+                    </div>
                     <div class=" col-lg-8 mx-auto">
 
                         <div data-aos="fade-up" data-aos-delay="200">
                             <div class="text-center">
+
+
                                 <p class="text-white">
-                                    Gender:
-                                    <select type="multiple" id="gender">
-                                        <option value="male" selected="selected">Boy</option>
-                                        <option value="female">Girl</option>
+                                    Height: <input type="text" id="height" />
+                                    <select type="multiple" id="heightunits">
+                                        <option value="centimetres" selected="selected">centimetres</option>
+                                        <option value="inches">inches</option>
                                     </select>
                                 </p>
 
@@ -34,13 +42,7 @@
                                     </select>
                                 </p>
 
-                                <p class="text-white">
-                                    Height: <input type="text" id="height" />
-                                    <select type="multiple" id="heightunits">
-                                        <option value="centimetres" selected="selected">centimetres</option>
-                                        <option value="inches">inches</option>
-                                    </select>
-                                </p>
+
 
                                 <table class="col-lg-8 mx-auto">
                                     <tr>
@@ -85,22 +87,28 @@
                                 <p class="text-white">
                                     Activity Factor:
                                     <select type="multiple" id="activityfactor">
-                                        <option value=0 selected="selected">1.2 PAL(Sedentary, little or no exercise)</option>
-                                        <option value=1>1.375 PAL(Light exercise/sports 1-3 days/week)</option>
-                                        <option value=2>1.55 PAL(Moderate exercise/sports 3-5 days/week)</option>
-                                        <option value=3>1.725 PAL(Hard exercise/sports 6-7 days a week)</option>
-                                        <option value=4>1.9 PAL(Very hard exercise/sports & a physical job)</option>
+                                        <option value=1.2 selected="selected">1.2 PAL(Sedentary, little or no exercise)</option>
+                                        <option value=1.375>1.375 PAL(Light exercise/sports 1-3 days/week)</option>
+                                        <option value=1.55>1.55 PAL(Moderate exercise/sports 3-5 days/week)</option>
+                                        <option value=1.725>1.725 PAL(Hard exercise/sports 6-7 days a week)</option>
+                                        <option value=1.9>1.9 PAL(Very hard exercise/sports & a physical job)</option>
                                     </select>
                                 </p>
-
+                                <p class="text-white">
+                                    Gender:
+                                    <select type="multiple" id="gender">
+                                        <option value="male" selected="selected">Boy</option>
+                                        <option value="female">Girl</option>
+                                    </select>
+                                </p>
                                 <input type="submit" value="View Result" id="compute" onclick="computeDEE();">
 
-                                <p id="need" class="text-white" data-aos="fade-up" data-aos-delay="100"><br>Your child’s total calorie need (kcal): <span id="output"></span></p>
+                                <p id="need" class="subheading1 text-white" data-aos="fade-up" data-aos-delay="100" style="visibility:hidden"><span id="output"></span></p>
 
-                                <p id="burn" class="text-white" data-aos="fade-up" data-aos-delay="100"><br>Recommended Calories to Burn Per Day: <span id="output_1"></span></p>
+                                <p id="burn" class="subheading1 text-white" data-aos="fade-up" data-aos-delay="100" style="visibility:hidden">Recommended Calories to Burn Per Day: <span id="output_1"></span></p>
 
                             </div>
-                            
+
                         </div>
 
                     </div>
@@ -116,22 +124,63 @@
 
 <script>
     // user inputs
-    var height = Number(document.getElementById("height").value);
-    var heightunits = document.getElementById("heightunits").value;
-    var weight = Number(document.getElementById("weight").value);
-    var weightunits = document.getElementById("weightunits").value;
-    var age = Number(document.getElementById("year").value) * 12 + Number(document.getElementById("month").value);
-    var activityfactor = document.getElementById("activityfactor").value;
+    window.onload = function () {
+        document.getElementById("height").value = localStorage.getItem("height");
+        document.getElementById("weight").value = localStorage.getItem("weight");
 
-    //Convert all units to metric
-    if (heightunits == "inches") height /= 39.3700787;
-    if (weightunits == "lb") weight /= 2.20462;
+    };
+    function computeDEE() {
 
-    var BMI = Math.round((weight / Math.pow(height, 2) * 10000) * 100) / 100;
-    BMR = (10 * weight(kg) + 6.25 x height(cm) – 5 x age(years) + 5) x Activity Factor
+        var height = Number(document.getElementById("height").value);
+        var heightunits = document.getElementById("heightunits").value;
+        var weight = Number(document.getElementById("weight").value);
+        var weightunits = document.getElementById("weightunits").value;
+        var age = Number(document.getElementById("year").value) * 12 + Number(document.getElementById("month").value);
+        var activityfactor = document.getElementById("activityfactor").value;
+        var gender = document.getElementById("gender").value;
 
-    var BMI = Math.round((weight / Math.pow(height, 2) * 10000) * 100) / 100;
+        localStorage.setItem("height", height);
+        localStorage.setItem("weight", weight);
 
-    //Display result of calculation
-    document.getElementById("output").innerText = BMR;
+        //Convert all units to metric
+        if (heightunits == "inches") height /= 39.3700787;
+        if (weightunits == "lb") weight /= 2.20462;
+
+ 
+        if (gender == "male") {
+            var BMR = Math.round((10 * weight + 6.25 * height - 5 * age + 5) * activityfactor);
+        }
+        else {
+            var BMR = Math.round((10 * weight + 6.25 * height - 5 * age - 161) * activityfactor);
+        }
+
+
+        //Display result of calculation
+        if (BMR > 0) {
+            document.getElementById("output").innerText = "Your child’s total calorie need(kcal): " + BMR;
+            document.getElementById("output_1").innerText = Math.round(BMR * 0.2);
+            document.getElementById("need").style.visibility = "visible"
+            document.getElementById("burn").style.visibility = "visible"
+        }
+        if (BMR <= 0) {
+            document.getElementById("output").innerText = "Please provide correct information";
+            document.getElementById("need").style.visibility = "visible"
+           
+        }
+       
+       
+        
+    }
+  
+</script>
+
+<script>
+    function TDEE() {
+        var x = document.getElementById("tdee");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 </script>
