@@ -14085,3 +14085,12 @@ q {
     animation-delay: -1s;
     -webkit-animation-delay: -1s; /* Safari ºÍ Chrome */
 }
+
+.t1 {
+    color: white;
+    opacity: 70%
+}
+
+    .t1:hover {
+        opacity: 100%
+    }

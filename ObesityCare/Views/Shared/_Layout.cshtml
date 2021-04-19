@@ -44,7 +44,6 @@
         }
     </script>
 
-
     <title>ObesityCare &mdash; for 10-12 Children</title>
 </head>
 <body>
@@ -65,14 +64,29 @@
                 <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Facts About Obesity", "Facts", "Home")</li>
-                    <li>@Html.ActionLink("BMI", "BMI", "Home")</li>
-                    <li>@Html.ActionLink("DEE", "DEECal", "Home")</li>
-                    <li>@Html.ActionLink("Activities", "Activities", "Home")</li>
+                    <li class="has-children">
+                        <p class="t1">Tools</p>
+                        <ul class="dropdown">
+                            <li>@Html.ActionLink("BMI", "BMI", "Home")</li>
+                            <li>@Html.ActionLink("DEE", "DEECal", "Home")</li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <p class="t1">Activities</p>
+                        <ul class="dropdown">
+                            <li>@Html.ActionLink("Popular Activities & Games", "Activities", "Home")</li>
+                            <li>@Html.ActionLink("All Activities", "MoreActivities", "Home")</li>
+                            <li>@Html.ActionLink("Common Outdoor Exercises", "CommonExercises", "Home")</li>
+                        </ul>
+                    </li>
                     <li>@Html.ActionLink("Records & Rewards", "Index", "Records")</li>
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+
+
                     <li>@Html.Partial("_LoginPartial")</li>
                 </ul>
+
 
 
 
@@ -156,8 +170,19 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <style>
+        .t1 {
+            color: white;
+            opacity: 70%;
+            margin:20px;
+        }
 
-  
+            .t1:hover {
+                opacity: 100%
+            }
+    </style>
+
+
 
 </body>
 
