@@ -40,57 +40,54 @@
                 
                     <div id="myBtnContainer">
                         <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-                        <button class="btn" onclick="filterSelection('a')"> ABCD</button>
-                        <button class="btn" onclick="filterSelection('e')"> EFGH</button>
-                        <button class="btn" onclick="filterSelection('i')"> IJKL</button>
-                        <button class="btn" onclick="filterSelection('m')"> MNOP</button>
-                        <button class="btn" onclick="filterSelection('q')"> QRST</button>
-                        <button class="btn" onclick="filterSelection('u')"> UVWX</button>
-                        <button class="btn" onclick="filterSelection('y')"> YZ</button>
+                        <button class="btn" onclick="filterSelection('A')"> ABCD</button>
+                        <button class="btn" onclick="filterSelection('E')"> EFGH</button>
+                        <button class="btn" onclick="filterSelection('I')"> IJKL</button>
+                        <button class="btn" onclick="filterSelection('M')"> MNOP</button>
+                        <button class="btn" onclick="filterSelection('Q')"> QRST</button>
+                        <button class="btn" onclick="filterSelection('U')"> UVWX</button>
+                        <button class="btn" onclick="filterSelection('Y')"> YZ</button>
 
 
 
                     </div>
                     <div class="tab-content" id="tabContent">
                         <ul class="content active" id="myUL">
-                            <li class="filterDiv a">
+                            <li class="filterDiv A">
                                 <a href="@Url.Action("Dodgeball", "Home")">Dodgeball</a>
                             </li>
-                            <li class="filterDiv e">
-                                <a href="@Url.Action("HideNSeek", "Home")">Hide' n' Seek</a>
+                            <li class="filterDiv E">
+                                <a href="@Url.Action("HideNSeek", "Home")">Hide &amp; Seek</a>
                             </li>
-                            <li class="filterDiv e">
+                            <li class="filterDiv E">
                                 <a href="@Url.Action("Hopscotch", "Home")">Hopscotch</a>
                             </li>
-                            <li class="filterDiv e">
+                            <li class="filterDiv E">
                                 <a href="@Url.Action("HulaHoop", "Home")">Hula Hoop</a>
                             </li>
-                            <li class="filterDiv i">
+                            <li class="filterDiv I">
                                 <a href="@Url.Action("Jumprope", "Home")">Jump Rope</a>
                             </li>
-                            <li class="filterDiv m">
+                            <li class="filterDiv M">
                                 <a href="@Url.Action("MusicalChairs", "Home")">Musical Chairs</a>
                             </li>
-                            <li class="filterDiv m">
+                            <li class="filterDiv M">
                                 <a href="@Url.Action("PotatoDrop", "Home")">Potato Drop</a>
                             </li>
-                            <li class="filterDiv q">
+                            <li class="filterDiv Q">
                                 <a href="@Url.Action("Tag", "Home")">Tag</a>
                             </li>
-                            <li class="filterDiv q">
+                            <li class="filterDiv Q">
                                 <a href="@Url.Action("Twister", "Home")">Twister</a>
                             </li>
-                            <li class="filterDiv u">
+                            <li class="filterDiv U">
                                 <a href="@Url.Action("Wolf", "Home")">What's the time, Mr. Wolf?</a>
                             </li>
                         </ul>
 
 
 
-                        <div class="content"></div>
-                        <div class="content"></div>
-                        <div class="content"></div>
-                        <div class="content"></div>
+
 
                     </div>
                 
@@ -135,12 +132,12 @@
         // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
         for (i = 0; i < x.length; i++) {
             w3RemoveClass(x[i], "show");
-            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) filteredElements(x[i], "show");
         }
     }
 
     // Show filtered elements
-    function w3AddClass(element, name) {
+    function filteredElements(element, name) {
         var i, arr1, arr2;
         arr1 = element.className.split(" ");
         arr2 = name.split(" ");
@@ -217,6 +214,7 @@
     }
 
     .container {
+        margin-top: 20px;
         overflow: hidden;
     }
 
