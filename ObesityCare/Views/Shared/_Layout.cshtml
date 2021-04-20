@@ -26,23 +26,18 @@
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 
 
-    <script language="JavaScript">
-        var password;
-        var pass = "ob";
 
-        if (!localStorage.getItem('psd')) {
-
-            do {
-                password = prompt('Welcome to ObsesityCare, you need a code to view the page!', '');
-                if (password == pass) {
-                    window.location = '#';
-                    localStorage.setItem('psd', 'ob');
-                } else {
-                    password = prompt('Wrong password, please the correct password', '');
-                }
-            } while (password != pass);
+    <style>
+        .t1 {
+            color: white;
+            opacity: 70%;
+            margin: 20px;
         }
-    </script>
+
+            .t1:hover {
+                opacity: 100%
+            }
+    </style>
 
     <title>ObesityCare &mdash; for 10-12 Children</title>
 </head>
@@ -80,7 +75,7 @@
                             <li>@Html.ActionLink("All Activities", "MoreActivities", "Home")</li>
                         </ul>
                     </li>
-              
+
                     <li>@Html.ActionLink("Records & Rewards", "Index", "Records")</li>
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
@@ -172,18 +167,24 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <style>
-        .t1 {
-            color: white;
-            opacity: 70%;
-            margin:20px;
+
+    <script language="JavaScript">
+        var password;
+        var pass = "ob";
+
+        if (!localStorage.getItem('psd')) {
+
+            do {
+                password = prompt('Welcome to ObsesityCare, you need a code to view the page!', '');
+                if (password == pass) {
+                    window.location = '#';
+                    localStorage.setItem('psd', 'ob');
+                } else {
+                    password = prompt('Wrong password, please the correct password', '');
+                }
+            } while (password != pass);
         }
-
-            .t1:hover {
-                opacity: 100%
-            }
-    </style>
-
+    </script>
 
 
 </body>
