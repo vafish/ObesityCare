@@ -421,6 +421,7 @@
     <Content Include="images\chen.jpg" />
     <Content Include="images\CycoPathsLogoHD.png" />
     <Content Include="images\dodgeball.jpg" />
+    <Content Include="images\exercise_icon.png" />
     <Content Include="images\flag.jpg" />
     <Content Include="images\gal_1.jpg" />
     <Content Include="images\gal_2.jpg" />
@@ -442,6 +443,7 @@
     <Content Include="images\img_3.jpg" />
     <Content Include="images\img_4.jpg" />
     <Content Include="images\jumprope.jpg" />
+    <Content Include="images\map_search_icon.png" />
     <Content Include="images\medicine.jpg" />
     <Content Include="images\musical_chairs.jpg" />
     <Content Include="images\obeseadult.jpg" />
