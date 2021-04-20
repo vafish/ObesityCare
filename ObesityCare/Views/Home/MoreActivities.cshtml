@@ -54,34 +54,34 @@
                     <div class="tab-content" id="tabContent">
                         <ul class="content active" id="myUL">
                             <li class="filterDiv A">
-                                <a href="@Url.Action("Dodgeball", "Home")">Dodgeball</a>
+                                <a class="t2" href="@Url.Action("Dodgeball", "Home")">Dodgeball</a>
                             </li>
                             <li class="filterDiv E">
-                                <a href="@Url.Action("HideNSeek", "Home")">Hide &amp; Seek</a>
+                                <a class="t2" href="@Url.Action("HideNSeek", "Home")">Hide &amp; Seek</a>
                             </li>
                             <li class="filterDiv E">
-                                <a href="@Url.Action("Hopscotch", "Home")">Hopscotch</a>
+                                <a class="t2" href="@Url.Action("Hopscotch", "Home")">Hopscotch</a>
                             </li>
                             <li class="filterDiv E">
-                                <a href="@Url.Action("HulaHoop", "Home")">Hula Hoop</a>
+                                <a class="t2" href="@Url.Action("HulaHoop", "Home")">Hula Hoop</a>
                             </li>
                             <li class="filterDiv I">
-                                <a href="@Url.Action("Jumprope", "Home")">Jump Rope</a>
+                                <a class="t2" href="@Url.Action("Jumprope", "Home")">Jump Rope</a>
                             </li>
                             <li class="filterDiv M">
-                                <a href="@Url.Action("MusicalChairs", "Home")">Musical Chairs</a>
+                                <a class="t2" href="@Url.Action("MusicalChairs", "Home")">Musical Chairs</a>
                             </li>
                             <li class="filterDiv M">
-                                <a href="@Url.Action("PotatoDrop", "Home")">Potato Drop</a>
+                                <a class="t2" href="@Url.Action("PotatoDrop", "Home")">Potato Drop</a>
                             </li>
                             <li class="filterDiv Q">
-                                <a href="@Url.Action("Tag", "Home")">Tag</a>
+                                <a class="t2" href="@Url.Action("Tag", "Home")">Tag</a>
                             </li>
                             <li class="filterDiv Q">
-                                <a href="@Url.Action("Twister", "Home")">Twister</a>
+                                <a class="t2" href="@Url.Action("Twister", "Home")">Twister</a>
                             </li>
                             <li class="filterDiv U">
-                                <a href="@Url.Action("Wolf", "Home")">What's the time, Mr. Wolf?</a>
+                                <a class="t2" href="@Url.Action("Wolf", "Home")">What's the time, Mr. Wolf?</a>
                             </li>
                         </ul>
 
@@ -174,6 +174,10 @@
 </script>
 
 <style>
+    .t2 {
+        color: white;
+    }
+  
     .box {
         margin: 10px auto;
         height: 50px;
@@ -220,13 +224,13 @@
 
     .filterDiv {
         float: left;
-        background-color: lightcyan;
-        color: #ffffff;
+        background-color: #666;
         width: 120px;
         line-height: 30px;
         text-align: center;
         margin: 5px;
         display: none; /* Hidden by default */
+        color: #fff;
     }
 
     /* The "show" class is added to the filtered elements */
