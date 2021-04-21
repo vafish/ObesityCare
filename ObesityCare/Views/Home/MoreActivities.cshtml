@@ -50,17 +50,29 @@
                     <br />
                     <br />
                     <button class="btn active" onclick="filterSelection('all')"> Sort by number of participants</button>
-                    <button class="btn" onclick="filterSelection('1')"> 1-many</button>
-                    <button class="btn" onclick="filterSelection('2')"> 2-many</button>
-                    <button class="btn" onclick="filterSelection('3')"> 3-many</button>
-                    <button class="btn" onclick="filterSelection('4')"> 4-many</button>
+                    <button class="btn" onclick="filterSelection('1')"> 1 or more</button>
+                    <button class="btn" onclick="filterSelection('2')"> 2 or more</button>
+                    <button class="btn" onclick="filterSelection('3')"> 3 or more</button>
+                    <button class="btn" onclick="filterSelection('4')"> 4 or more</button>
                 </div>
                 
 
                 <div class="tab-content" id="tabContent">
                     <ul class="content active" id="myUL">
+                        <li class="filterDiv A 2">
+                            <a class="t2" href="@Url.Action("BlindManBuff", "Home")">Blind man's buff</a>
+                        </li>
                         <li class="filterDiv A 4">
                             <a class="t2" href="@Url.Action("Dodgeball", "Home")">Dodgeball</a>
+                        </li>
+                        <li class="filterDiv A 3">
+                            <a class="t2" href="@Url.Action("Duck", "Home")">Duck, Duck, Goose</a>
+                        </li>
+                        <li class="filterDiv A 3">
+                            <a class="t2" href="@Url.Action("Dutch", "Home")">Double Dutch</a>
+                        </li>
+                        <li class="filterDiv E 4">
+                            <a class="t2" href="@Url.Action("FourSquare", "Home")">Four Square</a>
                         </li>
                         <li class="filterDiv E 2">
                             <a class="t2" href="@Url.Action("HideNSeek", "Home")">Hide &amp; Seek</a>
@@ -71,14 +83,23 @@
                         <li class="filterDiv E 1">
                             <a class="t2" href="@Url.Action("HulaHoop", "Home")">Hula Hoop</a>
                         </li>
-                        <li class="filterDiv I 1">
-                            <a class="t2" href="@Url.Action("Jumprope", "Home")">Jump Rope</a>
+                        <li class="filterDiv I 2">
+                            <a class="t2" href="@Url.Action("Kickball", "Home")">Kickball</a>
                         </li>
                         <li class="filterDiv M 3">
                             <a class="t2" href="@Url.Action("MusicalChairs", "Home")">Musical Chairs</a>
                         </li>
                         <li class="filterDiv M 2">
                             <a class="t2" href="@Url.Action("PotatoDrop", "Home")">Potato Drop</a>
+                        </li>
+                        <li class="filterDiv Q 4">
+                            <a class="t2" href="@Url.Action("RedRover", "Home")">Red Rover</a>
+                        </li>
+                        <li class="filterDiv Q 1">
+                            <a class="t2" href="@Url.Action("Ring", "Home")">Ring a Ring o' Roses</a>
+                        </li>
+                        <li class="filterDiv Q 3">
+                            <a class="t2" href="@Url.Action("Jumprope", "Home")">Skipping Rope</a>
                         </li>
                         <li class="filterDiv Q 2">
                             <a class="t2" href="@Url.Action("Tag", "Home")">Tag</a>
@@ -231,7 +252,7 @@
     .filterDiv {
         float: left;
         background-color: #666;
-        width: 120px;
+        width: 190px;
         line-height: 30px;
         text-align: center;
         margin: 5px;

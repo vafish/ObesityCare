@@ -255,6 +255,50 @@ namespace ObesityCare.Controllers
 
             return View();
         }
-       
+
+        public ActionResult BlindManBuff()
+        {
+            ViewBag.Message = "BlindManBuff";
+
+            return View();
+        }
+        public ActionResult FourSquare()
+        {
+            ViewBag.Message = "FourSquare";
+
+            return View();
+        }
+        public ActionResult RedRover()
+        {
+            ViewBag.Message = "RedRover";
+
+            return View();
+        }
+        public ActionResult Duck()
+        {
+            ViewBag.Message = "DuckDuckGoose";
+
+            return View();
+        }
+        public ActionResult Dutch()
+        {
+            ViewBag.Message = "DoubleDutch";
+
+            return View();
+        }
+        public ActionResult Kickball()
+        {
+            ViewBag.Message = "Kickball";
+
+            return View();
+        }
+        public ActionResult Ring()
+        {
+            ViewBag.Message = "Ring";
+
+            return View();
+        }
+
+
     }
 }
