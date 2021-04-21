@@ -46,7 +46,7 @@
                     <button class="btn" onclick="filterSelection('M')"> MNOP</button>
                     <button class="btn" onclick="filterSelection('Q')"> QRST</button>
                     <button class="btn" onclick="filterSelection('U')"> UVWX</button>
-                    <button class="btn" onclick="filterSelection('Y')"> YZ</button>
+                    @**<button class="btn" onclick="filterSelection('Y')"> YZ</button>**@
                     <br />
                     <br />
                     <button class="btn active" onclick="filterSelection('all')"> Sort by number of participants</button>
@@ -66,10 +66,10 @@
                             <a class="t2" href="@Url.Action("Dodgeball", "Home")">Dodgeball</a>
                         </li>
                         <li class="filterDiv A 3">
-                            <a class="t2" href="@Url.Action("Duck", "Home")">Duck, Duck, Goose</a>
+                            <a class="t2" href="@Url.Action("Dutch", "Home")">Double Dutch</a>
                         </li>
                         <li class="filterDiv A 3">
-                            <a class="t2" href="@Url.Action("Dutch", "Home")">Double Dutch</a>
+                            <a class="t2" href="@Url.Action("Duck", "Home")">Duck, Duck, Goose</a>
                         </li>
                         <li class="filterDiv E 4">
                             <a class="t2" href="@Url.Action("FourSquare", "Home")">Four Square</a>
@@ -281,7 +281,7 @@
 
         /* Add a dark background to the active button */
         .btn.active {
-            background-color: #666;
+            background-color: #00a0e9;
             color: white;
         }
 </style>
