@@ -12699,6 +12699,7 @@ textarea {
                 -webkit-transition: 0.2s 0s;
                 -o-transition: 0.2s 0s;
                 transition: 0.2s 0s;
+                background-color: lightgray;
             }
 
                 .site-nav .site-navigation .site-menu .has-children .dropdown.arrow-top {
@@ -12733,10 +12734,13 @@ textarea {
                     -o-transition: 0s all;
                     transition: 0s all;
                     color: #000;
+
                 }
 
                 .site-nav .site-navigation .site-menu .has-children .dropdown .active a {
                     color: #367f7c !important;
+
+                    
                 }
 
                 .site-nav .site-navigation .site-menu .has-children .dropdown > li {
@@ -12744,11 +12748,13 @@ textarea {
                     padding: 0;
                     margin: 0;
                     min-width: 180px;
+
                 }
 
                     .site-nav .site-navigation .site-menu .has-children .dropdown > li > a {
                         padding: 5px 20px;
                         display: block;
+
                     }
 
                         .site-nav .site-navigation .site-menu .has-children .dropdown > li > a:hover {
@@ -14023,7 +14029,7 @@ q {
     left: 50%;
     margin-left: -30px;
     top:850px;
-    bottom: 20px;
+    
 }
 
     .arrows path {
@@ -14093,8 +14099,7 @@ q {
     opacity: 70%
 }
 
-    .t1:hover {
-        opacity: 100%
-    }
-
+.t1:hover {
+    opacity: 100%
 }
+
