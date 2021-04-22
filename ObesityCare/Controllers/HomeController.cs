@@ -304,6 +304,11 @@ namespace ObesityCare.Controllers
 
             return View();
         }
+        public ActionResult Consequences()
+        {
+            ViewBag.Message = "Consequences";
 
+            return View();
+        }
     }
 }

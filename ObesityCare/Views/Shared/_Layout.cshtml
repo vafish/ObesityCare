@@ -18,7 +18,7 @@
     <!-- Load the `mapbox-gl-geocoder` plugin. -->
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Promise polyfill script is required -->
     <!-- to use Mapbox GL Geocoder in IE 11. -->
@@ -30,13 +30,15 @@
     <style>
         .t1 {
             color: white;
-            opacity: 70%;
+            opacity: 80%;
             margin: 20px;
         }
 
-            .t1:hover {
+        .t1:hover {
                 opacity: 100%
-            }
+        }
+
+
     </style>
 
     <title>ObesityCare &mdash; for 10-12 Children</title>
@@ -58,7 +60,15 @@
                 <div class="logo m-0 float-left" style="font-size:30px;">ObesityCare</div>
                 <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Facts About Obesity", "Facts", "Home")</li>
+                    <li class="has-children">
+
+                        <p class="t1">Facts About Obesity</p>
+                        <ul class="dropdown">
+                            <li>@Html.ActionLink("What is Childhood Obesity", "Facts", "Home")</li>
+                            <li>@Html.ActionLink("Consequences of Childhood Obesity", "Consequences", "Home")</li>
+                        </ul>
+                    </li>
+                   
                     <li class="has-children">
                         <p class="t1">Tools</p>
                         <ul class="dropdown">
