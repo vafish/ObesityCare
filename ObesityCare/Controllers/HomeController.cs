@@ -298,7 +298,12 @@ namespace ObesityCare.Controllers
 
             return View();
         }
+        public ActionResult LifestyleRecommendations()
+        {
+            ViewBag.Message = "LifestyleRecommendations";
 
+            return View();
+        }
 
     }
 }

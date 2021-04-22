@@ -102,9 +102,14 @@
                                 </p>
                                 <input type="submit" value="View Result" id="compute" onclick="computeDEE();">
 
-                                <p id="need" class="text-white" data-aos="fade-up" data-aos-delay="100" style="visibility:hidden"><span id="output"></span></p>
-                                <p id="burn" class="text-white" data-aos="fade-up" data-aos-delay="100" style="visibility:hidden">Recommended Calories to Burn Per Day: <span id="output_1"></span></p>
-
+                                <p id="need" class="subheading1 text-white" style="visibility:hidden"><span id="output"></span></p>
+                                <p id="burn" class="subheading1 text-white" style="visibility:hidden">Recommended Calories to Burn Per Day: <span id="output_1"></span></p>
+                                <p id="recommendations" class="subheading1 text-white" style="visibility:hidden">
+                                    <a href="@Url.Action("LifestyleRecommendations", "Home")" class="text-white">
+                                        Check healthy lifestyle recommendations
+                                        <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                                    </a>
+                                </p>
                             </div>
 
                     </div>
@@ -157,6 +162,7 @@
             document.getElementById("output_1").innerText = Math.round(BMR * 0.2);
             document.getElementById("need").style.visibility = "visible"
             document.getElementById("burn").style.visibility = "visible"
+            document.getElementById("recommendations").style.visibility = "visible"
         }
         if (BMR <= 0) {
             document.getElementById("output").innerText = "Please provide correct information";
