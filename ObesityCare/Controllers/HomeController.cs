@@ -310,5 +310,11 @@ namespace ObesityCare.Controllers
 
             return View();
         }
+        public ActionResult HealthyDiet()
+        {
+            ViewBag.Message = "HealthyDiet";
+
+            return View();
+        }
     }
 }
