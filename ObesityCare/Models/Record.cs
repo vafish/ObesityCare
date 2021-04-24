@@ -19,7 +19,9 @@ namespace ObesityCare.Models
         [Display(Name= "Activity")]
         public string Name { get; set; }
         public string Location { get; set; }
+
         public string Duration { get; set; }
+        [Display(Name = "Star Exchange")]
         public int Star { get; set; }
         public string UserId { get; set; }
     }

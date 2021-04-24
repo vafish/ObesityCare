@@ -35,6 +35,28 @@ namespace ObesityCare.Controllers
             return View(records.ToList());
         }
 
+
+        [HttpPost]
+        public JsonResult GetEmpName(string Prefix)
+        {
+
+            var countries = new List<String>(new string[]{
+                            "Afghanistan",
+                            "Albania",
+                            "Algeria",
+                            "AmericanSamoa",
+                            "Andorra",
+                            "Angola",
+                            "Anguilla",
+                            "Antigua&Barbuda",
+                            "Argentina",
+                            "Armenia",
+                            "Aruba",
+                            "Australia",
+                            "Austria" });
+            return Json(countries, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Records/Details/5
         public ActionResult Details(int? id)
         {
@@ -67,7 +89,7 @@ namespace ObesityCare.Controllers
             {
 
                 db.Record.Find(db.Record.Count());
-                record.Id = db.Record.Count()+5;
+                record.Id = db.Record.Count() + 5;
                 record.UserId = User.Identity.GetUserId();
                 db.Record.Add(record);
                 db.SaveChanges();
