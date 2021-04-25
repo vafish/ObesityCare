@@ -9,15 +9,28 @@
 
 <div class="hero hero-3" style="background-image: url('../../images/background1.jpg');">
     <div class="container">
-        <div class="container1">
-            <div draggable="true" class="box">A</div>
-            <div draggable="true" class="box">B</div>
-            <div draggable="true" class="box">C</div>
+        <div class="col-lg-8 text-left mx-auto">
+            <div class="container1" id="container">
+                <div draggable="true" class="box">Rice</div>
+                <div draggable="true" class="box">Chicken</div>
+                <div draggable="true" class="box">Beef</div>
+                <div draggable="true" class="box">Apple</div>
+                <div draggable="true" class="box">Chocolate</div>
+                <div draggable="true" class="box">Milk</div>
+                <div draggable="true" class="box">Cheese</div>
+                <div draggable="true" class="box">Lettuce</div>
+                <div draggable="true" class="box">Ice cream</div>
+            </div>  <button onclick="complete()">Done</button>
+
+            <p id="result"></p>
+
         </div>
-        
+       
     </div>
 </div>
 
+
+    
 
 
 
@@ -30,7 +43,7 @@
     .container1 {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        padding-top:300px;
+        padding-top: 300px;
     }
 
     .box {
@@ -38,6 +51,8 @@
         background-color: #ddd;
         border-radius: .5em;
         padding: 10px;
+        margin-right: 40px;
+        margin-bottom:10px;
         cursor: move;
     }
 </style>
@@ -105,5 +120,23 @@
             item.addEventListener('drop', handleDrop, false);
             item.addEventListener('dragend', handleDragEnd, false);
         });
+        
+
     });
+
+    function complete() {
+        var list = document.getElementsByClassName("container1");
+        
+        var ls = list[0].getElementsByTagName("div");
+        
+        
+        if (ls[0].innerHTML == "Lettuce" && ls[1].innerHTML == "Apple" && ls[2].innerHTML == "Milk"
+            && ls[3].innerHTML == "Rice" && ls[4].innerHTML == "Ice cream" && ls[5].innerHTML == "Chicken"
+            && ls[6].innerHTML == "Beef" && ls[7].innerHTML == "Cheese" && ls[8].innerHTML == "Chocolate") {
+            document.getElementById("result").innerHTML = "Success";
+        }
+        else {
+            document.getElementById("result").innerHTML = "Try again";
+        }
+    }
 </script>
