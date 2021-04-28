@@ -10,7 +10,9 @@
 <div class="hero hero-3" style="background-image: url('../../images/background1.jpg');">
     <div class="container">
         <div class="col-lg-8 text-left mx-auto">
-            <div class="container1" id="container">
+            <button onclick="showSort()" style="margin-top:300px">Play Sorting Game</button>
+            <div class="container1" id="container" style="display:none">
+
                 <div draggable="true" class="box">Rice</div>
                 <div draggable="true" class="box">Chicken</div>
                 <div draggable="true" class="box">Beef</div>
@@ -20,13 +22,19 @@
                 <div draggable="true" class="box">Cheese</div>
                 <div draggable="true" class="box">Lettuce</div>
                 <div draggable="true" class="box">Ice cream</div>
-            </div>  <button onclick="complete()">Done</button>
 
-            <p id="result"></p>
+                <p id="result"></p>
+            </div>
+            <div class="container1" id="container2" style="display:none">
+
+            </div>
+            <button id="play1" onclick="complete()" style="display:none">Done</button>
+            <button id="quit1" onclick="quitSort()" style="display:none">Quit Game</button>
+
+
+            </div>
 
         </div>
-       
-    </div>
 </div>
 
 
@@ -43,7 +51,8 @@
     .container1 {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        padding-top: 300px;
+        background-color:gray;
+        
     }
 
     .box {
@@ -54,6 +63,7 @@
         margin-right: 40px;
         margin-bottom:10px;
         cursor: move;
+      
     }
 </style>
 <script type="text/javascript">
@@ -138,5 +148,21 @@
         else {
             document.getElementById("result").innerHTML = "Try again";
         }
+    }
+     
+    function showSort() {
+        var x = document.getElementById("container");
+       
+        x.style.display = "inline-grid";
+        document.getElementById("container2").style.display = "inline-grid";
+        document.getElementById("quit1").style.display = "block";
+        document.getElementById("play1").style.display="block";
+    }
+    function quitSort() {
+        var x = document.getElementById("container");
+
+        x.style.display = "none";
+        document.getElementById("play1").style.display = "none";
+        document.getElementById("quit1").style.display = "none";
     }
 </script>
