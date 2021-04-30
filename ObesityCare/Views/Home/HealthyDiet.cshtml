@@ -32,33 +32,33 @@
 <div class="container">
     <div class=" section-1">
         <div class="col-lg-8 text-center mx-auto">
-            <button class="btn btn-outline-primary" style="color: darkslateblue;margin-top:20px"  onclick="showSort()">Play</button>
+            <button class="btn btn-outline-primary" style="color: darkslateblue;margin-top:20px" onclick="showSort()">Play</button>
             <br>
             <div class="container2" id="container2" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)">
 
             </div>
             <div class="container1" id="container" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-                <div id="drag1" draggable="true" class="box" ondragstart="drag(event)">Rice</div>
-                <div id="drag2" draggable="true" class="box" ondragstart="drag(event)">Chicken</div>
-                <div id="drag3" draggable="true" class="box" ondragstart="drag(event)">Beef</div>
-                <div id="drag4" draggable="true" class="box" ondragstart="drag(event)">Apple</div>
-                <div id="drag5" draggable="true" class="box" ondragstart="drag(event)">Chocolate</div>
-                <div id="drag6" draggable="true" class="box" ondragstart="drag(event)">Milk</div>
-                <div id="drag7" draggable="true" class="box" ondragstart="drag(event)">Cheese</div>
-                <div id="drag8" draggable="true" class="box" ondragstart="drag(event)">Lettuce</div>
-                <div id="drag9" draggable="true" class="box" ondragstart="drag(event)">Ice cream</div>
+                <div id="drag1" draggable="true" class="box" ondragstart="drag(event)"></div>
+                <div id="drag2" draggable="true" class="box" ondragstart="drag(event)"></div>
+                <div id="drag3" draggable="true" class="box" ondragstart="drag(event)"></div>
+                <div id="drag4" draggable="true" class="box" ondragstart="drag(event)"></div>
+                <div id="drag5" draggable="true" class="box" ondragstart="drag(event)"></div>
+                <div id="drag6" draggable="true" class="box" ondragstart="drag(event)"></div>
+                <div id="drag7" draggable="true" class="box" ondragstart="drag(event)"></div>
+                <div id="drag8" draggable="true" class="box" ondragstart="drag(event)"></div>
+                <div id="drag9" draggable="true" class="box" ondragstart="drag(event)"></div>
 
                 <p id="result"></p>
             </div>
             <br />
             <button class="btn btn-outline-primary float-end" style="color: darkslateblue;margin-top:20px; display:none" id="play1" onclick="complete()">Done</button>
-            <button class="btn btn-outline-primary" style="color: darkslateblue;margin-top:20px;display:none" id="quit1" onclick="quitSort()" >Quit Game</button>
+            <button class="btn btn-outline-primary" style="color: darkslateblue;margin-top:20px;display:none" id="quit1" onclick="quitSort()">Quit Game</button>
 
 
         </div>
     </div>
- 
+
 
 </div>
 
@@ -86,14 +86,15 @@
 <style>
     .container1 {
         display: grid;
-        grid-template-columns: repeat(2, 2fr);
+        grid-template-columns: repeat(3, 2fr);
         background-color: lightgray;
-        width: 30%;
-        height: 300px;
+        width: 50%;
+        height: 500px;
         margin-top: 10px;
         margin-bottom: 10px;
         margin-left: 110%;
     }
+
     .container2 {
         display: grid;
         grid-template-columns: repeat(5, 2fr);
@@ -108,12 +109,42 @@
         border: 3px solid #666;
         background-color: #ddd;
         border-radius: .5em;
-        width:100px;
-        height:30px;
+        width: 110px;
+        height: 120px;
         cursor: move;
-        margin:10px;
+        margin: 10px;
+        margin-top:25px;
     }
-    
+
+    .image {
+        margin-top:20px;
+        width: 80px;
+        height: 70px;
+    }
+    .image2 {
+        margin-top: 20px;
+        width: 50px;
+        height: 70px;
+    }
+    .water {
+        margin-top: 20px;
+        width: 50px;
+        height: 70px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .egg {
+        margin-top: 20px;
+        width: 80px;
+        height: 70px;
+    }
+    .carrot {
+        margin-top: 20px;
+        width: 40px;
+        height: 70px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
 </style>
 
 
@@ -181,16 +212,16 @@
             item.addEventListener('drop', handleDrop, false);
             item.addEventListener('dragend', handleDragEnd, false);
         });
-        
+
 
     });
 
     function complete() {
         var list = document.getElementsByClassName("container1");
-        
+
         var ls = list[0].getElementsByTagName("div");
-        
-        
+
+
         if (ls[0].innerHTML == "Lettuce" && ls[1].innerHTML == "Apple" && ls[2].innerHTML == "Milk"
             && ls[3].innerHTML == "Rice" && ls[4].innerHTML == "Ice cream" && ls[5].innerHTML == "Chicken"
             && ls[6].innerHTML == "Beef" && ls[7].innerHTML == "Cheese" && ls[8].innerHTML == "Chocolate") {
@@ -200,14 +231,215 @@
             document.getElementById("result").innerHTML = "Try again";
         }
     }
-     
+
     function showSort() {
+
+
+        var list = document.getElementsByClassName("container1");
+        var ls = list[0].getElementsByTagName("div");
+        var rand = Math.floor(Math.random() * 100);
+
+
+
+        if (rand <= 25) {
+            ls[0].innerHTML = "Fish";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/fish.png") ';
+            ls[0].appendChild(img);
+            ls[1].innerHTML = "Beef";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/beef.png") ';
+            ls[1].appendChild(img);
+            ls[2].innerHTML = "Broccoli";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/broccoli.png") ';
+            ls[2].appendChild(img);
+            ls[3].innerHTML = "Beans";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/beans.png") ';
+            ls[3].appendChild(img);
+            ls[4].innerHTML = "Apple";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/apple.png") ';
+            ls[4].appendChild(img);
+            ls[5].innerHTML = "Pear";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/pear.png") ';
+            ls[5].appendChild(img);
+            ls[6].innerHTML = "Milk";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/milk.png") ';
+            ls[6].appendChild(img);
+            ls[7].innerHTML = "Orange Juice";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/orangejuice.png") ';
+            ls[7].appendChild(img);
+            ls[8].innerHTML = "Rice";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/rice.png") ';
+            ls[8].appendChild(img);
+        }
+        if (rand > 25 && rand <= 50) {
+            ls[0].innerHTML = "Lamb";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/lamb.png") ';
+
+            ls[0].appendChild(img);
+            ls[1].innerHTML = "Pork";
+            var img = document.createElement('img');
+            img.setAttribute("class", "egg");
+            img.src = '@Url.Content("~/images/pork.png") ';
+            ls[1].appendChild(img);
+            ls[2].innerHTML = "Carrots";
+            var img = document.createElement('img');
+            img.setAttribute("class", "carrot");
+            img.src = '@Url.Content("~/images/carrot.png") ';
+            ls[2].appendChild(img);
+            ls[3].innerHTML = "Celery";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/celery.png") ';
+            ls[3].appendChild(img);
+            ls[4].innerHTML = "Orange";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/orange.png") ';
+            ls[4].appendChild(img);
+            ls[5].innerHTML = "Watermelon";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/watermelon.png") ';
+            ls[5].appendChild(img);
+            ls[6].innerHTML = "Coconut water";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/coconutwater.png") ';
+            ls[6].appendChild(img);
+            ls[7].innerHTML = "Bubble Tea";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image2");
+            img.src = '@Url.Content("~/images/btea.png") ';
+            ls[7].appendChild(img);
+            ls[8].innerHTML = "Noodles";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/noodles.png") ';
+            ls[8].appendChild(img);
+        }
+        if (rand > 50 && rand <= 75) {
+            ls[0].innerHTML = "Chicken";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/chicken.png") ';
+            ls[0].appendChild(img);
+            ls[1].innerHTML = "Ham";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/ham.png") ';
+            ls[1].appendChild(img);
+            ls[2].innerHTML = "Salad";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/salad.png") ';
+            ls[2].appendChild(img);
+            ls[3].innerHTML = "Cucumber";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/cucumber.png") ';
+            ls[3].appendChild(img);
+            ls[4].innerHTML = "Banana";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/bananas.png") ';
+            ls[4].appendChild(img);
+            ls[5].innerHTML = "Kiwifruit";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/kiwi.png") ';
+            ls[5].appendChild(img);
+            ls[6].innerHTML = "Water";
+            var img = document.createElement('img');
+            img.setAttribute("class", "water");
+            img.src = '@Url.Content("~/images/water.png") ';
+            ls[6].appendChild(img);
+            ls[7].innerHTML = "Smoothie";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image2");
+            img.src = '@Url.Content("~/images/smoothie.png") ';
+            ls[7].appendChild(img);
+            ls[8].innerHTML = "Pasta";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/pasta.png") ';
+            ls[8].appendChild(img);
+        }
+        if (rand > 75 && rand <= 100) {
+            ls[0].innerHTML = "Bacon";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/bacon.png") ';
+            ls[0].appendChild(img);
+            ls[1].innerHTML = "Egg";
+            var img = document.createElement('img');
+            img.setAttribute("class", "egg");
+            img.src = '@Url.Content("~/images/egg.png") ';
+            ls[1].appendChild(img);
+            ls[2].innerHTML = "Potatoes";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/potato.png") ';
+            ls[2].appendChild(img);
+            ls[3].innerHTML = "Tomatoes";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/tomato.png") ';
+            ls[3].appendChild(img);
+            ls[4].innerHTML = "Peach";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/peach.png") ';
+            ls[4].appendChild(img);
+            ls[5].innerHTML = "Grapes";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/grapes.png") ';
+            ls[5].appendChild(img);
+            ls[6].innerHTML = "Black Tea";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/tea.png") ';
+            ls[6].appendChild(img);
+            ls[7].innerHTML = "Blend Juice";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image2");
+            img.src = '@Url.Content("~/images/cjuice.png") ';
+            ls[7].appendChild(img);
+            ls[8].innerHTML = "Bread";
+            var img = document.createElement('img');
+            img.setAttribute("class", "image");
+            img.src = '@Url.Content("~/images/bread.png") ';
+            ls[8].appendChild(img);
+        }
+
+
         var x = document.getElementById("container");
-       
+
         x.style.display = "inline-grid";
         document.getElementById("container2").style.display = "inline-grid";
         document.getElementById("quit1").style.display = "block";
-        document.getElementById("play1").style.display="block";
+        document.getElementById("play1").style.display = "block";
+
+
     }
     function quitSort() {
         var x = document.getElementById("container");
