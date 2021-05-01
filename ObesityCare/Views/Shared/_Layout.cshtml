@@ -69,7 +69,7 @@
                             <li>@Html.ActionLink("Healthy Lifestyle Recommendations", "LifestyleRecommendations", "Home")</li>
                         </ul>
                     </li>
-                   
+
                     <li class="has-children">
                         <p class="t1">Tools</p>
                         <ul class="dropdown">
@@ -88,8 +88,15 @@
 
                         </ul>
                     </li>
+                    <li class="has-children">
+                        <p class="t1">Records & Rewards</p>
+                        <ul class="dropdown">
+                            <li>@Html.ActionLink("Records", "Index", "Records")</li>
+                            <li>@Html.ActionLink("Rewards", "Index", "Rewards")</li>                         
+                        </ul>
+                    </li>
 
-                    <li>@Html.ActionLink("Records & Rewards", "Index", "Records")</li>
+                    
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
 

@@ -345,6 +345,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecordsController.cs" />
+    <Compile Include="Controllers\RewardsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -390,6 +391,7 @@
     <Compile Include="Models\Record.cs">
       <DependentUpon>adc.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RewardModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -743,6 +745,12 @@
     <Content Include="Views\Home\Consequences.cshtml" />
     <Content Include="Views\Home\LifestyleRecommendations.cshtml" />
     <Content Include="Views\Home\HealthyDiet.cshtml" />
+    <Content Include="Views\Rewards\Create.cshtml" />
+    <Content Include="Views\Rewards\Delete.cshtml" />
+    <Content Include="Views\Rewards\Details.cshtml" />
+    <Content Include="Views\Rewards\Edit.cshtml" />
+    <Content Include="Views\Rewards\Index.cshtml" />
+    <Content Include="Views\Rewards\Claim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
