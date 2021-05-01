@@ -5,17 +5,20 @@ using System.Linq;
 
 namespace ObesityCare.Models
 {
-    public partial class RewardModel : DbContext
+    public partial class StarModel : DbContext
     {
-        public RewardModel()
-            : base("name=RewardModel1")
+        public StarModel()
+            : base("name=StarModel")
         {
         }
 
-        public virtual DbSet<Reward> Rewards { get; set; }
+        public virtual DbSet<Star> Star { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Star>()
+                .Property(e => e.Amount);
+                
         }
     }
 }

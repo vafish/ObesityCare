@@ -21,14 +21,20 @@
                     </div>
                     
                     <div style="min-height: 250px;background-color:white; opacity:0.75">
+                        <p class="text-dark" style="margin-left:80%">
+                            @{
+                                var data = ViewData["totalstar"];
+                            }
+                            Total Star: @data
+                        </p>
                         <table class="table" style="">
                             <tr>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Name)
                                 </th>
                                 @*<th>
-                                    @Html.DisplayNameFor(model => model.Location)
-                                </th>*@
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>*@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Duration)
                                 </th>
@@ -46,8 +52,8 @@
                                         @Html.DisplayFor(modelItem => item.Name)
                                     </td>
                                     @*<td>
-                                        @Html.DisplayFor(modelItem => item.Location)
-                                    </td>*@
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>*@
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Duration) <span> Min</span>
                                     </td>
@@ -64,10 +70,10 @@
                             }
 
                         </table>
-                        <p class="btn btn-outline-secondary"style="margin-left:80%;margin-top:100px;">
+                        <p class="btn btn-outline-secondary" style="margin-left:80%;margin-top:100px;">
                             @Html.ActionLink("Add Records", "Create")
                         </p>
-                       
+
                     </div>
                    
                 </div>

@@ -15,7 +15,7 @@
                         <button class="btn-outline-info text-center" style="color:black;border-color:white; " onclick="TDEE()">i</button>
                     </h2>
 
-                    <div id="tdee" style="display:none" >
+                    <div id="tdee" style="display:none">
                         <p class="text-white text-center block-testimonial" data-aos="fade-up" data-aos-delay="100" style="font-size:14px;">This calculator computes total daily energy expenditure (TDEE), which is the number of calories you need to consume daily</p>
 
                     </div>
@@ -112,14 +112,14 @@
                                 </p>
                             </div>
 
+                        </div>
+
                     </div>
-
                 </div>
+
+                @*<div id="chartContainer" style="height: 320px; width: 100%;" />*@
             </div>
-
-            @*<div id="chartContainer" style="height: 320px; width: 100%;" />*@
         </div>
-
     </div>
 </div>
 
@@ -147,7 +147,7 @@
         if (heightunits == "inches") height /= 39.3700787;
         if (weightunits == "lb") weight /= 2.20462;
 
- 
+
         if (gender == "male") {
             var BMR = Math.round((10 * weight + 6.25 * height - 5 * age + 5) * activityfactor);
         }
@@ -167,13 +167,13 @@
         if (BMR <= 0) {
             document.getElementById("output").innerText = "Please provide correct information";
             document.getElementById("need").style.visibility = "visible"
-           
+
         }
-       
-       
-        
+
+
+
     }
-  
+
 </script>
 
 <script>
@@ -181,7 +181,7 @@
         var x = document.getElementById("tdee");
         if (x.style.display === "none") {
             x.style.display = "block";
-           
+
         } else {
             x.style.display = "none";
         }

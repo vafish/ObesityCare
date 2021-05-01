@@ -4,7 +4,10 @@
     ViewBag.Title = "Claim";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    var data = ViewData["totalstar"];
 
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -15,30 +18,42 @@
                 <div class="col-lg-10 mx-auto" style="background-color:white; opacity:0.75;">
                     <div class="intro col-lg-8 mx-auto text-dark">
 
-                        <h1 class="heading mb-2  text-dark" data-aos="fade-up" data-aos-delay="0" style="padding-top:10px"> Claim a Reward</h1>
+                        <h1 class="heading mb-2  text-dark" data-aos="fade-up" data-aos-delay="0" style="padding-top:10px">
+                            Claim a Reward
+                            <span class="block-testimonial" style="margin-left:300px;font-size:18px; font-weight:400">
+                                Your Current Star:  @data
+                                <span id="totalstar">
+
+                                </span>
+                            </span>
+                        </h1>
                         <div data-aos="fade-up" data-aos-delay="100">
                             <p class="block-testimonial">
                                 Reward Details
+
                             </p>
 
-
-                            <div class="row">
-
-                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+                            <div class="row block-testimonial">
+                                <div class="text-dark">
+                                    <span class="border-2 text-dark"> @Html.DisplayNameFor(model => model.Name)</span>
 
 
-                                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-4 mb-3" })
-                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "col-4 mb-3" } })
-                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    <span>: </span>
+                                    <span>@Html.DisplayFor(model => model.Name)</span>
+                                </div>
 
 
+                                <div class="text-dark mb-3">
+                                    <span>
+                                        @Html.DisplayNameFor(model => model.Cost)
 
+                                    </span>
+                                    <span>: </span>
+                                    <span>
+                                        @Html.DisplayFor(model => model.Cost) stars;
+                                    </span>
+                                </div>
 
-                                @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "col-4 mb-3" })
-
-                                @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "col-4 mb-3" } })
-                                @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
 
 
 
@@ -47,8 +62,7 @@
 
                                 <div class="col-4 mb-3 float-right" style="padding-left:40%">
 
-                                    <input onclick="checkCost" class="btn btn-outline-secondary" value="Claim" />
-
+                                    <input type="submit" class="btn btn-outline-secondary" value="Claim"/>
                                 </div>
 
                             </div>
@@ -65,3 +79,30 @@
     </div>
 }
 
+
+
+ @*<script>
+   function validate() {
+        if (@cost > @data) {
+            confirm("You need more stars to exchange this reward!")
+        }
+        if (@cost <= @data){
+            event.preventDefault();
+
+            $.ajax({
+                url: "@Url.Action("UpdateStar", "Rewards")",
+                data: { Id:@id, UserId:@uid, Amount: @data - @cost },
+                type: "post",
+                success: function () {
+                    // insert response into the div placeholder
+                    confirm("Reward exchanged succssfully!")
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr, ajaxOptions, thrownError);
+                }
+            });
+        }
+
+
+    }
+</script>*@

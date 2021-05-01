@@ -8,29 +8,48 @@ using System.Web;
 using System.Web.Mvc;
 using ObesityCare.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.SqlServer.Management.Smo;
+using System.Runtime.Remoting.Contexts;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace ObesityCare.Controllers
 {
     public class RecordsController : Controller
     {
         private ObesityCare_dbRecords db = new ObesityCare_dbRecords();
-
+        private StarModel db_star = new StarModel();
         // GET: Records
         [Authorize]
         public ActionResult Index()
         {
-            //var AllRecord = db.Record;
 
-            //for (int i = 0; i < AllRecord.Remove; i++)
-            //{
-            //    if (!AllRecord[i].UserId.Equals(User.Identity.GetUserId()))
-            //    {
-            //        AllRecord.RemoveAt(i);
-            //    }               
-            //}
             string id = User.Identity.GetUserId();
             var records = from r in db.Record select r;
-            records = records.Where(r => r.UserId.Equals(id));
+            records = records.Where(r => r.UserId.Equals(id));          
+
+            var stars = from r in db_star.Star select r;
+            var starlst = stars.Where(r => r.UserId.Equals(id)).ToList();
+
+            if (starlst.Count == 0)
+            {
+                if (ModelState.IsValid)
+                {
+                    Star newStar = new Star();
+                    newStar.Amount = 0;
+                    newStar.UserId = id;
+                    db_star.Star.Add(newStar);
+                    db_star.SaveChanges();
+                    ViewData["totalstar"] = 0;
+                }
+            }
+            else
+            {
+                ViewData["totalstar"] = starlst.First().Amount;
+            }
+
+
+
 
             return View(records.ToList());
         }
@@ -70,18 +89,25 @@ namespace ObesityCare.Controllers
             {
 
                 db.Record.Find(db.Record.Count());
-                record.Id = db.Record.Count() + 5;
+                record.Id = db.Record.Count() * 5;
                 record.UserId = User.Identity.GetUserId();
                 db.Record.Add(record);
                 db.SaveChanges();
+                var star = from r in db_star.Star select r;
+                var u_star = star.Where(r => r.UserId.Equals(record.UserId)).ToList().First();
+                u_star.Amount += record.Star;
+                db_star.Entry(u_star).State = EntityState.Modified;
+                db_star.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(record);
         }
 
-        // GET: Records/Edit/5
-        public ActionResult Edit(int? id)
+      
+
+            // GET: Records/Edit/5
+            public ActionResult Edit(int? id)
         {
             if (id == null)
             {
