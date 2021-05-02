@@ -195,13 +195,13 @@
 
 
         if (BMI < 18.5)
-            document.getElementById("comment").innerText = "Your child is underweight. It's important to aim to keep within your healthy weight range. Being in the healthy weight range will improve your body's ability to fight off infection or illness.";
+            document.getElementById("comment").innerText = "Your child is considered underweight. It's important to stay inside a healthy weight range. Checkout our food section for meal preparation and weight gain."
         if (BMI >= 18.5 && BMI <= 25)
-            document.getElementById("comment").innerText = "Your child's weight is healthy. Aim to keep your child within the healthy weight range by enjoying a healthy, well - balanced diet and exercising regularly.";
+            document.getElementById("comment").innerText = "Your child is considered to be in a healthy weight, theres no need to change his/her life style, maintain a healthy weight by eating healthy, and exercising on a regular basis.";
         if (BMI >= 25 && BMI <= 30)
-            document.getElementById("comment").innerText = "Your child is overweight. Being overweight increases the risk of developing coronary heart disease, as well as other health conditions. To achieve and maintain a healthy weight, be physically active every day and enjoy a healthy, well-balanced diet";
+            document.getElementById("comment").innerText = "Your child is considered to be overweight. It's important to stay inside a healthy weight range.  Continue to use our site to learn about suggestions of letting your child stay keeping. ";
         if (BMI > 30)
-            document.getElementById("comment").innerText = "Your child's weight falls within the obese range. High BMI increases the risk of developing coronary heart disease, as well as other heath conditions. To achieve and maintain a healthy weight be physically active every day and eat a healthy, well-balanced diet that meets your energy needs.";
+            document.getElementById("comment").innerText = "Your child is considered to be obese. It's important to stay inside a healthy weight range.  Continue to use our site to learn about suggestions of letting your child stay keeping.";
         // document.getElementById("answer").value = output;
 
         var result = @Html.Raw(ViewBag.DataPoints);

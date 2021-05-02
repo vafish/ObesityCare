@@ -425,6 +425,7 @@
     <Content Include="images\background2.jpg" />
     <Content Include="images\bacon.png" />
     <Content Include="images\bananas.png" />
+    <Content Include="images\basket.png" />
     <Content Include="images\beans.png" />
     <Content Include="images\beef.png" />
     <Content Include="images\blendjuice.png" />
@@ -495,6 +496,7 @@
     <Content Include="images\person_sq_1.jpg" />
     <Content Include="images\person_sq_2.jpg" />
     <Content Include="images\person_sq_3.jpg" />
+    <Content Include="images\plate.png" />
     <Content Include="images\pork.png" />
     <Content Include="images\potato.jpg" />
     <Content Include="images\potato.png" />
@@ -760,6 +762,7 @@
     <Content Include="Views\Stars\Details.cshtml" />
     <Content Include="Views\Stars\Edit.cshtml" />
     <Content Include="Views\Stars\Index.cshtml" />
+    <Content Include="Views\Home\FoodSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

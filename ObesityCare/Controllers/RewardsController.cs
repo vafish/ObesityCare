@@ -163,13 +163,19 @@ namespace ObesityCare.Controllers
                     db_star.Entry(u_star).State = EntityState.Modified;
                     db_star.SaveChanges();
                     ViewData["totalstar"] = u_star.Amount;
-                    System.Windows.Forms.MessageBox.Show("Reward exchanged successfully!");
+                    ViewBag.Message = String.Format( reward.Name,"has been exchanged successfully!", DateTime.Now.ToString());
+                    //System.Windows.Forms.MessageBox.Show("");
+                    
+                    return View(m_reward);
                 }
                 else
                 {
-                    System.Windows.Forms.MessageBox.Show("You need more stars to exchange this reward!");
+                    ViewData["totalstar"] = u_star.Amount;
+                    ViewBag.Message = String.Format("You need more stars to exchange ", reward.Name);
+                    //System.Windows.Forms.MessageBox.Show("");
+                    return View(m_reward);
                 }
-                return RedirectToAction("Index");
+                
             }
             return RedirectToAction("Index");
         }

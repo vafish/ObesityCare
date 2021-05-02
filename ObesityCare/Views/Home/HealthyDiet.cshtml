@@ -10,13 +10,22 @@
 <div class="hero hero-3" style="background-image: url('../../images/background1.jpg');">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-8 text-center mx-auto">
+            <div class="col-lg-8 text-left mx-auto">
                 <div class="intro">
 
-                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0" style="padding-bottom:30px">Healthy Diet Game</h1>
+                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0" style="padding-bottom:30px;"> Healthy Meals</h1>
                     <div class="text-white" data-aos="fade-up" data-aos-delay="100">
-                        <p class="block-testimonial">
-                            Prepare a healthy lunch for your children!
+                        <p class="block-testimonial ">
+
+                            <br />
+
+                            Using our calculators, it is easy to find total daily energy expenditure figure which is recommended daily calorie intake that your child should have to maintain weight, anything above that will result in weight gain. From Moore (2021)’s article we understand that this number should be split evenly across different meals throughout the day and our recommendation is for your child to consume:
+                            <br />
+                            <br />30-35% of daily calories in the morning
+                            <br />35-40% of daily calories for the afternoon
+                            <br />25-35% of daily calories at night
+
+                           
                         </p>
 
                     </div>
@@ -32,8 +41,9 @@
 <div class="container">
     <div class=" section-1">
         <div class="col-lg-8 text-center mx-auto">
-            <button class="btn btn-outline-primary"id="play" style="color: darkslateblue;margin-top:20px" onclick="showSort()">Play</button>
-            <br>
+            <button class="btn btn-outline-primary mb-3" id="play" style="color: darkslateblue;margin-top:20px" onclick="showSort()">Lunch Box Challenge</button>
+            
+            <p class="block-testimonial "id="tip"style="display:none"> Prepare a healthy lunch for your children.<br />A healthy lunch should contain  500-700 calories.</p>
             <div class="container2" id="container2" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)">
 
             </div>
@@ -87,12 +97,11 @@
     .container1 {
         display: grid;
         grid-template-columns: repeat(3, 2fr);
-        background-color: lightgray;
-        width: 50%;
+        width: 550px;
+        background-image: url('../../images/basket.png');
         min-height: 200px;
         margin-top: 10px;
         margin-bottom: 10px;
-        margin-left: 110%;
     }
 
     .container2 {
@@ -109,8 +118,8 @@
         border: 3px solid #666;
         background-color: #ddd;
         border-radius: .5em;
-        width: 110px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
         cursor: move;
         margin: 10px;
         margin-top:25px;
@@ -217,19 +226,109 @@
     });
 
     function complete() {
-        var list = document.getElementsByClassName("container1");
-
-        var ls = list[0].getElementsByTagName("div");
-
-
-        if (ls[0].innerHTML == "Lettuce" && ls[1].innerHTML == "Apple" && ls[2].innerHTML == "Milk"
-            && ls[3].innerHTML == "Rice" && ls[4].innerHTML == "Ice cream" && ls[5].innerHTML == "Chicken"
-            && ls[6].innerHTML == "Beef" && ls[7].innerHTML == "Cheese" && ls[8].innerHTML == "Chocolate") {
-            document.getElementById("result").innerHTML = "Success";
+        var ls = document.getElementById("container2").getElementsByTagName("div");
+        var sum = 0;
+             
+        for (let i = 0; i <= ls.length - 1; i++) {
+            var text = ls[i].innerText;
+            if (text == "Fish(100g)") {
+                sum += 160;
+            }
+            if (text == "Beef(100g)") {
+                sum += 198;
+            }
+            if (text == "Lamb(100g)") {
+                sum += 282;
+            }
+            if (text == "Pork(100g)") {
+                sum += 263;
+            }
+            if (text == "Chicken(100g)") {
+                sum += 143;
+            }
+            if (text == "Ham(20g)") {
+                sum += 36;
+            }
+            if (text == "Bacon(20g)") {
+                sum += 103;
+            }
+            if (text == "Egg(100g)") {
+                sum += 143;
+            }
+            if (text == "Broccoli(100g)") {
+                sum += 34;
+            }
+            if (text == "Beans(100g)") {
+                sum += 147;
+            }
+            if (text == "Carrots(100g)") {
+                sum += 41;
+            }
+            if (text == "Celery(100g)") {
+                sum += 16;
+            }
+            if (text == "Salad(100g)") {
+                sum += 21;
+            } if (text == "Cucumber(100g)") {
+                sum += 12;
+            } if (text == "Potatoes(100g)") {
+                sum += 58;
+            } if (text == "Tomatoes(100g)") {
+                sum += 16;
+            } if (text == "Apple(1)") {
+                sum += 48;
+            } if (text == "Pear(1)") {
+                sum += 57;
+            } if (text == "Orange(1)") {
+                sum += 55;
+            } if (text == "Watermelon(100g)") {
+                sum += 30;
+            } if (text == "Bananas(1)") {
+                sum += 89;
+            } if (text == "Kiwifruit(1)") {
+                sum += 40;
+            }  if (text == "Peach(1)") {
+                sum += 39;
+            } if (text == "Grapes(100g)") {
+                sum += 57;
+            } if (text == "Strawberry(100g)") {
+                sum += 69;
+            } if (text == "Milk(125ml)") {
+                sum += 55;
+            } if (text == "Orange Juice(125ml)") {
+                sum += 59;
+            } if (text == "Blend Juice(125ml)") {
+                sum += 62;
+            } if (text == "Coconut water(125ml)") {
+                sum += 24 ;
+            } if (text == "Water(125ml)") {
+                sum += 0;
+            } if (text == "Black Tea(125ml)") {
+                sum += 0;
+            } if (text == "Bubble Tea(125ml)") {
+                sum += 96;
+            } if (text == "Smoothie(125ml)") {
+                sum += 45;
+            } if (text == "Rice(100g)") {
+                sum += 130;
+            } if (text == "Noodle(100g)") {
+                sum += 108;
+            } if (text == "Toasted Bread(100g)") {
+                sum += 288;
+            } if (text == "Pasta(100g)") {
+                sum += 131 ;
+            } 
+            
         }
-        else {
-            document.getElementById("result").innerHTML = "Try again";
-        }
+        document.getElementById("result").innerHTML = sum;
+        //if (ls[0].innerHTML == "Lettuce" && ls[1].innerHTML == "Apple" && ls[2].innerHTML == "Milk"
+        //    && ls[3].innerHTML == "Rice" && ls[4].innerHTML == "Ice cream" && ls[5].innerHTML == "Chicken"
+        //    && ls[6].innerHTML == "Beef" && ls[7].innerHTML == "Cheese" && ls[8].innerHTML == "Chocolate") {
+            
+        //}
+        //else {
+        //    document.getElementById("result").innerHTML = "Try again";
+        //}
     }
 
     function showSort() {
@@ -239,7 +338,7 @@
         document.getElementById("quit1").style.display = "block";
         document.getElementById("play1").style.display = "block";
         document.getElementById("play").style.visibility = "hidden";
-
+        document.getElementById("tip").style.display = "block";
 
         var list = document.getElementsByClassName("container1");
         var ls = list[0].getElementsByTagName("div");
@@ -248,189 +347,189 @@
 
 
         if (rand <= 25) {
-            ls[0].innerHTML = "Fish";
+            ls[0].innerHTML = "Fish(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/fish.png") ';
             ls[0].appendChild(img);
-            ls[1].innerHTML = "Beef";
+            ls[1].innerHTML = "Beef(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/beef.png") ';
             ls[1].appendChild(img);
-            ls[2].innerHTML = "Broccoli";
+            ls[2].innerHTML = "Broccoli(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/broccoli.png") ';
             ls[2].appendChild(img);
-            ls[3].innerHTML = "Beans";
+            ls[3].innerHTML = "Beans(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/beans.png") ';
             ls[3].appendChild(img);
-            ls[4].innerHTML = "Apple";
+            ls[4].innerHTML = "Apple(1)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/apple.png") ';
             ls[4].appendChild(img);
-            ls[5].innerHTML = "Pear";
+            ls[5].innerHTML = "Pear(1)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/pear.png") ';
             ls[5].appendChild(img);
-            ls[6].innerHTML = "Milk";
+            ls[6].innerHTML = "Milk(125ml)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/milk.png") ';
             ls[6].appendChild(img);
-            ls[7].innerHTML = "Orange Juice";
+            ls[7].innerHTML = "Orange Juice(125ml)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/orangejuice.png") ';
             ls[7].appendChild(img);
-            ls[8].innerHTML = "Rice";
+            ls[8].innerHTML = "Rice(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/rice.png") ';
             ls[8].appendChild(img);
         }
         if (rand > 25 && rand <= 50) {
-            ls[0].innerHTML = "Lamb";
+            ls[0].innerHTML = "Lamb(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/lamb.png") ';
 
             ls[0].appendChild(img);
-            ls[1].innerHTML = "Pork";
+            ls[1].innerHTML = "Pork(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "egg");
             img.src = '@Url.Content("~/images/pork.png") ';
             ls[1].appendChild(img);
-            ls[2].innerHTML = "Carrots";
+            ls[2].innerHTML = "Carrots(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "carrot");
             img.src = '@Url.Content("~/images/carrot.png") ';
             ls[2].appendChild(img);
-            ls[3].innerHTML = "Celery";
+            ls[3].innerHTML = "Celery(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/celery.png") ';
             ls[3].appendChild(img);
-            ls[4].innerHTML = "Orange";
+            ls[4].innerHTML = "Orange(1)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/orange.png") ';
             ls[4].appendChild(img);
-            ls[5].innerHTML = "Watermelon";
+            ls[5].innerHTML = "Watermelon(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/watermelon.png") ';
             ls[5].appendChild(img);
-            ls[6].innerHTML = "Coconut water";
+            ls[6].innerHTML = "Coconut water(125ml)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/coconutwater.png") ';
             ls[6].appendChild(img);
-            ls[7].innerHTML = "Bubble Tea";
+            ls[7].innerHTML = "Bubble Tea(125ml)";
             var img = document.createElement('img');
             img.setAttribute("class", "image2");
             img.src = '@Url.Content("~/images/btea.png") ';
             ls[7].appendChild(img);
-            ls[8].innerHTML = "Noodles";
+            ls[8].innerHTML = "Noodles(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/noodles.png") ';
             ls[8].appendChild(img);
         }
         if (rand > 50 && rand <= 75) {
-            ls[0].innerHTML = "Chicken";
+            ls[0].innerHTML = "Chicken(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/chicken.png") ';
             ls[0].appendChild(img);
-            ls[1].innerHTML = "Ham";
+            ls[1].innerHTML = "Ham(20g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/ham.png") ';
             ls[1].appendChild(img);
-            ls[2].innerHTML = "Salad";
+            ls[2].innerHTML = "Salad(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/salad.png") ';
             ls[2].appendChild(img);
-            ls[3].innerHTML = "Cucumber";
+            ls[3].innerHTML = "Cucumber(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/cucumber.png") ';
             ls[3].appendChild(img);
-            ls[4].innerHTML = "Banana";
+            ls[4].innerHTML = "Banana(1)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/bananas.png") ';
             ls[4].appendChild(img);
-            ls[5].innerHTML = "Kiwifruit";
+            ls[5].innerHTML = "Kiwifruit(1)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/kiwi.png") ';
             ls[5].appendChild(img);
-            ls[6].innerHTML = "Water";
+            ls[6].innerHTML = "Water(125ml)";
             var img = document.createElement('img');
             img.setAttribute("class", "water");
             img.src = '@Url.Content("~/images/water.png") ';
             ls[6].appendChild(img);
-            ls[7].innerHTML = "Smoothie";
+            ls[7].innerHTML = "Smoothie(125ml)";
             var img = document.createElement('img');
             img.setAttribute("class", "image2");
             img.src = '@Url.Content("~/images/smoothie.png") ';
             ls[7].appendChild(img);
-            ls[8].innerHTML = "Pasta";
+            ls[8].innerHTML = "Pasta(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/pasta.png") ';
             ls[8].appendChild(img);
         }
         if (rand > 75 && rand <= 100) {
-            ls[0].innerHTML = "Bacon";
+            ls[0].innerHTML = "Bacon(30g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/bacon.png") ';
             ls[0].appendChild(img);
-            ls[1].innerHTML = "Egg";
+            ls[1].innerHTML = "Egg(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "egg");
             img.src = '@Url.Content("~/images/egg.png") ';
             ls[1].appendChild(img);
-            ls[2].innerHTML = "Potatoes";
+            ls[2].innerHTML = "Potatoes(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/potato.png") ';
             ls[2].appendChild(img);
-            ls[3].innerHTML = "Tomatoes";
+            ls[3].innerHTML = "Tomatoes(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/tomato.png") ';
             ls[3].appendChild(img);
-            ls[4].innerHTML = "Peach";
+            ls[4].innerHTML = "Peach(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/peach.png") ';
             ls[4].appendChild(img);
-            ls[5].innerHTML = "Grapes";
+            ls[5].innerHTML = "Grapes(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/grapes.png") ';
             ls[5].appendChild(img);
-            ls[6].innerHTML = "Black Tea";
+            ls[6].innerHTML = "Black Tea(125ml)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/tea.png") ';
             ls[6].appendChild(img);
-            ls[7].innerHTML = "Blend Juice";
+            ls[7].innerHTML = "Blend Juice(125ml)";
             var img = document.createElement('img');
             img.setAttribute("class", "image2");
             img.src = '@Url.Content("~/images/cjuice.png") ';
             ls[7].appendChild(img);
-            ls[8].innerHTML = "Bread";
+            ls[8].innerHTML = "Toasted Bread(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/bread.png") ';
@@ -449,5 +548,6 @@
         document.getElementById("play1").style.display = "none";
         document.getElementById("quit1").style.display = "none";
         document.getElementById("play").style.visibility = "visible";
+        document.getElementById("tip").style.display = "none";
     }
 </script>

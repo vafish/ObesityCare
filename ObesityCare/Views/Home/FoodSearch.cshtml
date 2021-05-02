@@ -1,0 +1,433 @@
+﻿
+
+@{
+    ViewBag.Title = "FoodSearch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="hero hero-3" style="background-image: url('../../images/background1.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center mx-auto">
+                <div class="intro">
+
+                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0">Check Food Calories</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="post-entries section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 mx-auto" data-aos="fade-up" data-aos-delay="0">
+                <div class="line mx-auto mb-3"></div>
+                <h2 class="heading mb-5 text-center">Foods &amp; Calories </h2>
+
+                <div class="box">
+                    <div class="searchBox">
+                        <input type="text" onkeyup="myFunction()" placeholder="Search for activities" class="searchInput" id="myInput" style="padding-left: 10px;">
+                        <input type="button" value="Search" class="searchButton">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 mx-auto">
+
+                <div class="tab-content" id="tabContent">
+                    <table class="myTable" id="myTable">
+                        <tr class="header">
+                            <th style="width:35%;">Food</th>
+                            <th style="width:45%;">Calories (per 100g)</th>
+                            @*<th style="width:20%;">Star</th>*@
+                        </tr>
+                        <tr>
+                            <td>Fish</td>
+                            <td>160</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Beef</td>
+                            <td>198</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Pork</td>
+                            <td>263</td>
+
+                        </tr>
+                        <tr>
+                            <td>Lamb</td>
+                            <td>282</td>
+
+                        </tr>
+                        <tr>
+                            <td>Chicken</td>
+                            <td>143</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Ham</td>
+                            <td>180</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Bacon</td>
+                            <td>517</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Egg</td>
+                            <td>143</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Broccoli</td>
+                            <td>34</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Beans</td>
+                            <td>147</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Carrots</td>
+                            <td>41</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Celery</td>
+                            <td>41</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Chicken</td>
+                            <td>143</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Salad</td>
+                            <td>21</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Cucumber</td>
+                            <td>12</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Potatoes</td>
+                            <td>58</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Tomatoes</td>
+                            <td>16</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Pumpkin</td>
+                            <td>26</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Apples</td>
+                            <td>48</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Pears</td>
+                            <td>57</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Oranges</td>
+                            <td>63</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Watermelon</td>
+                            <td>30</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Bananas</td>
+                            <td>89</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Kiwifruit</td>
+                            <td>61</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Peaches</td>
+                            <td>39</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Grapes</td>
+                            <td>57</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Strawberry</td>
+                            <td>69</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Litchis</td>
+                            <td>66</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Nectarines</td>
+                            <td>43</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Milk</td>
+                            <td>61</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Juice</td>
+                            <td>46</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Blend Juice</td>
+                            <td>50</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Smoothie</td>
+                            <td>37</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Cola</td>
+                            <td>38</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Cola(Diet)</td>
+                            <td>2</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Soy Milk</td>
+                            <td>54</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Water</td>
+                            <td>0</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Black Tea</td>
+                            <td>0</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Energy drink</td>
+                            <td>43</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Bubble Tea</td>
+                            <td>96</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Coconut water</td>
+                            <td>18</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Rice</td>
+                            <td>130</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Fried Rice</td>
+                            <td>174</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Noodles</td>
+                            <td>108</td>
+
+
+                        </tr>
+                        <tr>
+                            <td>Bread(Toasted)</td>
+                            <td>288</td>
+
+                        </tr>
+                        <tr>
+                            <td>Pasta</td>
+                            <td>131</td>
+
+
+                        </tr>
+
+                        <tr>
+                            <td>Pizza</td>
+                            <td>266</td>
+
+
+                        </tr>
+                    </table>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .box {
+        margin: 10px auto;
+        height: 50px;
+        width: 100%;
+    }
+
+    .searchBox {
+        margin: 0 auto;
+        width: 80%;
+        position: relative;
+    }
+
+    .searchInput {
+        display: inline-block;
+        width: 80%;
+        height: 38px;
+        border: 1px solid #cccccc;
+        float: left;
+        box-sizing: border-box;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
+    .searchButton {
+        display: inline-block;
+        width: 20%;
+        height: 38px;
+        line-height: 40px;
+        float: left;
+        background-color: #00a0e9;
+        font-size: 16px;
+        cursor: pointer;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        border: none;
+        color: #fff;
+        margin-bottom: 100px;
+    }
+
+
+
+
+
+    #myTable {
+        border-collapse: collapse; /* Collapse borders */
+        width: 100%; /* Full-width */
+        border: 2px solid #ddd; /* Add a grey border */
+        font-size: 15px; /* Increase font-size */
+    }
+
+        #myTable th, #myTable td {
+            text-align: left; /* Left-align text */
+            padding: 12px; /* Add padding */
+        }
+
+        #myTable tr {
+            /* Add a bottom border to all table rows */
+            border-bottom: 1px solid #ddd;
+        }
+
+            #myTable tr.header, #myTable tr:hover {
+                /* Add a grey background color to the table header and on hover */
+                background-color: #f1f1f1;
+            }
+</style>
+

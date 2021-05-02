@@ -62,7 +62,7 @@
 
                                 <div class="col-4 mb-3 float-right" style="padding-left:40%">
 
-                                    <input type="submit" class="btn btn-outline-secondary" value="Claim"/>
+                                    <input type="submit" class="btn btn-outline-secondary" value="Claim" />
                                 </div>
 
                             </div>
@@ -77,32 +77,44 @@
             </div>
         </div>
     </div>
+
+
+}
+@if (ViewBag.Message != null)
+{
+<script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+                
+            };
+</script>
+
 }
 
 
+@*<script>
+       function validate() {
+            if (@cost > @data) {
+                confirm("You need more stars to exchange this reward!")
+            }
+            if (@cost <= @data){
+                event.preventDefault();
 
- @*<script>
-   function validate() {
-        if (@cost > @data) {
-            confirm("You need more stars to exchange this reward!")
+                $.ajax({
+                    url: "@Url.Action("UpdateStar", "Rewards")",
+                    data: { Id:@id, UserId:@uid, Amount: @data - @cost },
+                    type: "post",
+                    success: function () {
+                        // insert response into the div placeholder
+                        confirm("Reward exchanged succssfully!")
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.log(xhr, ajaxOptions, thrownError);
+                    }
+                });
+            }
+
+
         }
-        if (@cost <= @data){
-            event.preventDefault();
-
-            $.ajax({
-                url: "@Url.Action("UpdateStar", "Rewards")",
-                data: { Id:@id, UserId:@uid, Amount: @data - @cost },
-                type: "post",
-                success: function () {
-                    // insert response into the div placeholder
-                    confirm("Reward exchanged succssfully!")
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    console.log(xhr, ajaxOptions, thrownError);
-                }
-            });
-        }
-
-
-    }
-</script>*@
+    </script>*@

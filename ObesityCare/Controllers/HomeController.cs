@@ -316,5 +316,12 @@ namespace ObesityCare.Controllers
 
             return View();
         }
+
+        public ActionResult FoodSearch()
+        {
+            ViewBag.Message = "FoodSearch";
+
+            return View();
+        }
     }
 }
