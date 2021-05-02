@@ -50,7 +50,7 @@
             <h1 class="block-testimonial mb-2" id="foodtitle" data-aos="fade-up" data-aos-delay="0" style="font-size:x-large;display:none"> Food Storage</h1>
             <div class="container1" id="container" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)">
 
-                <div id="drag1" draggable="true" class="box" ondragstart="drag(event)"></div>
+                @*<div id="drag1" draggable="true" class="box" ondragstart="drag(event)"></div>
                 <div id="drag2" draggable="true" class="box" ondragstart="drag(event)"></div>
                 <div id="drag3" draggable="true" class="box" ondragstart="drag(event)"></div>
                 <div id="drag4" draggable="true" class="box" ondragstart="drag(event)"></div>
@@ -58,7 +58,7 @@
                 <div id="drag6" draggable="true" class="box" ondragstart="drag(event)"></div>
                 <div id="drag7" draggable="true" class="box" ondragstart="drag(event)"></div>
                 <div id="drag8" draggable="true" class="box" ondragstart="drag(event)"></div>
-                <div id="drag9" draggable="true" class="box" ondragstart="drag(event)"></div>
+                <div id="drag9" draggable="true" class="box" ondragstart="drag(event)"></div>*@
 
 
             </div>
@@ -347,17 +347,12 @@
 
         }
        
-        //if (ls[0].innerHTML == "Lettuce" && ls[1].innerHTML == "Apple" && ls[2].innerHTML == "Milk"
-        //    && ls[3].innerHTML == "Rice" && ls[4].innerHTML == "Ice cream" && ls[5].innerHTML == "Chicken"
-        //    && ls[6].innerHTML == "Beef" && ls[7].innerHTML == "Cheese" && ls[8].innerHTML == "Chocolate") {
-            
-        //}
-        //else {
-        //    document.getElementById("result").innerHTML = "Try again";
-        //}
+       
     }
 
     function showSort() {
+
+        document.getElementById("result").innerHTML = "";
         var x = document.getElementById("container");
         x.style.display = "inline-grid";
         document.getElementById("container2").style.display = "inline-grid";
@@ -368,10 +363,22 @@
         document.getElementById("foodtitle").style.display = "block";
 
         var list = document.getElementsByClassName("container1");
+        list[0].innerHTML = "";
+         
+      
+        for (let i = 0; i < 9; i++) {
+            var box = document.createElement("div");
+
+            box.setAttribute("class", "box");
+            box.setAttribute('draggable', true);
+            box.setAttribute('ondragstart', "drag(event)");
+            box.setAttribute('id', "drag" + i.toString());
+
+            list[0].appendChild(box);
+        }
+       
         var ls = list[0].getElementsByTagName("div");
         var rand = Math.floor(Math.random() * 100);
-
-
 
         if (rand <= 25) {
             ls[0].innerHTML = "Fish(100g)";
@@ -568,6 +575,8 @@
 
     }
     function quitSort() {
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("container2").innerHTML = "";
         var x = document.getElementById("container");
 
         x.style.display = "none";
@@ -576,6 +585,6 @@
         document.getElementById("quit1").style.display = "none";
         document.getElementById("play").style.visibility = "visible";
         document.getElementById("tip").style.display = "none";
-        document.getElementById("foodtitle").style.display = "block";
+        document.getElementById("foodtitle").style.display = "none";
     }
 </script>
