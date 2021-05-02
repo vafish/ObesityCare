@@ -13,7 +13,7 @@
             <div class="col-lg-8 text-left mx-auto">
                 <div class="intro">
 
-                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0" style="padding-bottom:30px;"> Healthy Meals</h1>
+                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0" style="padding-top:100px;"> Healthy Meals</h1>
                     <div class="text-white" data-aos="fade-up" data-aos-delay="100">
                         <p class="block-testimonial ">
 
@@ -40,13 +40,14 @@
 
 <div class="container">
     <div class=" section-1">
-        <div class="col-lg-8 text-center mx-auto">
+        <div class="col-lg-12 text-center">
             <button class="btn btn-outline-primary mb-3" id="play" style="color: darkslateblue;margin-top:20px" onclick="showSort()">Lunch Box Challenge</button>
-            
-            <p class="block-testimonial "id="tip"style="display:none"> Prepare a healthy lunch for your children.<br />A healthy lunch should contain  500-700 calories.</p>
+
+            <p class="block-testimonial " id="tip" style="display:none; font-weight:400"> Prepare a healthy lunch for your children.<br />A healthy lunch should contain  500-700 calories.</p>
             <div class="container2" id="container2" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)">
 
             </div>
+            <h1 class="block-testimonial mb-2" id="foodtitle" data-aos="fade-up" data-aos-delay="0" style="font-size:x-large;display:none"> Food Storage</h1>
             <div class="container1" id="container" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                 <div id="drag1" draggable="true" class="box" ondragstart="drag(event)"></div>
@@ -59,14 +60,20 @@
                 <div id="drag8" draggable="true" class="box" ondragstart="drag(event)"></div>
                 <div id="drag9" draggable="true" class="box" ondragstart="drag(event)"></div>
 
-                <p id="result"></p>
+
             </div>
             <br />
-            <button class="btn btn-outline-primary float-end" style="color: darkslateblue;margin-top:20px; display:none" id="play1" onclick="complete()">Done</button>
-            <button class="btn btn-outline-primary" style="color: darkslateblue;margin-top:20px;display:none" id="quit1" onclick="quitSort()">Quit Game</button>
+            <p id="result" class="block-testimonial" style="margin-left:100px;margin-right:100px;margin-top:100px;text-align:left"></p>
+            <button class="btn btn-outline-primary float-end" style="color: darkslateblue;margin-top:20px;margin-right:100px; display:none" id="play1" onclick="complete()">Done</button>
+            <button class="btn btn-outline-primary " style="color: darkslateblue;margin-top:20px;margin-left:100px;display:none" id="quit1" onclick="quitSort()">Quit Game</button>
 
 
         </div>
+
+        <a href="@Url.Action("FoodSearch", "Home")" class="d-flex block-testimonial" style="margin-top:50px; margin-left:80%">
+            <span class="label">Check food calories</span>
+            <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+        </a>
     </div>
 
 
@@ -96,30 +103,38 @@
 <style>
     .container1 {
         display: grid;
-        grid-template-columns: repeat(3, 2fr);
-        width: 550px;
-        background-image: url('../../images/basket.png');
+        grid-template-columns: repeat(5, 2fr);
+        width: 780px;
         min-height: 200px;
         margin-top: 10px;
         margin-bottom: 10px;
+        padding-right: 700px;
+        background-color:lightblue;
     }
 
     .container2 {
         display: grid;
-        grid-template-columns: repeat(5, 2fr);
-        background-color: lightgray;
+        grid-template-columns: repeat(4, 2fr);
+        background-image: url('../../images/plate.png');
         width: 100%;
-        min-height: 200px;
+        min-height: 600px;
         margin-top: 10px;
         margin-bottom: 10px;
+        margin-left: 150px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding-left: 225px;
+        padding-right: 500px;
+        padding-bottom: 100px;
+        padding-top: 100px;
     }
 
     .box {
         border: 3px solid #666;
         background-color: #ddd;
         border-radius: .5em;
-        width: 150px;
-        height: 150px;
+        width: 135px;
+        height: 140px;
         cursor: move;
         margin: 10px;
         margin-top:25px;
@@ -129,6 +144,7 @@
         margin-top:20px;
         width: 80px;
         height: 70px;
+
     }
     .image2 {
         margin-top: 20px;
@@ -320,7 +336,17 @@
             } 
             
         }
-        document.getElementById("result").innerHTML = sum;
+        if (sum < 500) {
+            document.getElementById("result").innerHTML = "Food calories lower than recommended: If you make a lunchbox that contains fewer than 500 Cal, the child will begin to lose weight proportionally to the number of calories lost. It is important to remember that it is not recommended to feed a child at a level that is too much lower than the recommended level because they will lose energy to sustain their everyday activities.";
+        }
+        if (sum > 700) {
+            document.getElementById("result").innerHTML = "Healthy Lunch box is made. Great job!";
+        }
+        if (500 <= sum && sum <= 700) {
+                document.getElementById("result").innerHTML = "Food calories higher than recommended: If you make a lunchbox that contains more than 700 Cal, the child will begin to gain weight proportionally to the number of calories lost. It is important to remember that it is not recommended to overfeed a child at a level that is too much higher than the recommended level as to much excess food will lead to obesity and related health issues.";
+
+        }
+       
         //if (ls[0].innerHTML == "Lettuce" && ls[1].innerHTML == "Apple" && ls[2].innerHTML == "Milk"
         //    && ls[3].innerHTML == "Rice" && ls[4].innerHTML == "Ice cream" && ls[5].innerHTML == "Chicken"
         //    && ls[6].innerHTML == "Beef" && ls[7].innerHTML == "Cheese" && ls[8].innerHTML == "Chocolate") {
@@ -339,6 +365,7 @@
         document.getElementById("play1").style.display = "block";
         document.getElementById("play").style.visibility = "hidden";
         document.getElementById("tip").style.display = "block";
+        document.getElementById("foodtitle").style.display = "block";
 
         var list = document.getElementsByClassName("container1");
         var ls = list[0].getElementsByTagName("div");
@@ -549,5 +576,6 @@
         document.getElementById("quit1").style.display = "none";
         document.getElementById("play").style.visibility = "visible";
         document.getElementById("tip").style.display = "none";
+        document.getElementById("foodtitle").style.display = "block";
     }
 </script>
