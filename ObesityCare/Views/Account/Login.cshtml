@@ -38,11 +38,14 @@
 
 
 
+                            <div class="col-12 ">
+                                <input type="submit" value="Log in" class="btn btn-primary" />
+                                <a href="@Url.Action("Register")" class="btn btn-primary float-end">Register as a new user</a>
+                            </div>
                             <div class="col-12">
-                                <input type="submit" value="Log in" class="btn btn-primary mb-3" />
+                                
 
                             </div>
-                            @Html.ActionLink("Register as a new user", "Register")
                         </div>
                             @* Enable this once you have account confirmation enabled for password reset functionality
         <p>
@@ -52,11 +55,11 @@
                         </div>
                 </div>
             </div>
-            <div class="col-lg-8  mx-auto">
+            @*<div class="col-lg-8  mx-auto">
                 <section id="socialLoginForm">
                     @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
                 </section>
-            </div>
+            </div>*@
         </div>
     }
 

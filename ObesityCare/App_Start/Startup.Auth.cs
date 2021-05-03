@@ -55,13 +55,13 @@ namespace ObesityCare
             //   consumerSecret: "");
 
             //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //   appId: "929187687653221",
+            //   appSecret: "63a6b461003ce41eac068110d1bf2dcb");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
-            //    ClientId = "",
-            //    ClientSecret = ""
+            //    ClientId = "814097716304-04aeegc871fk366ilgqf7bm5fajo6kpm.apps.googleusercontent.com",
+            //    ClientSecret = "H-8QI8gqeLRUYeSW8PFipNXT"
             //});
         }
     }
