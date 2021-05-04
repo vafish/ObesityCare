@@ -38,15 +38,15 @@
 
                                 @*@Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "col-4 mb-3" })
 
-                                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "col-4 mb-3" } })
-                                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })*@
+            @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "col-4 mb-3" } })
+            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })*@
 
 
 
 
                                 @Html.LabelFor(model => model.Duration, htmlAttributes: new { @class = "col-4 mb-3" })
 
-                                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "col-4 mb-3", placeholder = "Enter time in minutes" } })
+                                @Html.EditorFor(model => model.Duration, new { htmlAttributes = new { @class = "col-4 mb-3", placeholder = "Enter time in minutes", @id = "myInput2" } })
                                 @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
 
 
@@ -54,7 +54,7 @@
 
                                 @Html.LabelFor(model => model.Star, htmlAttributes: new { @class = "col-4 mb-3" })
 
-                                @Html.EditorFor(model => model.Star, new { htmlAttributes = new { @class = "col-4 mb-3", placeholder = "1 star = 100 calories burned" } })
+                                @Html.EditorFor(model => model.Star, new { htmlAttributes = new { @class = "col-4 mb-3", placeholder = "1 star = 100 calories burned", @id = "myResult" } })
                                 @Html.ValidationMessageFor(model => model.Star, "", new { @class = "text-danger" })
 
 
@@ -70,7 +70,9 @@
                             </div>
 
 
+                            <div id="res">
 
+                            </div>
                         </div>
 
                     </div>
@@ -81,9 +83,9 @@
     </div>
 
 }
+<script src="~/Scripts/jquery-3.6.0.js"></script>
 
-
-<script>
+<script type="text/javascript">
     function autocomplete(inp, arr) {
         /*the autocomplete function takes two arguments,
         the text field element and an array of possible autocompleted values:*/
@@ -179,13 +181,149 @@
         document.addEventListener("click", function (e) {
             closeAllLists(e.target);
         });
+
+        
     }
 
     /*An array containing all the country names in the world:*/
-    var games = ["Blind Man's Buff", "Dodgeball", "Double Dutch", "Duck, Duck, Goose", "Four Square", "Hide & Seek", "Hopscotch", "Hula Hoop", "Kickball", "Musical Chairs", "Potato Drop",
-        "Red Rover", "Ring a Ring o' Roses", "Skipping Rope", "Tag", "Twister", "What's the time, Mr.Wolf ?", "Handball", "Rugby", "Football", "Running", "Hiking", "Roller Skating" ];
+    var games = ["Blind Mans Buff", "Dodgeball", "Double Dutch", "Duck, Duck, Goose", "Four Square", "Hide & Seek", "Hopscotch", "Hula Hoop", "Kickball", "Musical Chairs", "Potato Drop",
+        "Red Rover", "Ring a Ring o' Roses", "Skipping Rope", "Tag", "Twister", "What is the time, Mr.Wolf ?", "Handball", "Rugby", "Football", "Running", "Hiking", "Roller Skating", "Soccer",
+        "Tennis", "Aerobics", "Basketball", "Paddleball", "Skateboarding", "Cycling", "Swimming", "Table Tennis", "Water Aerobics", "Trampoline", "Walking", "Bowling", "Surfing", "Volleyball"];
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
     autocomplete(document.getElementById("myInput"), games);
+    //var act = document.getElementById('myInput');
+    //var duration = document.getElementById('myInput2');
+    //var star = document.getElementById('myResult');
+    //var res = document.getElementById('res');
+    //act.onkeyup = autoCal();    
+    //duration.onkeyup = autoCal();
+    //function autoCal() {
+    //    res.value = act.value;
+
+        
+    //}
+
+    $(document).ready(function () {
+        $("#myInput2").on('input', function () {
+            if ($("#myInput").val() == "Blind Mans Buff" || $("#myInput").val() == "Blind Man's Buff" ) {
+                $('#myResult').val(Math.round($(this).val() * 228  / 3000));
+            }
+            if ($("#myInput").val() == "Dodgeball") {
+                $('#myResult').val(Math.round($(this).val() * 144 / 3000));
+            }
+            if ($("#myInput").val() == "Double Dutch") {
+                $('#myResult').val(Math.round($(this).val() * 480 / 3000));
+            }
+            if ($("#myInput").val() == "Duck, Duck, Goose") {
+                $('#myResult').val(Math.round($(this).val() * 150  / 3000));
+            }
+            if ($("#myInput").val() == "Four Square") {
+                $('#myResult').val(Math.round($(this).val() * 170 / 3000));
+            }
+            if ($("#myInput").val() == "Hide & Seek") {
+                $('#myResult').val(Math.round($(this).val() * 100  / 3000));
+            }
+            if ($("#myInput").val() == "Hopscotch") {
+                $('#myResult').val(Math.round($(this).val() * 196 / 3000));
+            }
+            if ($("#myInput").val() == "Hula Hoop") {
+                $('#myResult').val(Math.round($(this).val() * 358 / 3000));
+            }
+            if ($("#myInput").val() == "Kickball") {
+                $('#myResult').val(Math.round($(this).val() * 200 / 3000));
+            }
+            if ($("#myInput").val() == "Musical Chairs") {
+                $('#myResult').val(Math.round($(this).val() * 144 / 3000));
+            }
+            if ($("#myInput").val() == "Potato Drop") {
+                $('#myResult').val(Math.round($(this).val() * 300 / 3000));
+            }
+            if ($("#myInput").val() == "Red Rover") {
+                $('#myResult').val(Math.round($(this).val() * 200 / 3000));
+            }
+            if ($("#myInput").val() == "Ring a Ring o' Roses") {
+                $('#myResult').val(Math.round($(this).val() * 160  / 3000));
+            }
+            if ($("#myInput").val() == "Skipping Rope") {
+                $('#myResult').val(Math.round($(this).val() * 125 / 1000));
+            }
+            if ($("#myInput").val() == "Tag") {
+                $('#myResult').val(Math.round($(this).val() * 270 / 3000));
+            }
+            if ($("#myInput").val() == "Twister") {
+                $('#myResult').val(Math.round($(this).val() * 120 / 3000));
+            }
+            if ($("#myInput").val() == "What is the time, Mr.Wolf ?") {
+                $('#myResult').val(Math.round($(this).val() * 150 / 3000));
+            }
+            if ($("#myInput").val() == "Handball") {
+                $('#myResult').val(Math.round($(this).val() * 243 / 3000));
+            }
+            if ($("#myInput").val() == "Rugby") {
+                $('#myResult').val(Math.round($(this).val() * 204 / 3000));
+            }
+            if ($("#myInput").val() == "Football") {
+                $('#myResult').val(Math.round($(this).val() * 162 / 3000));
+            }
+            if ($("#myInput").val() == "Running") {
+                $('#myResult').val(Math.round($(this).val() * 156 / 3000));
+            }
+            if ($("#myInput").val() == "Hiking") {
+                $('#myResult').val(Math.round($(this).val() * 144 / 3000));
+            }
+            if ($("#myInput").val() == "Roller Skating") {
+                $('#myResult').val(Math.round($(this).val() * 135 / 3000));
+            }
+            if ($("#myInput").val() == "Soccer") {
+                $('#myResult').val(Math.round($(this).val() * 140 / 3000));
+            }
+            if ($("#myInput").val() == "Tennis") {
+                $('#myResult').val(Math.round($(this).val() * 142 / 3000));
+            }
+            if ($("#myInput").val() == "Aerobics") {
+                $('#myResult').val(Math.round($(this).val() * 132 / 3000));
+            }
+            if ($("#myInput").val() == "Basketball") {
+                $('#myResult').val(Math.round($(this).val() * 123 / 3000));
+            }
+            if ($("#myInput").val() == "Paddleball") {
+                $('#myResult').val(Math.round($(this).val() * 122 / 3000));
+            }
+            if ($("#myInput").val() == "Skateboarding") {
+                $('#myResult').val(Math.round($(this).val() * 102 / 3000));
+            }
+            if ($("#myInput").val() == "Cycling") {
+                $('#myResult').val(Math.round($(this).val() * 102 / 3000));
+            }
+            if ($("#myInput").val() == "Swimming") {
+                $('#myResult').val(Math.round($(this).val() * 180 / 3000));
+            }
+            if ($("#myInput").val() == "Table Tennis") {
+                $('#myResult').val(Math.round($(this).val() * 82 / 3000));
+            }
+            if ($("#myInput").val() == "Water Aerobics") {
+                $('#myResult').val(Math.round($(this).val() * 81 / 3000));
+            }
+            if ($("#myInput").val() == "Trampoline") {
+                $('#myResult').val(Math.round($(this).val() * 72 / 3000));
+            }
+            if ($("#myInput").val() == "Walking") {
+                $('#myResult').val(Math.round($(this).val() * 62 / 3000));
+            }
+            if ($("#myInput").val() == "Bowling") {
+                $('#myResult').val(Math.round($(this).val() * 60 / 3000));
+            }
+            if ($("#myInput").val() == "Surfing") {
+                $('#myResult').val(Math.round($(this).val() * 65 / 3000));
+            }
+            if ($("#myInput").val() == "Volleyball") {
+                $('#myResult').val(Math.round($(this).val() * 160 / 3000));
+            }
+            
+
+            
+        });
+    });
 </script>
 
 
