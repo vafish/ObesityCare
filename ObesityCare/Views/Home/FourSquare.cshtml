@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "FourSquare";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="hero hero-3" style="background-image: url('../../images/background1.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 text-left mx-auto">
+                <div class="intro">
+
+                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0" style="padding-bottom:30px">Four Square</h1>
+                    <div class="text-white" data-aos="fade-up" data-aos-delay="100">
+                        <p class="block-testimonial">
+                            Four square is played on any hard-surfaced court, such as wood, concrete, or asphalt. There is no official court size, but typically courts measure between 10 and 30 feet (3-8 meters) on a side and divided into four smaller equal-size squares. Each of the four squares has a rank and is occupied by a single player. The ranks may be arranged so that either the highest-ranking square is positioned facing the lowest ranking square, or the ranks increase as one moves clockwise the objective of four square is to eliminate other players to achieve the highest rank on the court, and this is done by bouncing the ball back and forth between quadrants.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="container">
+        <div class="col-sm-12 col-md-12 col-lg-12" data-aos="fade-up" data-aos-delay="0">
+            <div class="block-testimonial d-flex ">
+                <div class="img col-lg-6">
+
+                    <img src="~/images/FourSquare.jpg" alt="Image" class="img-fluid" />
+                </div>
+
+                <div class="col-lg-6" style="padding-left:180px;">
+
+                    <div class="heading mb-2" style="padding-top:20px; padding-bottom: 40px;">
+                        Tips for Four Square:
+                    </div>
+
+                    <p>Number of participants:  4 </p>
+                    <p>
+                        Intensiveness: Moderate
+                    </p>
+                    <p>
+                        Suggested Location: Backyard, Parks and Large Public Spaces
+                    </p>
+                    @*<p>
+                            Star Count:
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star-half-full"></span>
+                        </p>*@
+
+
+                    <p>
+                        Equipment Needed:  1 rubber bounce ball
+                    </p>
+                    <p>
+                        Calories Burned: 170 Cal for 30 mins
+                    </p>
+                    <div class="media-entry h-25">
+                        <a href="https://intermountainhealthcare.org/blogs/topics/heart/2015/06/6-kids-games-that-burn-more-calories-than-you-think/#:~:text=Playground%20Games%20%2D%20170%20calories%20(hopscotch,t%2Dball%2C%20etc.)&text=So%20the%20next%20time%20your,So%20get%20out%20and%20play " class="more d-flex align-items-center float-end">
+                            <span class="label text-black-50 text-center">See more details on 'Intermountain Healthcare'</span>
+                            <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                        </a>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <a href="@Url.Action("MapSearch", "Home")" class="d-flex float-end block-testimonial">
+                <span class="label">Find places for exercising</span>
+                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+            </a>
+            <a href="@Url.Action("MoreActivities", "Home") " class="d-flex float-right block-testimonial">
+                <span class="arrow"><span class="icon-keyboard_arrow_left"></span></span>
+                <span>Find other Activities</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+

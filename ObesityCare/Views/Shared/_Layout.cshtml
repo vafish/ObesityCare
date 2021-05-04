@@ -1,0 +1,263 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/fonts/flaticon.css" rel="stylesheet" />
+    <link href="~/fonts/style.css" rel="stylesheet" />
+    <link href="~/CSS/tiny-slider.css" rel="stylesheet" />
+    <link href="~/CSS/aos.css" rel="stylesheet" />
+    <link href="~/CSS/style.css" rel="stylesheet" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <!-- Load the `mapbox-gl-geocoder` plugin. -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Promise polyfill script is required -->
+    <!-- to use Mapbox GL Geocoder in IE 11. -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+
+
+    <style>
+        .t1 {
+            color: white;
+            opacity: 80%;
+            margin: 20px;
+        }
+
+        .t1:hover {
+                opacity: 100%
+        }
+
+
+    </style>
+
+    <title>ObesityCare &mdash; for 10-12 Children</title>
+</head>
+<body>
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <nav class="site-nav">
+        <div class="container">
+            <div class="site-navigation">
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end" style="margin-top:20px">
+                    <li class="logo m-0 float-left" style="font-size:25px;">ObesityCare</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li class="has-children">
+
+                        <p class="t1">Facts &amp; Suggestions</p>
+                        <ul class="dropdown">
+                            <li>@Html.ActionLink("What is Childhood Obesity", "Facts", "Home")</li>
+                            <li>@Html.ActionLink("Consequences", "Consequences", "Home")</li>
+                            <li>@Html.ActionLink("Healthy Lifestyle Recommendations", "LifestyleRecommendations", "Home")</li>
+                        </ul>
+                    </li>
+
+                    <li class="has-children">
+                        <p class="t1">Tools</p>
+                        <ul class="dropdown">
+                            <li>@Html.ActionLink("BMI Calculator", "BMI", "Home")</li>
+                            <li>@Html.ActionLink("TDEE Calculator", "DEECal", "Home")</li>
+                            <li>@Html.ActionLink("Map Search", "MapSearch", "Home")</li>
+                            <li>@Html.ActionLink("Lunch Box Challenge", "HealthyDiet", "Home")</li>
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <p class="t1">Activities</p>
+                        <ul class="dropdown">
+                            <li>@Html.ActionLink("Popular Activities & Games", "Activities", "Home")</li>
+                            <li>@Html.ActionLink("Common Sports & Exercises", "CommonExercises", "Home")</li>
+                            <li>@Html.ActionLink("All Activities", "MoreActivities", "Home")</li>
+
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <p class="t1">Records & Rewards</p>
+                        <ul class="dropdown">
+                            <li>@Html.ActionLink("Records", "Index", "Records")</li>
+                            <li>@Html.ActionLink("Rewards", "Index", "Rewards")</li>
+                        </ul>
+                    </li>
+
+
+                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+
+
+                    <li style="  display: inline-block;">@Html.Partial("_LoginPartial")</li>
+
+                </ul>
+                
+
+
+
+            </div>
+        </div>
+        
+    </nav>
+   
+
+
+    @RenderBody()
+
+
+
+    <div class="site-footer">
+        <div class="container">
+            <button onclick="topFunction()" id="myBtn" title="Go to top" class="block-testimonial">Top</button>
+            <div class="row">
+                @*<div class="col-lg-3">
+
+                    <div class="widget">
+                        <h3>Connect</h3>
+                        <ul class="list-unstyled social">
+                            <li><a href="#"><span class="icon-instagram"></span></a></li>
+                            <li><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                            <li><a href="#"><span class="icon-pinterest"></span></a></li>
+                            <li><a href="#"><span class="icon-dribbble"></span></a></li>
+                        </ul>
+                    </div>*@ <!-- /.widget -->
+                <!--</div>--> <!-- /.col-lg-3 -->
+
+                <div class="col-lg-5 ms-auto">
+                    <div class="widget">
+                        <h3>Links</h3>
+                        <ul class="list-unstyled float-left links">
+                            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                            <li><a href="@Url.Action("About", "Home")">About Us</a></li>
+                            <li><a href="@Url.Action("Contact", "Home")">Contact Us</a></li>
+                        </ul>
+                    </div> <!-- /.widget -->
+                </div> <!-- /.col-lg-3 -->
+
+
+                <div class="col-lg-7">
+                    <div class="widget">
+                        <h3>Contact</h3>
+
+                        <ul class="list-unstyled links mb-4">
+                            <li><a href="tel://11234567890">+61 443220096</a></li>
+                            <li><a href="mailto:info@thecycopath.com">info@thecycopaths.com</a></li>
+                        </ul>
+                    </div> <!-- /.widget -->
+                </div> <!-- /.col-lg-3 -->
+
+            </div> <!-- /.row -->
+
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p>
+
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | The Cyco Paths <i class="icon-heart text-danger" aria-hidden="true"></i>
+
+                    </p>
+
+                </div>
+            </div>
+        </div> <!-- /.container -->
+    </div> <!-- /.site-footer -->
+
+
+
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/tiny-slider.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/navbar.js"></script>
+    <script src="~/js/counter.js"></script>
+    <script src="~/js/custom.js"></script>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script language="JavaScript">
+        var password;
+        var pass = "ob";
+
+        if (!localStorage.getItem('psd')) {
+
+            do {
+                password = prompt('Welcome to ObsesityCare, you need a code to view the page!', '');
+                if (password == pass) {
+                    window.location = '#';
+                    localStorage.setItem('psd', 'ob');
+                } else {
+                    password = prompt('Wrong password, please the correct password', '');
+                }
+            } while (password != pass);
+        }
+    </script>
+
+
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    <style>
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: grey;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+            #myBtn:hover {
+                background-color: #555;
+            }
+    </style>
+
+</body>
+
+
+
+
+
+</html>

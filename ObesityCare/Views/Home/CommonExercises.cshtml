@@ -1,0 +1,293 @@
+﻿
+@{
+    ViewBag.Title = "CommonExercises";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="hero hero-3" style="background-image: url('../../images/background1.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center mx-auto">
+                <div class="intro">
+
+                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0">Let's exercise outdoors</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="post-entries section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 mx-auto" data-aos="fade-up" data-aos-delay="0">
+                <div class="line mx-auto mb-3"></div>
+                <h2 class="heading mb-5 text-center">Common Exercises &amp; Energy Burned </h2>
+
+                <div class="box">
+                    <div class="searchBox">
+                        <input type="text" onkeyup="myFunction()" placeholder="Search for activities" class="searchInput" id="myInput" style="padding-left: 10px;">
+                        <input type="button" value="Search" class="searchButton">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 mx-auto">
+
+                @*<div id="myBtnContainer ">
+                    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                    <button class="btn" onclick="filterSelection('a')"> ABCD</button>
+                    <button class="btn" onclick="filterSelection('e')"> EFGH</button>
+                    <button class="btn" onclick="filterSelection('i')"> IJKL</button>
+                    <button class="btn" onclick="filterSelection('m')"> MNOP</button>
+                    <button class="btn" onclick="filterSelection('q')"> QRST</button>
+                    <button class="btn" onclick="filterSelection('u')"> UVWX</button>
+                    <button class="btn" onclick="filterSelection('y')"> YZ</button>
+
+
+
+                </div>*@
+
+
+                <div class="tab-content" id="tabContent">
+                    <table class="myTable" id="myTable">
+                        <tr class="header">
+                            <th style="width:35%;">Exercise</th>
+                            <th style="width:45%;">Calories burned(per 30 mins)</th>
+                            @*<th style="width:20%;">Star</th>*@
+                        </tr>
+                        <tr class="filterDiv e">
+                            <td>Handball</td>
+                            <td>354</td>
+                            @*<td>7</td>*@
+
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Rugby</td>
+                            <td>294.9</td>
+                            @*<td>6</td>*@
+
+                        </tr>
+                        <tr class="filterDiv e">
+                            <td>Football</td>
+                            <td>236.1</td>
+                            @*<td>5</td>*@
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Running</td>
+                            <td>236.1</td>
+                            @*<td>5</td>*@
+
+                        </tr>
+                        <tr class="filterDiv e">
+                            <td>Hiking</td>
+                            <td>206.4</td>
+                            @*<td>4</td>*@
+
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Roller skating</td>
+                            <td>206.4</td>
+                            @*<td>4</td>*@
+
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Soccer</td>
+                            <td>206.4</td>
+                            @*<td>4</td>*@
+
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Tennis</td>
+                            <td>206.4</td>
+                            @*<td>4</td>*@
+
+                        </tr>
+                        <tr class="filterDiv a">
+                            <td>Aerobics</td>
+                            <td>192</td>
+                            @*<td>4</td>*@
+
+                        </tr>
+                        <tr class="filterDiv a">
+                            <td>Basketball</td>
+                            <td>177</td>
+                            @*<td>4</td>*@
+
+                        </tr>
+                        <tr class="filterDiv m">
+                            <td>Paddleball</td>
+                            <td>177</td>
+                            @*<td>4</td>*@
+
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Skateboarding</td>
+                            <td>147.6</td>
+                            @*<td>4</td>*@
+
+                        </tr>
+                        <tr class="filterDiv a">
+                            <td>Cycling</td>
+                            <td>117.9</td>
+                            @*<td>3</td>*@
+
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Swimming</td>
+                            <td>117.9</td>
+                            @*<td>2</td>*@
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Table tennis</td>
+                            <td>117.9</td>
+                            @*<td>2</td>*@
+
+                        </tr>
+                        <tr class="filterDiv u">
+                            <td>Water aerobics</td>
+                            <td>117.9</td>
+                            @*<td>2</td>*@
+
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Trampoline</td>
+                            <td>103.5</td>
+                            @*<td>2</td>*@
+
+                        </tr>
+                        <tr class="filterDiv u">
+                            <td>Walking</td>
+                            <td>97.5</td>
+                            @*<td>2</td>*@
+
+                        </tr>
+                        <tr class="filterDiv b">
+                            <td>Bowling</td>
+                            <td>88.5</td>
+                            @*<td>2</td>*@
+                        </tr>
+                        <tr class="filterDiv q">
+                            <td>Surfing</td>
+                            <td>88.5</td>
+                            @*<td>2</td>*@
+
+                        </tr>
+                        <tr class="filterDiv u">
+                            <td>Volleyball</td>
+                            <td>88.5</td>
+                            @*<td>2</td>*@
+
+                        </tr>
+
+                    </table>
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .box {
+        margin: 10px auto;
+        height: 50px;
+        width: 100%;
+    }
+
+    .searchBox {
+        margin: 0 auto;
+        width: 80%;
+        position: relative;
+       
+    }
+
+    .searchInput {
+        display: inline-block;
+        width: 80%;
+        height: 38px;
+        border: 1px solid #cccccc;
+        float: left;
+        box-sizing: border-box;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+     
+    }
+
+    .searchButton {
+        display: inline-block;
+        width: 20%;
+        height: 38px;
+        line-height: 40px;
+        float: left;
+        background-color: #00a0e9;
+        font-size: 16px;
+        cursor: pointer;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        border: none;
+        color: #fff;
+        margin-bottom: 100px;
+    }
+
+
+
+  
+
+        #myTable {
+            border-collapse: collapse; /* Collapse borders */
+            width: 100%; /* Full-width */
+            border: 2px solid #ddd; /* Add a grey border */
+            font-size: 15px; /* Increase font-size */
+        }
+
+        #myTable th, #myTable td {
+            text-align: left; /* Left-align text */
+            padding: 12px; /* Add padding */
+        }
+
+        #myTable tr {
+            /* Add a bottom border to all table rows */
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+                /* Add a grey background color to the table header and on hover */
+                background-color: #f1f1f1;
+            }
+</style>
+

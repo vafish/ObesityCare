@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Dutch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="hero hero-3" style="background-image: url('../../images/background1.jpg');">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 text-left mx-auto">
+                <div class="intro">
+
+                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0" style="padding-bottom:30px">Double Dutch</h1>
+                    <div class="text-white" data-aos="fade-up" data-aos-delay="100">
+                        <p class="block-testimonial">
+
+                            Double Dutch is a game in which two long jump ropes turning in opposite directions are jumped by one or more players jumping simultaneously. A jumper usually performs tricks that may involve gymnastics or breakdance and may also incorporate fancy foot movements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <div class="container">
+        <div class="col-sm-12 col-md-12 col-lg-12" data-aos="fade-up" data-aos-delay="0">
+            <div class="block-testimonial d-flex ">
+                <div class="img col-lg-6">
+
+                    <img src="~/images/double_dutch.jpg" alt="Image" class="img-fluid" />
+                </div>
+
+                <div class="col-lg-6" style="padding-left:180px;">
+
+                    <div class="heading mb-2" style="padding-top:20px; padding-bottom: 40px;">
+                        Tips for Double Dutch:
+                    </div>
+
+                    <p>Number of participants:  3 or more </p>
+                    <p>
+                        Intensiveness: High
+                    </p>
+                    <p>
+                        Suggested Location: Backyard, Parks and Large Public Spaces
+                    </p>
+                    @*<p>
+                            Star Count:
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star-half-full"></span>
+                        </p>*@
+
+
+                    <p>
+                        Equipment Needed:  2 skipping ropes
+                    </p>
+                    <p>
+                        Calories Burned: 480 Cal for 30 mins
+                    </p>
+                    <div class="media-entry h-25">
+                        <a href="https://buyjumpropes.net/resources/8-surprising-benefits-of-jump-rope/ " class="more d-flex align-items-center float-end">
+                            <span class="label text-black-50 text-center">See more details on 'BuyJumpRopes'</span>
+                            <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                        </a>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <a href="@Url.Action("MapSearch", "Home")" class="d-flex float-end block-testimonial">
+                <span class="label">Find places for exercising</span>
+                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+            </a>
+            <a href="@Url.Action("MoreActivities", "Home") " class="d-flex float-right block-testimonial">
+                <span class="arrow"><span class="icon-keyboard_arrow_left"></span></span>
+                <span>Find other Activities</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+

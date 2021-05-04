@@ -1,0 +1,44 @@
+﻿@model ObesityCare.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="section" style="background-color:lightblue">
+        <div class="container col-5">
+            <div class="col-lg-8 text-center mx-auto">
+                <h2  style="margin-top:50px">Welcome to ObesityCare</h2>
+            </div>
+            <div class=" col-lg-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <h4>@ViewBag.Title</h4>
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+
+                <div class="row">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-4 mb-3" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "col-6 mb-3" })
+                    @Html.LabelFor(m => m.Password, new { @class = "col-4 mb-3" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "col-6 mb-3" })
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-4 mb-3" })
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "col-6 mb-3" })
+
+
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-primary" value="Register" />
+                        <a href="@Url.Action("Login")" class="btn btn-primary float-end">Already have an account?</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
