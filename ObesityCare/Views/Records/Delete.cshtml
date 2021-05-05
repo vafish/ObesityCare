@@ -61,11 +61,11 @@
                                     </span>
                                 </div>
 
-                                <div class="col-3 mb-3 btn btn-outline-secondary"style="margin-top:30px;">@Html.ActionLink("Back to List", "Index")</div>
+                                <div class="col-3 mb-3 btn btn-outline-primary"style="margin-top:30px;">@Html.ActionLink("Back to List", "Index")</div>
 
                                 <div class="col-4 mb-3" style="padding-left:50%; margin-top:30px;">
 
-                                    <input type="submit" class="btn btn-outline-secondary" value="Delete" />
+                                    <input type="submit" class="btn btn-outline-primary" value="Delete" id="claim"/>
 
                                 </div>
 
@@ -87,3 +87,22 @@
 }
 
 
+<style>
+    a {
+        color: #367f7c;
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: black;
+        }
+
+    #claim {
+        color: #367f7c;
+        text-decoration: none;
+    }
+
+        #claim:hover {
+            color: black;
+        }
+</style>

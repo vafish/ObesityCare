@@ -15,7 +15,8 @@ namespace ObesityCare.Controllers
     {
         private RewardModel db = new RewardModel();
         private StarModel db_star = new StarModel();
-   
+        private ClaimModel db_claim = new ClaimModel();
+
         // GET: Rewards
         [Authorize]
         public ActionResult Index()
@@ -163,9 +164,15 @@ namespace ObesityCare.Controllers
                     db_star.Entry(u_star).State = EntityState.Modified;
                     db_star.SaveChanges();
                     ViewData["totalstar"] = u_star.Amount;
-                    ViewBag.Message = String.Format(m_reward.Name,"has been exchanged successfully!", DateTime.Now.ToString());
+                    ViewBag.Message = String.Format("The has been exchanged successfully!", DateTime.Now.ToString());
                     //System.Windows.Forms.MessageBox.Show("");
-                    
+                    Claim m_claim = new Claim();
+                    m_claim.Date = DateTime.Now;
+                    m_claim.UserId = usrid;
+                    m_claim.Item = m_reward.Name;
+                    db_claim.Claim.Add(m_claim);
+                    db_claim.SaveChanges();
+
                     return View(m_reward);
                 }
                 else

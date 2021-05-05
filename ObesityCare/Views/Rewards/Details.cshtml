@@ -32,7 +32,7 @@
                                     <span>@Html.DisplayFor(model => model.Name)</span>
                                 </div>
 
-            
+
                                 <div class="text-dark">
                                     <span>
                                         @Html.DisplayNameFor(model => model.Cost)
@@ -42,13 +42,13 @@
                                         @Html.DisplayFor(model => model.Cost)
                                     </span>
                                 </div>
-                          
 
 
+                                <div class="col-3 mb-2 btn btn-outline-primary" style="margin-top:30px " id="claim">@Html.ActionLink("Back to List", "Index")</div>
 
                             </div>
 
-                            <div class="col-3 mb-2 btn btn-outline-secondary" style="margin-top:30px">@Html.ActionLink("Back to List", "Index")</div>
+                         
 
             
 
@@ -61,3 +61,23 @@
         </div>
     </div>
 }
+
+<style>
+    a {
+        color: #367f7c;
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: black;
+        }
+
+    #claim {
+        color: #367f7c;
+        text-decoration: none;
+    }
+
+        #claim:hover {
+            color: black;
+        }
+</style>

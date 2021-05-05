@@ -23,7 +23,7 @@
                             </p>
 
 
-                            <div class="row">
+                            <div class="row  block-testimonial">
 
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -59,20 +59,18 @@
 
 
 
-                                <div class="col-3 mb-3 btn btn-outline-secondary">@Html.ActionLink("Back to List", "Index")</div>
+                                <div class="col-3 mb-3 btn btn-outline-primary">@Html.ActionLink("Back to List", "Index")</div>
 
                                 <div class="col-4 mb-3 float-right" style="padding-left:50%">
 
-                                    <input type="submit" class="btn btn-outline-secondary" value="Add" />
+                                    <input type="submit" class="btn btn-outline-primary" id="claim"value="Add" />
 
                                 </div>
 
                             </div>
 
 
-                            <div id="res">
-
-                            </div>
+                            
                         </div>
 
                     </div>
@@ -83,6 +81,26 @@
     </div>
 
 }
+
+<style>
+    a {
+        color: #367f7c;
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: black;
+        }
+
+    #claim {
+        color: #367f7c;
+        text-decoration: none;
+    }
+
+        #claim:hover {
+            color: black;
+        }
+</style>
 <script src="~/Scripts/jquery-3.6.0.js"></script>
 
 <script type="text/javascript">
