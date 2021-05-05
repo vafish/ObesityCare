@@ -38,6 +38,7 @@ namespace ObesityCare.Controllers
                     Star newStar = new Star();
                     newStar.Amount = 0;
                     newStar.UserId = id;
+                    newStar.Id = db_star.Star.Count() * 5;
                     db_star.Star.Add(newStar);
                     db_star.SaveChanges();
                     ViewData["totalstar"] = 0;

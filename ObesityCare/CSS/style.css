@@ -13177,7 +13177,7 @@ textarea {
 
     .hero, .hero > .container > .row {
         height: 100vh;
-        min-height: 800px;
+        min-height: 600px;
     }
 
         .hero:before {
@@ -13228,6 +13228,14 @@ textarea {
         display: none;
     }
 
+    .hero.hero-5, .hero.hero-5 > .container > .row {
+      
+        height: 100px;
+    }
+
+        .hero.hero-5:before {
+            display: none;
+        }
 
 
 .hero:after {

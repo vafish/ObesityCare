@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using ObesityCare.Models;
 
 namespace ObesityCare.Controllers
@@ -15,9 +16,14 @@ namespace ObesityCare.Controllers
         private ClaimModel db = new ClaimModel();
 
         // GET: Claims
+        [Authorize]
         public ActionResult Index()
         {
-            return View(db.Claim.ToList());
+            string id = User.Identity.GetUserId();
+            var claims = from r in db.Claim select r;
+            claims = claims.Where(r => r.UserId.Equals(id));
+
+            return View(claims.ToList());
         }
 
         // GET: Claims/Details/5
