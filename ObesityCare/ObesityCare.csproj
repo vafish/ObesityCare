@@ -590,6 +590,7 @@
     <Content Include="images\beef.png" />
     <Content Include="images\blendjuice.png" />
     <Content Include="images\blindman.jpg" />
+    <Content Include="images\BMI.png" />
     <Content Include="images\BMI_Cal.jpg" />
     <Content Include="images\bread.png" />
     <Content Include="images\broccoli.png" />
@@ -632,10 +633,12 @@
     <Content Include="images\img_2.jpg" />
     <Content Include="images\img_3.jpg" />
     <Content Include="images\img_4.jpg" />
+    <Content Include="images\information.png" />
     <Content Include="images\jumprope.jpg" />
     <Content Include="images\Kickball.jpg" />
     <Content Include="images\kiwi.png" />
     <Content Include="images\lamb.png" />
+    <Content Include="images\Lunch.png" />
     <Content Include="images\map_search_icon.png" />
     <Content Include="images\medicine.jpg" />
     <Content Include="images\milk.png" />

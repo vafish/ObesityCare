@@ -170,15 +170,46 @@
 
             <div class="row align-items-stretch">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="media-entry h-100">
-                        <a href="@Url.Action("BMI", "Home")" style="background-image: url('../../images/BMI_Cal.jpg');" src='@Url.Content("~/images/BMI_Cal.jpg")' />
+                    <div class="media-entry h-100" style="margin-left:40px">
+                        <a href="@Url.Action("Facts", "Home")" style="background-image: url('../../images/information.png');width:150px;height:150px;" src='@Url.Content("~/images/information.jpg")' />
 
 
                         <div class="bg-white m-body">
-                            <p class="text-dark text-center">Calculators</p>
+                            <p class="text-dark text-left">Facts about Obesity</p>
+
+                            <a href="@Url.Action("Facts", "Home")" class="more d-flex align-items-center float-lg-start">
+                                <span class="label">Get started</span>
+                                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="media-entry h-100"style="margin-left:40px">
+                        <a href="@Url.Action("BMI", "Home")" style="background-image: url('../../images/BMI.png');width:150px;height:150px;" src='@Url.Content("~/images/BMI.png")'  />
+
+
+                        <div class="bg-white m-body">
+                            <p class="text-dark text-left">Calculators</p>
 
                             <a href="@Url.Action("BMI", "Home")" class="more d-flex align-items-center float-lg-start">
-                                <span class="label" style="padding-left:80px">Get started</span>
+                                <span class="label" style="padding-left:0px">Get started</span>
+                                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="media-entry h-100" style="padding-left:0px">
+                        <a href="@Url.Action("Activities", "Home")" style="background-image: url('../../images/activity_icon.png');width:150px;height:150px;" src='@Url.Content("~/images/activity_icon.png")' />
+                        <div class="bg-white m-body">
+                            <p class="text-dark text-left" style="margin-left:0px;">Recommended Activities </p>
+
+
+                            <a href="@Url.Action("Activities", "Home")" class="more d-flex float-lg-start">
+                                <span class="label " style="margin-left:20px">Get started</span>
                                 <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
                             </a>
                         </div>
@@ -186,27 +217,28 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="media-entry h-100">
-                        <a href="@Url.Action("Activities", "Home")" style="background-image: url('../../images/activity_icon.png');width:200px;height:200px;" src='@Url.Content("~/images/activity_icon.png")' />
+                        <a href="@Url.Action("CommonExercises", "Home")" style="background-image: url('../../images/exercise_icon.png');width:150px;height:150px;" src='@Url.Content("~/images/activity_icon.png")' />
                         <div class="bg-white m-body">
-                            <p class="text-dark" style="margin-left:0px;">Popular Activities & Games </p>
-
-
-                            <a href="@Url.Action("Activities", "Home")" class="more d-flex align-items-center float-lg-start">
-                                <span class="label" style="padding-left:40px">Get started</span>
-                                <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="media-entry h-100">
-                        <a href="@Url.Action("CommonExercises", "Home")" style="background-image: url('../../images/exercise_icon.png');width:200px;height:200px;" src='@Url.Content("~/images/activity_icon.png")' />
-                        <div class="bg-white m-body">
-                            <p class="text-dark" style="margin-left:0px;">Common Sports & Exercises</p>
+                            <p class="text-dark" style="margin-left:0px;">Exercises & Calories Burned </p>
 
 
                             <a href="@Url.Action("CommonExercises", "Home")" class="more d-flex align-items-center float-lg-start">
-                                <span class="label" style="padding-left:40px">Get started</span>
+                                <span class="label" style="margin-left:20px">Get started</span>
+                                <span class="arrow "><span class="icon-keyboard_arrow_right"></span></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="media-entry h-100" style="margin-top: 40px;margin-left:40px">
+                        <a href="@Url.Action("MapSearch", "Home")" style="background-image: url('../../images/map_search_icon.png');width:150px;height:150px;" src='@Url.Content("~/images/activity_icon.png")' />
+                        <div class="bg-white m-body">
+                            <p class="text-dark text-left" style="padding-top:40px;">Location Search</p>
+
+
+                            <a href="@Url.Action("MapSearch", "Home")" class="more d-flex align-items-center float-lg-start">
+                                <span class="label" style="padding-left:0px">Get started</span>
                                 <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
                             </a>
                         </div>
@@ -214,14 +246,14 @@
                 </div>
 
                 <div class="col-12 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="media-entry h-100">
-                        <a href="@Url.Action("MapSearch", "Home")" style="background-image: url('../../images/map_search_icon.png');width:200px;height:200px;" src='@Url.Content("~/images/activity_icon.png")' />
+                    <div class="media-entry h-100" style="padding-left: 35px;">
+                        <a href="@Url.Action("HealthyDiet", "Home")" style="background-image: url('../../images/Lunch.png'); width: 230px; height: 230px;" src='@Url.Content("~/images/lunch.png")' />
                         <div class="bg-white m-body">
-                            <p class="text-dark" style="margin-left:0px;">Location Search for Activities</p>
+                            <p class="text-dark" style="margin-left:0px;">Lunch Box Challenge</p>
 
 
-                            <a href="@Url.Action("MapSearch", "Home")" class="more d-flex align-items-center float-lg-start">
-                                <span class="label" style="padding-left:40px">Get started</span>
+                            <a href="@Url.Action("HealthyDiet", "Home")" class="more d-flex align-items-center float-lg-start">
+                                <span class="label" style="padding-left:20px">Get started</span>
                                 <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
                             </a>
                         </div>
