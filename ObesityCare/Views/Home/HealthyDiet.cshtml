@@ -1,8 +1,6 @@
 ﻿
-@{
-    ViewBag.Title = "HealthyDiet";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@{ ViewBag.Title = "HealthyDiet";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 
 
@@ -25,7 +23,7 @@
                             <br />35-40% of daily calories for the afternoon
                             <br />25-35% of daily calories at night
 
-                           
+
                         </p>
 
                     </div>
@@ -51,14 +49,14 @@
             <div class="container1" id="container" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)">
 
                 @*<div id="drag1" draggable="true" class="box" ondragstart="drag(event)"></div>
-                <div id="drag2" draggable="true" class="box" ondragstart="drag(event)"></div>
-                <div id="drag3" draggable="true" class="box" ondragstart="drag(event)"></div>
-                <div id="drag4" draggable="true" class="box" ondragstart="drag(event)"></div>
-                <div id="drag5" draggable="true" class="box" ondragstart="drag(event)"></div>
-                <div id="drag6" draggable="true" class="box" ondragstart="drag(event)"></div>
-                <div id="drag7" draggable="true" class="box" ondragstart="drag(event)"></div>
-                <div id="drag8" draggable="true" class="box" ondragstart="drag(event)"></div>
-                <div id="drag9" draggable="true" class="box" ondragstart="drag(event)"></div>*@
+                    <div id="drag2" draggable="true" class="box" ondragstart="drag(event)"></div>
+                    <div id="drag3" draggable="true" class="box" ondragstart="drag(event)"></div>
+                    <div id="drag4" draggable="true" class="box" ondragstart="drag(event)"></div>
+                    <div id="drag5" draggable="true" class="box" ondragstart="drag(event)"></div>
+                    <div id="drag6" draggable="true" class="box" ondragstart="drag(event)"></div>
+                    <div id="drag7" draggable="true" class="box" ondragstart="drag(event)"></div>
+                    <div id="drag8" draggable="true" class="box" ondragstart="drag(event)"></div>
+                    <div id="drag9" draggable="true" class="box" ondragstart="drag(event)"></div>*@
 
 
             </div>
@@ -78,6 +76,26 @@
 
 
 </div>
+
+<script language="javascript" type="text/javascript">
+    //val in this case being the value of the ViewBag passed from where the call is occurring
+    function savelunch() {
+
+            if (confirm("Do you wish to save this lunch box?"));
+            {
+                $.ajax({
+                    url: 'MyController/MyAction',
+                    data: { id: id },
+                    type: "POST",
+                    success: function () {
+                        alert('Added');
+                    }
+                });
+            }
+        
+    }
+</script>
+
 
 
 <script>
@@ -109,7 +127,7 @@
         margin-top: 10px;
         margin-bottom: 10px;
         padding-right: 700px;
-        background-color:lightblue;
+        background-color: lightblue;
     }
 
     .container2 {
@@ -137,20 +155,21 @@
         height: 140px;
         cursor: move;
         margin: 10px;
-        margin-top:25px;
+        margin-top: 25px;
     }
 
     .image {
-        margin-top:20px;
+        margin-top: 20px;
         width: 80px;
         height: 70px;
-
     }
+
     .image2 {
         margin-top: 20px;
         width: 50px;
         height: 70px;
     }
+
     .water {
         margin-top: 20px;
         width: 50px;
@@ -158,11 +177,13 @@
         margin-left: 15px;
         margin-right: 15px;
     }
+
     .egg {
         margin-top: 20px;
         width: 80px;
         height: 70px;
     }
+
     .carrot {
         margin-top: 20px;
         width: 40px;
@@ -174,7 +195,7 @@
 
 
 <script type="text/javascript">
-
+    var index = 0;
     document.addEventListener('DOMContentLoaded', (event) => {
 
         var dragSrcEl = null;
@@ -244,7 +265,7 @@
     function complete() {
         var ls = document.getElementById("container2").getElementsByTagName("div");
         var sum = 0;
-             
+
         for (let i = 0; i <= ls.length - 1; i++) {
             var text = ls[i].innerText;
             if (text == "Fish(100g)") {
@@ -268,29 +289,29 @@
             if (text == "Bacon(20g)") {
                 sum += 103;
             }
-            if (text == "Egg(100g)") {
-                sum += 143;
+            if (text == "Egg(1)") {
+                sum += 78;
             }
-            if (text == "Broccoli(100g)") {
-                sum += 34;
+            if (text == "Broccoli(1 cup)") {
+                sum += 31;
             }
-            if (text == "Beans(100g)") {
-                sum += 147;
+            if (text == "Green Beans(1 cup)") {
+                sum += 31;
             }
-            if (text == "Carrots(100g)") {
-                sum += 41;
+            if (text == "Carrots(1)") {
+                sum += 25;
             }
-            if (text == "Celery(100g)") {
+            if (text == "Celery(1 cup)") {
                 sum += 16;
             }
-            if (text == "Salad(100g)") {
-                sum += 21;
-            } if (text == "Cucumber(100g)") {
-                sum += 12;
-            } if (text == "Potatoes(100g)") {
-                sum += 58;
-            } if (text == "Tomatoes(100g)") {
-                sum += 16;
+            if (text == "Lettuce Salad(1 cup)") {
+                sum += 11;
+            } if (text == "Cucumber(1)") {
+                sum += 19;
+            } if (text == "Potatoes(2)") {
+                sum += 220;
+            } if (text == "Tomatoes(2)") {
+                sum += 44;
             } if (text == "Apple(1)") {
                 sum += 48;
             } if (text == "Pear(1)") {
@@ -305,10 +326,10 @@
                 sum += 40;
             }  if (text == "Peach(1)") {
                 sum += 39;
-            } if (text == "Grapes(100g)") {
-                sum += 57;
-            } if (text == "Strawberry(100g)") {
-                sum += 69;
+            } if (text == "Grapes(1 cup)") {
+                sum += 60;
+            } if (text == "Strawberry(12)") {
+                sum += 48;
             } if (text == "Milk(125ml)") {
                 sum += 55;
             } if (text == "Orange Juice(125ml)") {
@@ -325,29 +346,29 @@
                 sum += 96;
             } if (text == "Smoothie(125ml)") {
                 sum += 45;
-            } if (text == "Rice(100g)") {
-                sum += 130;
-            } if (text == "Noodle(100g)") {
-                sum += 108;
-            } if (text == "Toasted Bread(100g)") {
-                sum += 288;
-            } if (text == "Pasta(100g)") {
+            } if (text == "Rice(1 bowl)") {
+                sum += 200;
+            } if (text == "Noodles(1 bowl)") {
+                sum += 188;
+            } if (text == "Toasted Bread(2 slices)") {
+                sum += 150;
+            } if (text == "Pasta(1 cup)") {
                 sum += 131 ;
-            } 
-            
-        }
-        if (sum < 500) {
-            document.getElementById("result").innerHTML = "Food calories lower than recommended: If you make a lunchbox that contains fewer than 500 Cal, the child will begin to lose weight proportionally to the number of calories lost. It is important to remember that it is not recommended to feed a child at a level that is too much lower than the recommended level because they will lose energy to sustain their everyday activities.";
-        }
-        if (sum > 700) {
-            document.getElementById("result").innerHTML = "Healthy Lunch box is made. Great job!";
-        }
-        if (500 <= sum && sum <= 700) {
-                document.getElementById("result").innerHTML = "Food calories higher than recommended: If you make a lunchbox that contains more than 700 Cal, the child will begin to gain weight proportionally to the number of calories lost. It is important to remember that it is not recommended to overfeed a child at a level that is too much higher than the recommended level as to much excess food will lead to obesity and related health issues.";
+            }
 
         }
-       
-       
+        if (sum < 500) {
+            document.getElementById("result").innerHTML = "Total Calories:" + sum+ ". Food calories lower than recommended: If you make a lunchbox that contains fewer than 500 Cal, the child will begin to lose weight proportionally to the number of calories lost. It is important to remember that it is not recommended to feed a child at a level that is too much lower than the recommended level because they will lose energy to sustain their everyday activities. ";
+        }
+        if (sum > 700) {
+            document.getElementById("result").innerHTML = "Total Calories:" + sum + ".A healthy lunch box is made. Great job!";
+        }
+        if (500 <= sum && sum <= 700) {
+            document.getElementById("result").innerHTML = "Total Calories:" + sum + ".Food calories higher than recommended: If you make a lunchbox that contains more than 700 Cal, the child will begin to gain weight proportionally to the number of calories lost. It is important to remember that it is not recommended to overfeed a child at a level that is too much higher than the recommended level as to much excess food will lead to obesity and related health issues.";
+
+        }
+
+
     }
 
     function showSort() {
@@ -364,8 +385,8 @@
 
         var list = document.getElementsByClassName("container1");
         list[0].innerHTML = "";
-         
-      
+
+
         for (let i = 0; i < 9; i++) {
             var box = document.createElement("div");
 
@@ -376,11 +397,16 @@
 
             list[0].appendChild(box);
         }
-       
-        var ls = list[0].getElementsByTagName("div");
-        var rand = Math.floor(Math.random() * 100);
 
-        if (rand <= 25) {
+        var ls = list[0].getElementsByTagName("div");
+        if (index >= 3) {
+            index = 0;
+        }
+        else {
+            index += 1
+        }
+
+        if (index == 0) {
             ls[0].innerHTML = "Fish(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
@@ -391,12 +417,12 @@
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/beef.png") ';
             ls[1].appendChild(img);
-            ls[2].innerHTML = "Broccoli(100g)";
+            ls[2].innerHTML = "Broccoli(1 cup)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/broccoli.png") ';
             ls[2].appendChild(img);
-            ls[3].innerHTML = "Beans(100g)";
+            ls[3].innerHTML = "Green Beans(1 cup)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/beans.png") ';
@@ -421,13 +447,13 @@
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/orangejuice.png") ';
             ls[7].appendChild(img);
-            ls[8].innerHTML = "Rice(100g)";
+            ls[8].innerHTML = "Rice(1 bowl)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/rice.png") ';
             ls[8].appendChild(img);
         }
-        if (rand > 25 && rand <= 50) {
+        if (index == 1) {
             ls[0].innerHTML = "Lamb(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
@@ -439,12 +465,12 @@
             img.setAttribute("class", "egg");
             img.src = '@Url.Content("~/images/pork.png") ';
             ls[1].appendChild(img);
-            ls[2].innerHTML = "Carrots(100g)";
+            ls[2].innerHTML = "Carrots(1)";
             var img = document.createElement('img');
             img.setAttribute("class", "carrot");
             img.src = '@Url.Content("~/images/carrot.png") ';
             ls[2].appendChild(img);
-            ls[3].innerHTML = "Celery(100g)";
+            ls[3].innerHTML = "Celery(1 cup)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/celery.png") ';
@@ -469,13 +495,13 @@
             img.setAttribute("class", "image2");
             img.src = '@Url.Content("~/images/btea.png") ';
             ls[7].appendChild(img);
-            ls[8].innerHTML = "Noodles(100g)";
+            ls[8].innerHTML = "Noodles(1 bowl)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/noodles.png") ';
             ls[8].appendChild(img);
         }
-        if (rand > 50 && rand <= 75) {
+        if (index == 2) {
             ls[0].innerHTML = "Chicken(100g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
@@ -486,12 +512,12 @@
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/ham.png") ';
             ls[1].appendChild(img);
-            ls[2].innerHTML = "Salad(100g)";
+            ls[2].innerHTML = "Lettuce Salad(1 cup)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/salad.png") ';
             ls[2].appendChild(img);
-            ls[3].innerHTML = "Cucumber(100g)";
+            ls[3].innerHTML = "Cucumber(1)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/cucumber.png") ';
@@ -516,39 +542,39 @@
             img.setAttribute("class", "image2");
             img.src = '@Url.Content("~/images/smoothie.png") ';
             ls[7].appendChild(img);
-            ls[8].innerHTML = "Pasta(100g)";
+            ls[8].innerHTML = "Pasta(1 cup)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/pasta.png") ';
             ls[8].appendChild(img);
         }
-        if (rand > 75 && rand <= 100) {
+        if (index == 3) {
             ls[0].innerHTML = "Bacon(30g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/bacon.png") ';
             ls[0].appendChild(img);
-            ls[1].innerHTML = "Egg(100g)";
+            ls[1].innerHTML = "Egg(1)";
             var img = document.createElement('img');
             img.setAttribute("class", "egg");
             img.src = '@Url.Content("~/images/egg.png") ';
             ls[1].appendChild(img);
-            ls[2].innerHTML = "Potatoes(100g)";
+            ls[2].innerHTML = "Potatoes(2)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/potato.png") ';
             ls[2].appendChild(img);
-            ls[3].innerHTML = "Tomatoes(100g)";
+            ls[3].innerHTML = "Tomatoes(2)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/tomato.png") ';
             ls[3].appendChild(img);
-            ls[4].innerHTML = "Peach(100g)";
+            ls[4].innerHTML = "Peach(1)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/peach.png") ';
             ls[4].appendChild(img);
-            ls[5].innerHTML = "Grapes(100g)";
+            ls[5].innerHTML = "Grapes(1 cup)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/grapes.png") ';
@@ -563,15 +589,12 @@
             img.setAttribute("class", "image2");
             img.src = '@Url.Content("~/images/cjuice.png") ';
             ls[7].appendChild(img);
-            ls[8].innerHTML = "Toasted Bread(100g)";
+            ls[8].innerHTML = "Toasted Bread(2 slices)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/bread.png") ';
             ls[8].appendChild(img);
         }
-
-
-
 
     }
     function quitSort() {
