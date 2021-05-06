@@ -1,6 +1,6 @@
 ﻿
 @{ ViewBag.Title = "HealthyDiet";
-                Layout = "~/Views/Shared/_Layout.cshtml"; }
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 
 
@@ -64,11 +64,12 @@
             <p id="result" class="block-testimonial" style="margin-left:100px;margin-right:100px;margin-top:100px;text-align:left"></p>
             <button class="btn btn-outline-primary float-end" style="color: darkslateblue;margin-top:20px;margin-right:100px; display:none" id="play1" onclick="complete()">Done</button>
             <button class="btn btn-outline-primary " style="color: darkslateblue;margin-top:20px;margin-left:100px;display:none" id="quit1" onclick="quitSort()">Quit Game</button>
+           @* <button class="btn btn-outline-primary " style="color: darkslateblue;margin-top:40px;margin-left:100px;display:none" id="save" onclick="saveLunch()">Save Lunch</button>*@
 
 
         </div>
 
-        <a href="@Url.Action("FoodSearch", "Home")" class="d-flex block-testimonial" style="margin-top:50px; margin-left:80%">
+        <a href="@Url.Action("FoodSearch", "Home")" class="d-flex block-testimonial" style="margin-top:150px; margin-left:80%">
             <span class="label">Check food calories</span>
             <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
         </a>
@@ -76,25 +77,8 @@
 
 
 </div>
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
 
-<script language="javascript" type="text/javascript">
-    //val in this case being the value of the ViewBag passed from where the call is occurring
-    function savelunch() {
-
-            if (confirm("Do you wish to save this lunch box?"));
-            {
-                $.ajax({
-                    url: 'MyController/MyAction',
-                    data: { id: id },
-                    type: "POST",
-                    success: function () {
-                        alert('Added');
-                    }
-                });
-            }
-        
-    }
-</script>
 
 
 
@@ -191,11 +175,21 @@
         margin-left: 15px;
         margin-right: 15px;
     }
+
+    .watermelon {
+        margin-top: 20px;
+        width: 70px;
+        height: 70px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 </style>
 
 
 <script type="text/javascript">
     var index = 0;
+    var allitems = "";
+    var sum = 0;
     document.addEventListener('DOMContentLoaded', (event) => {
 
         var dragSrcEl = null;
@@ -261,11 +255,36 @@
 
 
     });
+    function saveLunch() {
+
+        if (confirm("Do you wish to save this lunch box?"));
+        {
+            $.ajax(
+                {
+                    type: "POST", //HTTP POST Method
+                    url: "@Url.Action("Create", "Lunches")", // Controller/View
+                    data: { //Passing data
+                        Id: 0,
+                        Items: allitems, //Reading text box values using Jquery,
+                        Date: "",
+                        Calories: sum,
+                        UserId: "",
+
+                    }, success: function () {
+                        alert(data)
+                    }
+
+                });
+        }
+
+    }
 
     function complete() {
+        sum = 0;
+        allitems = "";
         var ls = document.getElementById("container2").getElementsByTagName("div");
-        var sum = 0;
-        var allitems = "";
+
+
         for (let i = 0; i <= ls.length - 1; i++) {
             var text = ls[i].innerText;
             allitems += ls[i].innerText + " ";
@@ -319,7 +338,7 @@
                 sum += 57;
             } if (text == "Orange(1)") {
                 sum += 55;
-            } if (text == "Watermelon(100g)") {
+            } if (text == "Watermelon(2 slices)") {
                 sum += 30;
             } if (text == "Bananas(1)") {
                 sum += 89;
@@ -368,7 +387,7 @@
             document.getElementById("result").innerHTML = "Total Calories:" + sum + ".Food calories higher than recommended: If you make a lunchbox that contains more than 700 Cal, the child will begin to gain weight proportionally to the number of calories lost. It is important to remember that it is not recommended to overfeed a child at a level that is too much higher than the recommended level as to much excess food will lead to obesity and related health issues.";
 
         }
-
+        document.getElementById("save").style.display = "block";
 
 
     }
@@ -482,9 +501,9 @@
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/orange.png") ';
             ls[4].appendChild(img);
-            ls[5].innerHTML = "Watermelon(100g)";
+            ls[5].innerHTML = "Watermelon(2 slices)";
             var img = document.createElement('img');
-            img.setAttribute("class", "image");
+            img.setAttribute("class", "watermelon");
             img.src = '@Url.Content("~/images/watermelon.png") ';
             ls[5].appendChild(img);
             ls[6].innerHTML = "Coconut water(125ml)";
@@ -611,5 +630,6 @@
         document.getElementById("play").style.visibility = "visible";
         document.getElementById("tip").style.display = "none";
         document.getElementById("foodtitle").style.display = "none";
+        document.getElementById("save").style.display = "none";
     }
 </script>

@@ -344,6 +344,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClaimsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LunchesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecordsController.cs" />
     <Compile Include="Controllers\RewardsController.cs" />
@@ -391,6 +392,8 @@
       <DependentUpon>BMIModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Lunch.cs" />
+    <Compile Include="Models\LunchModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Record.cs">
       <DependentUpon>adc.tt</DependentUpon>
@@ -1011,6 +1014,11 @@
     <Content Include="Views\Claims\Details.cshtml" />
     <Content Include="Views\Claims\Edit.cshtml" />
     <Content Include="Views\Claims\Index.cshtml" />
+    <Content Include="Views\Lunches\Create.cshtml" />
+    <Content Include="Views\Lunches\Delete.cshtml" />
+    <Content Include="Views\Lunches\Details.cshtml" />
+    <Content Include="Views\Lunches\Edit.cshtml" />
+    <Content Include="Views\Lunches\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
