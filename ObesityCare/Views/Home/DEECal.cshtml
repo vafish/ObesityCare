@@ -4,28 +4,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="hero hero-4" style="background-image: url('../../images/background2.jpg')">
+
+<style>
+    .hero-3 {
+        height: 45vh;
+    }
+</style>
+
+<div class="hero hero-3" style="background-image: url('../../images/cal.jpg')">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto">
+                <div class="intro">
+                    <h2 class="text-white subheading text-center" style="font-size: 30px;" data-aos="fade-up" data-aos-delay="0">
+                        Total Daily Energy Expenditure Calculator
+                        @*<button class="btn-outline-info text-center" style="color:black;border-color:white; " onclick="TDEE()">i</button>*@
+                    </h2>
+
+                    @*<div id="tdee" style="display:none">*@
+                        <p class="text-white text-center block-testimonial" data-aos="fade-up" data-aos-delay="100" style="font-size:14px;">This calculator computes total daily energy expenditure (TDEE), which is the number of calories you need to consume daily</p>
+
+                    @*  *@</div>
+                </div>
+            </div>
+
+
+        </div>
+</div>
+<div class="post-entries section">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-10 mx-auto">
                 <div class="intro">
 
-                    <h2 class="text-white subheading text-center" style="padding-top:100px;padding-bottom :20px; font-size: 20px;" data-aos="fade-up" data-aos-delay="0">
-                        Total Daily Energy Expenditure Calculator
-                        <button class="btn-outline-info text-center" style="color:black;border-color:white; " onclick="TDEE()">i</button>
-                    </h2>
-
-                    <div id="tdee" style="display:none">
-                        <p class="text-white text-center block-testimonial" data-aos="fade-up" data-aos-delay="100" style="font-size:14px;">This calculator computes total daily energy expenditure (TDEE), which is the number of calories you need to consume daily</p>
-
-                    </div>
                     <div class=" col-lg-8 mx-auto">
 
                         <div data-aos="fade-up" data-aos-delay="200">
                             <div class="text-center">
 
 
-                                <p class="text-white">
+                                <p class="text-dark">
                                     Height: <input type="text" id="height" />
                                     <select type="multiple" id="heightunits">
                                         <option value="centimetres" selected="selected">centimetres</option>
@@ -33,7 +51,7 @@
                                     </select>
                                 </p>
 
-                                <p class="text-white">
+                                <p class="text-dark">
                                     Weight: <input type="text" id="weight" />
                                     <select type="multiple" id="weightunits">
                                         <option value="kg" selected="selected">kilograms</option>
@@ -46,7 +64,7 @@
                                 <table class="col-lg-8 mx-auto">
                                     <tr>
                                         <td>
-                                            <p class="text-white">
+                                            <p class="text-dark">
                                                 Age:
                                                 <select type="multiple" id="year">
                                                     <option value=10 selected="selected">10</option>
@@ -59,7 +77,7 @@
 
                                         </td>
                                         <td>
-                                            <p class="text-white">
+                                            <p class="text-dark">
                                                 Month:
                                                 <select type="multiple" id="month">
                                                     <option value=0 selected="selected">0</option>
@@ -83,7 +101,7 @@
                                     </tr>
                                 </table>
 
-                                <p class="text-white">
+                                <p class="text-dark">
                                     Activity Factor:
                                     <select type="multiple" id="activityfactor">
                                         <option value=1.2 selected="selected">1.2 PAL(Sedentary, little or no exercise)</option>
@@ -93,37 +111,41 @@
                                         <option value=1.9>1.9 PAL(Very hard exercise/sports & a physical job)</option>
                                     </select>
                                 </p>
-                                <p class="text-white">
+                                <p class="text-dark">
                                     Gender:
                                     <select type="multiple" id="gender">
                                         <option value="male" selected="selected">Boy</option>
                                         <option value="female">Girl</option>
                                     </select>
                                 </p>
-                                <input type="submit" value="View Result" id="compute" onclick="computeDEE();">
+                                <input type="submit" class="mb-5"value="View Result" id="compute" onclick="computeDEE();">
 
-                                <p id="need" class="subheading1 text-white" style="visibility:hidden"><span id="output"></span></p>
-                                <p id="burn" class="subheading1 text-white" style="visibility:hidden">Recommended Calories to Burn Per Day: <span id="output_1"></span></p>
-                                <p id="recommendations" class="subheading1 text-white" style="visibility:hidden">
+                                <p id="need" class="block-testimonial text-dark" style="visibility:hidden"><span id="output"></span></p>
+                                <p id="burn" class="block-testimonial text-dark" style="visibility:hidden">Recommended Calories to Burn Per Day: <span id="output_1"></span></p>
+                                <p id="recommendations" class="block-testimonial text-dark" style="visibility:hidden">
 
                                     <a href="@Url.Action("LifestyleRecommendations", "Home")" class="d-flex float-end block-testimonial">
-                                        Check healthy lifestyle recommendations
-                                        <span class="arrow"><span class="icon-keyboard_arrow_right"></span></span>
+                                        Check healthy lifestyle recommendations                                     
                                     </a>
                                 </p>
+                                <a href="@Url.Action("BMI", "Home")" class="block-testimonial">
+                                    <span class="label float-start ">Back to BMI</span>
+
+                                </a>
                             </div>
 
                         </div>
 
                     </div>
-                </div>
 
-                @*<div id="chartContainer" style="height: 320px; width: 100%;" />*@
+                </div>
             </div>
+            
+
         </div>
+
     </div>
 </div>
-
 <script>
     // user inputs
     window.onload = function () {
