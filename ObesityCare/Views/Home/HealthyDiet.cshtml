@@ -265,9 +265,10 @@
     function complete() {
         var ls = document.getElementById("container2").getElementsByTagName("div");
         var sum = 0;
-
+        var allitems = "";
         for (let i = 0; i <= ls.length - 1; i++) {
             var text = ls[i].innerText;
+            allitems += ls[i].innerText + " ";
             if (text == "Fish(100g)") {
                 sum += 160;
             }
@@ -367,6 +368,7 @@
             document.getElementById("result").innerHTML = "Total Calories:" + sum + ".Food calories higher than recommended: If you make a lunchbox that contains more than 700 Cal, the child will begin to gain weight proportionally to the number of calories lost. It is important to remember that it is not recommended to overfeed a child at a level that is too much higher than the recommended level as to much excess food will lead to obesity and related health issues.";
 
         }
+
 
 
     }

@@ -173,16 +173,25 @@ namespace ObesityCare.Controllers
                     u_star.Amount -= m_reward.Cost;
                     db_star.Entry(u_star).State = EntityState.Modified;
                     db_star.SaveChanges();
-                    ViewData["totalstar"] = u_star.Amount;
-                    ViewBag.Message = String.Format("The has been exchanged successfully!", DateTime.Now.ToString());
+                    ViewData["totalstar"] = u_star.Amount;                  
                     //System.Windows.Forms.MessageBox.Show("");
                     Claim m_claim = new Claim();
                     m_claim.Date = DateTime.Now;
                     m_claim.UserId = usrid;
                     m_claim.Item = m_reward.Name;
-                    db_claim.Claim.Add(m_claim);
-                    db_claim.SaveChanges();
-
+                    if (db_claim.Claim.ToList().Count == 0)
+                    {                      
+                        db_claim.Claim.Add(m_claim);
+                        db_claim.SaveChanges();
+                    }
+                    else
+                    {
+                        var last = db_claim.Claim.ToList()[db_claim.Claim.ToList().Count - 1];
+                        m_claim.Id = last.Id + 1;
+                        db_claim.Claim.Add(m_claim);
+                        db_claim.SaveChanges();
+                    }
+                    ViewBag.Message = String.Format("The has been exchanged successfully!", DateTime.Now.ToString());
                     return View(m_reward);
                 }
                 else

@@ -38,9 +38,22 @@ namespace ObesityCare.Controllers
                     Star newStar = new Star();
                     newStar.Amount = 0;
                     newStar.UserId = id;
-                    newStar.Id = db_star.Star.Count() * 5;
-                    db_star.Star.Add(newStar);
-                    db_star.SaveChanges();
+                    newStar.Id = 0;
+
+                    if (db_star.Star.ToList().Count == 0)
+                    {
+                        db_star.Star.Add(newStar);
+                        db_star.SaveChanges();                      
+                    }
+                    else
+                    {
+                        var last = db_star.Star.ToList()[db_star.Star.ToList().Count - 1];
+                        newStar.Id = last.Id + 1;
+
+                        db_star.Star.Add(newStar);
+                        db_star.SaveChanges();
+                    }
+                   
                     ViewData["totalstar"] = 0;
                 }
             }
@@ -88,10 +101,17 @@ namespace ObesityCare.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                db.Record.Find(db.Record.Count());
-                record.Id = db.Record.Count() * 5;
                 record.UserId = User.Identity.GetUserId();
+                if (db.Record.ToList().Count == 0)
+                {
+                    db.Record.Add(record);
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                var last = db.Record.ToList()[db.Record.ToList().Count - 1];
+                record.Id = last.Id + 1;
+                
                 db.Record.Add(record);
                 db.SaveChanges();
                 var star = from r in db_star.Star select r;
