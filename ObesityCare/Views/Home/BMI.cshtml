@@ -2,13 +2,9 @@
     ViewBag.Title = "BMI";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style>
-    .hero-3 {
-        height: 45vh;
-    }
-</style>
 
-<div class="hero hero-3" style="background-image: url('../../images/cal.jpg')">
+
+<div class="hero hero-3" style="background-image: url('../../images/cal.jpg');height:45vh;z-index:-1">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8 mx-auto">
@@ -24,98 +20,95 @@
 
     </div>
 </div>
+
 <div class="post-entries section">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-10 mx-auto">
-                <div class="intro">
+                <div class=" col-lg-8 mx-auto">
 
-                    <div class=" col-lg-8 mx-auto">
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-center">
+                            <p class="text-dark">
+                                Height: <input type="text" id="height" />
+                                <select type="multiple" id="heightunits">
+                                    <option value="centimetres" selected="selected">centimetres</option>
+                                    <option value="inches">inches</option>
+                                </select>
+                            </p>
+                            <p class="text-dark">
+                                Weight: <input type="text" id="weight" />
+                                <select type="multiple" id="weightunits">
+                                    <option value="kg" selected="selected">kilograms</option>
+                                    <option value="lb">pounds</option>
+                                </select>
+                            </p>
+                            <table class="col-lg-8 mx-auto">
+                                <tr>
+                                    <td>
+                                        <p class="text-dark">
+                                            Age:
+                                            <select type="multiple" id="year">
+                                                <option value=10 selected="selected">10</option>
+                                                <option value=11>11</option>
+                                                <option value=12>12</option>
 
-                        <div data-aos="fade-up" data-aos-delay="200">
-                            <div class="text-center">
-                                <p class="text-dark">
-                                    Height: <input type="text" id="height" />
-                                    <select type="multiple" id="heightunits">
-                                        <option value="centimetres" selected="selected">centimetres</option>
-                                        <option value="inches">inches</option>
-                                    </select>
-                                </p>
-                                <p class="text-dark">
-                                    Weight: <input type="text" id="weight" />
-                                    <select type="multiple" id="weightunits">
-                                        <option value="kg" selected="selected">kilograms</option>
-                                        <option value="lb">pounds</option>
-                                    </select>
-                                </p>
-                                <table class="col-lg-8 mx-auto">
-                                    <tr>
-                                        <td>
-                                            <p class="text-dark">
-                                                Age:
-                                                <select type="multiple" id="year">
-                                                    <option value=10 selected="selected">10</option>
-                                                    <option value=11>11</option>
-                                                    <option value=12>12</option>
+                                            </select>
 
-                                                </select>
+                                        </p>
 
-                                            </p>
+                                    </td>
+                                    <td>
+                                        <p class="text-dark">
+                                            Month:
+                                            <select type="multiple" id="month">
+                                                <option value=0 selected="selected">0</option>
+                                                <option value=1>1</option>
+                                                <option value=2>2</option>
+                                                <option value=3>3</option>
+                                                <option value=4>4</option>
+                                                <option value=5>5</option>
+                                                <option value=6>6</option>
+                                                <option value=7>7</option>
+                                                <option value=8>8</option>
+                                                <option value=9>9</option>
+                                                <option value=10>10</option>
+                                                <option value=11>11</option>
+                                                <option value=12>12</option>
+                                            </select>
 
-                                        </td>
-                                        <td>
-                                            <p class="text-dark">
-                                                Month:
-                                                <select type="multiple" id="month">
-                                                    <option value=0 selected="selected">0</option>
-                                                    <option value=1>1</option>
-                                                    <option value=2>2</option>
-                                                    <option value=3>3</option>
-                                                    <option value=4>4</option>
-                                                    <option value=5>5</option>
-                                                    <option value=6>6</option>
-                                                    <option value=7>7</option>
-                                                    <option value=8>8</option>
-                                                    <option value=9>9</option>
-                                                    <option value=10>10</option>
-                                                    <option value=11>11</option>
-                                                    <option value=12>12</option>
-                                                </select>
-
-                                            </p>
-                                        <td>
-                                    </tr>
-                                </table>
+                                        </p>
+                                    <td>
+                                </tr>
+                            </table>
 
 
-                                <p class="text-white">
-                                    Gender:
-                                    <select type="multiple" id="gender">
-                                        <option value="male" selected="selected">Boy</option>
-                                        <option value="female">Girl</option>
-                                    </select>
-                                </p>
-                                <input type="submit" value="View Result" id="compute" onclick="computeBMI();">
+                            <p class="text-dark">
+                                Gender:
+                                <select type="multiple" id="gender">
+                                    <option value="male" selected="selected">Boy</option>
+                                    <option value="female">Girl</option>
+                                </select>
+                            </p>
+                            <input type="submit" value="View Result" id="compute" onclick="computeBMI();">
 
-                                <p id="result" class="subheading1 text-dark" style="visibility:hidden"><br>Your child's BMI is: <span id="output"></span></p>
+                            <p id="result" class="subheading1 text-dark" style="visibility:hidden"><br>Your child's BMI is: <span id="output"></span></p>
 
-                                <p class="text-dark "><span id="comment"></span></p>
-                            </div>
-                            <span id="BMItitle" class='BMItitle'></span>
-                            <span id="noneob" class='noneob'>Non-Obese</span>
-                            <span id="overweight" class='overweight'>Overweight</span>
-                            <span id="obese" class='obese'>Obese</span>
-                            <div id="canvas" style="width:100%;height:400px; background-color:white;display:none">
-                                <canvas id="myChart" />
-                            </div>
+                            <p class="text-dark "><span id="comment"></span></p>
                         </div>
-
-                        <a href="@Url.Action("DEECal", "Home")" class="float-end block-testimonial">
-                            <span class="label float-end ">Check TDEE for you child</span>
-
-                        </a>
+                        <span id="BMItitle" class='BMItitle'></span>
+                        <span id="noneob" class='noneob'>Non-Obese</span>
+                        <span id="overweight" class='overweight'>Overweight</span>
+                        <span id="obese" class='obese'>Obese</span>
+                        <div id="canvas" style="width:100%;height:400px; background-color:white;display:none">
+                            <canvas id="myChart" />
+                        </div>
                     </div>
-                    
+
+                    <a href="@Url.Action("DEECal", "Home")" class="float-end block-testimonial">
+                        <span class="label float-end ">Check TDEE for you child</span>
+
+                    </a>
                 </div>
             </div>
            
@@ -126,36 +119,35 @@
 </div>
 
 <style>
+
+
     .noneob {
-        font-size: 20px;
-        font-weight: bold;
-        opacity: 0.6;
+        background-color: rgba(199, 255, 221,0.8);
+        width: 20px;
+        height: 10px;
+        margin-top: 120px;
+        margin-left:550px;
         z-index: 1;
-        margin-top: 230px;
-        margin-left: 50px;
-        position: absolute;
         visibility: hidden;
     }
 
     .overweight {
-        font-size: 20px;
-        font-weight: bold;
-        opacity: 0.6;
+        background-color: rgba(200, 131, 10,0.4);
+        width: 20px;
+        height: 10px;
+        margin-top: 120px;
+        margin-left: 550px;
         z-index: 1;
-        margin-top: 140px;
-        margin-left: 50px;
-        position: absolute;
         visibility: hidden;
     }
 
     .obese {
-        font-size: 20px;
-        font-weight: bold;
-        opacity: 0.6;
+        background-color:rgba(255, 120, 0,0.4);
+        width: 20px;
+        height: 10px;
+        margin-top: 120px;
+        margin-left: 550px;
         z-index: 1;
-        margin-top: 60px;
-        margin-left: 50px;
-        position: absolute;
         visibility: hidden;
     }
 
