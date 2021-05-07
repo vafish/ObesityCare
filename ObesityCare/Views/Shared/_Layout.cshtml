@@ -72,11 +72,16 @@
                     </li>
 
                     <li class="has-children">
-                        <p class="t1">Tools</p>
+                        <p class="t1">Calculators</p>
                         <ul class="dropdown">
                             <li>@Html.ActionLink("BMI Calculator", "BMI", "Home")</li>
                             <li>@Html.ActionLink("TDEE Calculator", "DEECal", "Home")</li>
-                            <li>@Html.ActionLink("Map Search", "MapSearch", "Home")</li>
+
+                        </ul>
+                    </li>
+                    <li class="has-children">
+                        <p class="t1">Food</p>
+                        <ul class="dropdown">
                             <li>@Html.ActionLink("Food Calories Search", "FoodSearch", "Home")</li>
                             <li>@Html.ActionLink("Lunch Box Challenge", "HealthyDiet", "Home")</li>
                         </ul>
@@ -87,7 +92,7 @@
                             <li>@Html.ActionLink("Recommended Activities & Games", "Activities", "Home")</li>
                             <li>@Html.ActionLink("Common Sports & Exercises", "CommonExercises", "Home")</li>
                             <li>@Html.ActionLink("All Activities", "MoreActivities", "Home")</li>
-
+                            <li>@Html.ActionLink("Activity Location Search", "MapSearch", "Home")</li>
                         </ul>
                     </li>
                     <li class="has-children">
@@ -101,7 +106,6 @@
 
 
                     <li>@Html.ActionLink("About Us", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
 
 
                     <li style="  display: inline-block;">@Html.Partial("_LoginPartial")</li>
@@ -147,7 +151,6 @@
                         <ul class="list-unstyled float-left links">
                             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                             <li><a href="@Url.Action("About", "Home")">About Us</a></li>
-                            <li><a href="@Url.Action("Contact", "Home")">Contact Us</a></li>
                         </ul>
                     </div> <!-- /.widget -->
                 </div> <!-- /.col-lg-3 -->
@@ -158,7 +161,6 @@
                         <h3>Contact</h3>
 
                         <ul class="list-unstyled links mb-4">
-                            <li><a href="tel://11234567890">+61 443220096</a></li>
                             <li><a href="mailto:info@thecycopath.com">info@thecycopaths.com</a></li>
                         </ul>
                     </div> <!-- /.widget -->
