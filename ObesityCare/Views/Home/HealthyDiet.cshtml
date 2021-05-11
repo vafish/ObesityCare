@@ -373,13 +373,13 @@
 
         }
         if (sum < 500) {
-            document.getElementById("result").innerHTML = "Total Calories:" + sum+ ". Food calories lower than recommended: If you make a lunchbox that contains fewer than 500 Cal, the child will begin to lose weight proportionally to the number of calories lost. It is important to remember that it is not recommended to feed a child at a level that is too much lower than the recommended level because they will lose energy to sustain their everyday activities. ";
+            document.getElementById("result").innerHTML = "Total Calories:" + sum+ ". Food calories lower than recommended: If you make a lunchbox that contains fewer than 500 Cal, the child will begin to lose weight proportionally to the number of calories lost. It is important to remember that it is not recommended to feed a child at a level that is too much lower than the recommended level because they will lose energy to sustain their everyday activities. Add more food from the storage and try again.";
         }
         if (500 <= sum && sum <= 700) {
             document.getElementById("result").innerHTML = "Total Calories:" + sum + ". A healthy lunch box is made. Great job!";
         }
         if (sum > 700) {
-            document.getElementById("result").innerHTML = "Total Calories:" + sum + ". Food calories higher than recommended: If you make a lunchbox that contains more than 700 Cal, the child will begin to gain weight proportionally to the number of calories lost. It is important to remember that it is not recommended to overfeed a child at a level that is too much higher than the recommended level as to much excess food will lead to obesity and related health issues.";
+            document.getElementById("result").innerHTML = "Total Calories:" + sum + ". Food calories higher than recommended: If you make a lunchbox that contains more than 700 Cal, the child will begin to gain weight proportionally to the number of calories lost. It is important to remember that it is not recommended to overfeed a child at a level that is too much higher than the recommended level as to much excess food will lead to obesity and related health issues. Remove some food from your lunch box and try again";
 
         }
         document.getElementById("save").style.display = "block";
