@@ -691,6 +691,7 @@
     <Content Include="images\us.jpg" />
     <Content Include="images\wang.jpg" />
     <Content Include="images\water.jpg" />
+    <Content Include="images\water.png" />
     <Content Include="images\watermelon.png" />
     <Content Include="images\what%27s the time.jpg" />
     <Content Include="images\world-dotted-map.png" />
