@@ -12,12 +12,12 @@
 <div class="hero hero-3" style="background-image: url('../../images/rewards.jpg');">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-10 text-center mx-auto">
+            <div class="col-lg-8 text-center mx-auto">
                 <div class="intro">
 
                     <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0">Rewards</h1>
                     <div class="text-white" data-aos="fade-up" data-aos-delay="100">
-                        <p class="block-testimonial"> Reward your children</p>
+                        <p > Give your child rewards based on the amount of exercise they completed! We have already provided you with a suggested list, but feel free to add your own rewards as well. Just keep in mind that the higher the cost of the star, the more attractive the reward should be.</p>
 
                     </div>
                 </div>
@@ -51,8 +51,8 @@
                                     @Html.DisplayNameFor(model => model.Name)
                                 </th>
                                 @*<th>
-                            @Html.DisplayNameFor(model => model.Location)
-                        </th>*@
+                                @Html.DisplayNameFor(model => model.Location)
+                            </th>*@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Cost)
                                 </th>
@@ -64,25 +64,26 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    @*<td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cost) <span> Star</span>
-                    </td>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    @*<td>
+                                    @Html.DisplayFor(modelItem => item.Location)
+                                </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cost) <span> Star</span>
+                                    </td>
 
 
-                    <td>
-                        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })|
-                        @Html.ActionLink("Claim", "Claim", new { id = item.Id })
-                    </td>
-                </tr>}
+                                    <td>
+                                        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |*@
+                                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })|
+                                        @Html.ActionLink("Claim", "Claim", new { id = item.Id })
+                                    </td>
+                                </tr>
+                            }
 
                         </tbody>
 
@@ -94,12 +95,21 @@
                 <p class="btn btn-primary d-flex float-start" style="margin-top:20px">
                     @Html.ActionLink("Back to Records", "Index", "Records")
                 </p>
+                <p class="btn btn-primary d-flex float-end" style="margin-top:20px">
+                    @Html.ActionLink("Add a Reward", "Create", "Rewards")
+                </p>
+                <br />
+                <br />
 
-                <p class="btn btn-primary d-flex float-end" style="margin-top:20px;">
+                <br />
+
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <p class="btn btn-primary float-start " style="margin-top:10px">
                     @Html.ActionLink("Claim History", "Index", "Claims")
                 </p>
             </div>
-
+            
 
         </div>
     </div>

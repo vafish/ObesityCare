@@ -8,21 +8,16 @@
 <div class="hero hero-3" style="background-image: url('../../images/food.jpg');">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-8 text-left mx-auto">
+            <div class="col-lg-8 text-center mx-auto">
                 <div class="intro">
 
-                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0" style="padding-top:100px;"> Healthy Meals</h1>
+                    <h1 class="heading mb-2" data-aos="fade-up" data-aos-delay="0" style="padding-top:100px;"> Lunch Box Challenge</h1>
                     <div class="text-white" data-aos="fade-up" data-aos-delay="100">
-                        <p class="block-testimonial ">
+                        <p>
 
                             <br />
 
-                            Using our calculators, it is easy to find total daily energy expenditure figure which is recommended daily calorie intake that your child should have to maintain weight, anything above that will result in weight gain. From Moore (2021)’s article we understand that this number should be split evenly across different meals throughout the day and our recommendation is for your child to consume:
-                            <br />
-                            <br />30-35% of daily calories in the morning
-                            <br />35-40% of daily calories for the afternoon
-                            <br />25-35% of daily calories at night
-
+                            Now that you understand the effect of calories on a child's health and the different added sugar and saturated fat levels of common products, why not play a little game about packing a child's lunch box? You will be offered a range of foods of different calorie counts. Try to drag and drop the foods onto the plate without exceeding the recommended calorie intake for a child.
 
                         </p>
 
@@ -39,7 +34,7 @@
 <div class="container">
     <div class=" section-1">
         <div class="col-lg-12 text-center">
-            <button class="btn btn-outline-primary mb-3" id="play" style="color: darkslateblue;margin-top:20px" onclick="showSort()">Lunch Box Challenge</button>
+            <button class="btn btn-outline-primary mb-3 block-testimonial" id="play" style="color: darkslateblue;margin-top:20px" onclick="showSort()">Challenge</button>
 
             <p class="block-testimonial " id="tip" style="display:none; font-weight:400"> Prepare a healthy lunch for your children.<br />A healthy lunch should contain  500-700 calories.</p>
             <div class="container2" id="container2" style="display:none" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -380,10 +375,10 @@
         if (sum < 500) {
             document.getElementById("result").innerHTML = "Total Calories:" + sum+ ". Food calories lower than recommended: If you make a lunchbox that contains fewer than 500 Cal, the child will begin to lose weight proportionally to the number of calories lost. It is important to remember that it is not recommended to feed a child at a level that is too much lower than the recommended level because they will lose energy to sustain their everyday activities. ";
         }
-        if (sum > 700) {
+        if (500 <= sum && sum <= 700) {
             document.getElementById("result").innerHTML = "Total Calories:" + sum + ". A healthy lunch box is made. Great job!";
         }
-        if (500 <= sum && sum <= 700) {
+        if (sum > 700) {
             document.getElementById("result").innerHTML = "Total Calories:" + sum + ". Food calories higher than recommended: If you make a lunchbox that contains more than 700 Cal, the child will begin to gain weight proportionally to the number of calories lost. It is important to remember that it is not recommended to overfeed a child at a level that is too much higher than the recommended level as to much excess food will lead to obesity and related health issues.";
 
         }
