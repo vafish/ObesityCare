@@ -207,22 +207,61 @@
         //Display result of calculation
         document.getElementById("output").innerText = BMI;
 
-
-        if (BMI < 18.5)
-            document.getElementById("comment").innerText = "Your child is considered underweight. It's important to stay inside a healthy weight range. Checkout our food section for meal preparation and weight gain."
-        if (BMI >= 18.5 && BMI <= 25)
-            document.getElementById("comment").innerText = "Your child is considered to be in a healthy weight, theres no need to change his/her life style, maintain a healthy weight by eating healthy, and exercising on a regular basis.";
-        if (BMI >= 25 && BMI <= 30)
-            document.getElementById("comment").innerText = "Your child is considered to be overweight. It's important to stay inside a healthy weight range.  Continue to use our site to learn about suggestions of letting your child stay keeping. ";
-        if (BMI > 30)
-            document.getElementById("comment").innerText = "Your child is considered to be obese. It's important to stay inside a healthy weight range.  Continue to use our site to learn about suggestions of letting your child stay keeping.";
-        // document.getElementById("answer").value = output;
-
         var result = @Html.Raw(ViewBag.DataPoints);
 
         var dataPoints1x = [];
 
         var dataPoints1y = [], dataPoints2y = [], dataPoints3y = [], dataPoints4y = [], dataPoints5y = [], dataPoints6y = [], dataPoints7y = [], dataPoints8y = [], dataPoints9y = [], dataPoints10y = [];
+
+
+        var under;
+        var healthy;
+        var over;
+        var ob;
+        if (gender == "male") {
+            for (var i = 0; i < result.length; i++) {
+                if (result[i].Age_in_months == age) {
+                    under = result[i].third_Percentile;
+                    healthy = result[i].fifth_Percentile;
+                    over = result[i].eightieth_Percentile;
+                    ob = result[i].ninety_seventh_Percentile;
+
+                }
+
+
+            }
+        }
+
+        var result2 = @Html.Raw(ViewBag.DataPoints2);
+        var dataPoints11x = [];
+        var dataPoints11y = [], dataPoints12y = [], dataPoints13y = [], dataPoints14y = [], dataPoints15y = [], dataPoints16y = [], dataPoints17y = [], dataPoints18y = [], dataPoints19y = [], dataPoints20y = [];
+
+        if (gender == "female") {
+            for (var i = 0; i < result2.length; i++) {
+                if (result2[i].Age_in_months-0.5 == age) {
+                    under = result2[i].third_Percentile;
+                    healthy = result2[i].fifth_Percentile;
+                    over = result2[i].eightieth_Percentile;
+                    ob = result2[i].ninety_seventh_Percentile;
+
+                }
+
+
+            }
+        }
+
+
+
+        if (BMI < under)
+            document.getElementById("comment").innerText = "Your child is considered underweight. It's important to stay inside a healthy weight range. Checkout our food section for meal preparation and weight gain."
+        if (BMI >= healthy && BMI <= over)
+            document.getElementById("comment").innerText = "Your child is considered to be in a healthy weight, theres no need to change his/her life style, maintain a healthy weight by eating healthy, and exercising on a regular basis.";
+        if (BMI >= over && BMI <= ob)
+            document.getElementById("comment").innerText = "Your child is considered to be overweight. It's important to stay inside a healthy weight range.  Continue to use our site to learn about suggestions of letting your child stay keeping. ";
+        if (BMI > ob)
+            document.getElementById("comment").innerText = "Your child is considered to be obese. It's important to stay inside a healthy weight range.  Continue to use our site to learn about suggestions of letting your child stay keeping.";
+
+
         //let myLineExtend = Chart.controllers.line.prototype.draw;
         //Chart.helpers.extend(Chart.controllers.line.prototype, {
         //    draw: function () {
@@ -355,13 +394,13 @@
                             pointRadius: 0,
                             tension: 0.3,
                             color: "#FFFFFF",
-                            
+
                         },
                         {
                             data: dataPoints10y,
                            /* label: "ninety_seventh_Percentile",*/
                             borderColor: "#FD0000",
-                            fill: "end",                         
+                            fill: "end",
                             pointRadius: 0,
                             tension: 0.3,
                             color: "#FFFFFF",
@@ -408,10 +447,7 @@
 
 
         }
-        var result2 = @Html.Raw(ViewBag.DataPoints2);
-        var dataPoints11x = [];
-        var dataPoints11y = [], dataPoints12y = [], dataPoints13y = [], dataPoints14y = [], dataPoints15y = [], dataPoints16y = [], dataPoints17y = [], dataPoints18y = [], dataPoints19y = [], dataPoints20y = [];
-        if (gender == "female") {
+      if (gender == "female") {
             document.getElementById("BMItitle").innerText = "Age 10-12 Girl BMI";
             for (var i = 0; i < result2.length; i++) {
                 if (result2[i].Age_in_months >= 120 && result2[i].Age_in_months <= 160) {
@@ -529,7 +565,7 @@
                        // label: "ninety_seventh_Percentile",
                         borderColor: "#FD0000",
                         fill: "end",
-                      
+
                         pointRadius: 0,
                         backgroundColor: "rgba(255, 0, 0,0.6)",
                         color: "#FFFFFF",
