@@ -16,6 +16,11 @@ namespace ObesityCare.Controllers
         private RewardModel db = new RewardModel();
         private StarModel db_star = new StarModel();
         private ClaimModel db_claim = new ClaimModel();
+        Reward r1 = new Reward();
+        Reward r2 = new Reward();
+        Reward r3 = new Reward();
+        Reward r4 = new Reward();
+        Reward r5 = new Reward();
 
         // GET: Rewards
         [Authorize]
@@ -25,7 +30,40 @@ namespace ObesityCare.Controllers
            
             var stars = from r in db_star.Star select r;
             var starlst = stars.Where(r => r.UserId.Equals(usrid)).ToList();
-           
+            var rewards = from r in db.Rewards select r;
+            rewards = rewards.Where(r => r.UserId.Equals(usrid));
+
+            if (rewards.ToList().Count == 0) {
+                var last = db.Rewards.ToList()[db.Rewards.ToList().Count - 1];
+                r1.UserId = usrid;
+                r1.Id = last.Id + 1;
+                r1.Cost = 10;
+                r1.Name = "A pack of trading cards";
+                db.Rewards.Add(r1);
+                r2.UserId = usrid;
+                r2.Id = last.Id + 2;
+                r2.Cost = 20;
+                r2.Name = "Two movie tickets";
+                db.Rewards.Add(r2);
+                r3.UserId = usrid;
+                r3.Id = last.Id + 3;
+                r3.Cost = 30;
+                r3.Name = "A family beach trip";
+                db.Rewards.Add(r3);
+                r4.UserId = usrid;
+                r4.Id = last.Id + 4;
+                r4.Cost = 40;
+                r4.Name = "A family trip to Luna Park";
+                db.Rewards.Add(r4);
+                r5.UserId = usrid;
+                r5.Id = last.Id + 5;
+                r5.Cost = 50;
+                r5.Name = "A Lego Set";
+                db.Rewards.Add(r5);
+                db.SaveChanges();
+            }
+
+
             if (starlst.Count == 0 )
             {
                 if (ModelState.IsValid)
@@ -37,8 +75,6 @@ namespace ObesityCare.Controllers
                     db_star.Star.Add(newStar);
                     db_star.SaveChanges();
                     ViewData["totalstar"] = 0;
-
-
                 }
             }
             else
@@ -46,7 +82,7 @@ namespace ObesityCare.Controllers
                 ViewData["totalstar"] = starlst.First().Amount;
             }
             
-            return View(db.Rewards.ToList());
+            return View(rewards.ToList());
         }
 
         // GET: Rewards/Details/5
@@ -76,15 +112,20 @@ namespace ObesityCare.Controllers
         // POST: Rewards/Create
         // 为了防止“过多发布”攻击，请启用要绑定到的特定属性；有关
         // 更多详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
+
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
+       
         public ActionResult Create([Bind(Include = "Id,Name,Cost")] Reward reward)
         {
-          
+
+            reward.UserId = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
                 if (db.Rewards.ToList().Count == 0)
                 {
+
                     db.Rewards.Add(reward);
                     db.SaveChanges();
 

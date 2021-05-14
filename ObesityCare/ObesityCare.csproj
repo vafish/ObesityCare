@@ -649,6 +649,9 @@
     <Content Include="images\lamb.png" />
     <Content Include="images\Lunch.png" />
     <Content Include="images\map.jpg" />
+    <Content Include="images\map3.jpg" />
+    <Content Include="images\map4.jpg" />
+    <Content Include="images\map5.jpg" />
     <Content Include="images\map_search_icon.png" />
     <Content Include="images\medicine.jpg" />
     <Content Include="images\milk.png" />

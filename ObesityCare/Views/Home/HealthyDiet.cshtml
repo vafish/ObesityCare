@@ -56,6 +56,7 @@
 
             </div>
             <br />
+            <p id="tips" class="block-testimonial" style="display:none">Drag the box(not image) into the plate!</p>
             <p id="result" class="block-testimonial" style="margin-left:100px;margin-right:100px;margin-top:100px;text-align:left"></p>
             <button class="btn btn-outline-primary float-end" style="color: darkslateblue;margin-top:20px;margin-right:100px; display:none" id="play1" onclick="complete()">Done</button>
             <button class="btn btn-outline-primary " style="color: darkslateblue;margin-top:20px;margin-left:100px;display:none" id="quit1" onclick="quitSort()">Quit Game</button>
@@ -298,8 +299,8 @@
             if (text == "Chicken(100g)") {
                 sum += 143;
             }
-            if (text == "Ham(20g)") {
-                sum += 36;
+            if (text == "Ham(30g)") {
+                sum += 54;
             }
             if (text == "Bacon(20g)") {
                 sum += 103;
@@ -321,8 +322,8 @@
             }
             if (text == "Lettuce Salad(1 cup)") {
                 sum += 11;
-            } if (text == "Cucumber(1)") {
-                sum += 19;
+            } if (text == "Cucumbers(2)") {
+                sum += 40;
             } if (text == "Potatoes(2)") {
                 sum += 220;
             } if (text == "Tomatoes(2)") {
@@ -335,8 +336,8 @@
                 sum += 55;
             } if (text == "Watermelon(2 slices)") {
                 sum += 30;
-            } if (text == "Bananas(1)") {
-                sum += 89;
+            } if (text == "Bananas(2)") {
+                sum += 210;
             } if (text == "Kiwifruit(1)") {
                 sum += 40;
             }  if (text == "Peach(1)") {
@@ -367,8 +368,8 @@
                 sum += 188;
             } if (text == "Toasted Bread(2 slices)") {
                 sum += 150;
-            } if (text == "Pasta(1 cup)") {
-                sum += 131 ;
+            } if (text == "Pasta(1 bowl)") {
+                sum += 220 ;
             }
 
         }
@@ -398,7 +399,7 @@
         document.getElementById("play").style.visibility = "hidden";
         document.getElementById("tip").style.display = "block";
         document.getElementById("foodtitle").style.display = "block";
-
+        document.getElementById("tips").style.display = "block";
         var list = document.getElementsByClassName("container1");
         list[0].innerHTML = "";
 
@@ -523,7 +524,7 @@
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/chicken.png") ';
             ls[0].appendChild(img);
-            ls[1].innerHTML = "Ham(20g)";
+            ls[1].innerHTML = "Ham(30g)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/ham.png") ';
@@ -533,12 +534,12 @@
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/salad.png") ';
             ls[2].appendChild(img);
-            ls[3].innerHTML = "Cucumber(1)";
+            ls[3].innerHTML = "Cucumbers(2)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/cucumber.png") ';
             ls[3].appendChild(img);
-            ls[4].innerHTML = "Banana(1)";
+            ls[4].innerHTML = "Bananas(2)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/bananas.png") ';
@@ -558,7 +559,7 @@
             img.setAttribute("class", "image2");
             img.src = '@Url.Content("~/images/smoothie.png") ';
             ls[7].appendChild(img);
-            ls[8].innerHTML = "Pasta(1 cup)";
+            ls[8].innerHTML = "Pasta(1 bowl)";
             var img = document.createElement('img');
             img.setAttribute("class", "image");
             img.src = '@Url.Content("~/images/pasta.png") ';
@@ -626,5 +627,6 @@
         document.getElementById("tip").style.display = "none";
         document.getElementById("foodtitle").style.display = "none";
         document.getElementById("save").style.display = "none";
+        document.getElementById("tips").style.display = "none";
     }
 </script>
