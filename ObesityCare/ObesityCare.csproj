@@ -584,6 +584,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\activity_icon.png" />
     <Content Include="images\addedsugar.jpg" />
+    <Content Include="images\addsugar.jpg" />
     <Content Include="images\apple.png" />
     <Content Include="images\background1.jpg" />
     <Content Include="images\background2.jpg" />
