@@ -106,7 +106,7 @@
                     </li>
 
 
-                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                    @*<li>@Html.ActionLink("About Us", "About", "Home")</li>*@
 
 
                     <li style="  display: inline-block;">@Html.Partial("_LoginPartial")</li>
@@ -199,6 +199,7 @@
     <script language="JavaScript">
         var password;
         var pass = "ob";
+        @*var pass = "?YuWvFw3VpYur~*^j^W_";*@
 
         if (!localStorage.getItem('psd')) {
 
@@ -207,6 +208,7 @@
                 if (password == pass) {
                     window.location = '#';
                     localStorage.setItem('psd', 'ob');
+                    @*localStorage.setItem('psd', '?YuWvFw3VpYur~*^j^W_');*@
                 } else {
                     password = prompt('Wrong password, please the correct password', '');
                 }
