@@ -19,7 +19,7 @@ namespace ObesityCare.Models
         [Display(Name= "Activity")]
         public string Name { get; set; }
         public string Location { get; set; }
-
+        [Range(0, 1000)]
         public string Duration { get; set; }
         public int Star { get; set; }
         public string UserId { get; set; }
