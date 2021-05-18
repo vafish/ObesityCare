@@ -30,7 +30,6 @@
                         <div data-aos="fade-up" data-aos-delay="100">
                             <p class="block-testimonial">
                                 Reward Details
-
                             </p>
 
                             <div class="row block-testimonial">
@@ -58,18 +57,23 @@
 
 
 
-                                <div class="col-4 mb-3 btn btn-outline-primary" style="">@Html.ActionLink("Back to Reward List", "Index", new { @style = "color:#000aaa;" })</div>
+                                <div class="col-4 mb-1 btn btn-outline-primary" style="">@Html.ActionLink("Back to Reward List", "Index", new { @style = "color:#000aaa;" })</div>
 
-                                <div class="col-4  btn btn-outline-primary ">@Html.ActionLink("Claim History", "Index", "Claims")</div>
 
-                                <div class="col-4 mb-3 float-right" style="padding-left:40%">
+                                <div class="col-4 mb-1 float-right" style="padding-left:40%">
 
                                     <input type="submit" class="btn btn-outline-primary" id="claim" value="Claim" />
                                 </div>
+                                <div>
+                                    <p class="btn btn-outline-primary float-start " style="margin-top:10px">
+                                        @Html.ActionLink("Claim History", "Index", "Claims")
 
+                                    </p>
+                                </div>
+                               
                             </div>
 
-
+                           
 
                         </div>
 
