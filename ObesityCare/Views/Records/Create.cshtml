@@ -24,7 +24,7 @@
                             </p>
 
 
-                            <div class="row  block-testimonial">
+                            <div class="row block-testimonial">
 
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -39,8 +39,8 @@
 
                                 @*@Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "col-4 mb-3" })
 
-            @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "col-4 mb-3" } })
-            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })*@
+                                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "col-4 mb-3" } })
+                                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })*@
 
 
 
@@ -64,14 +64,14 @@
 
                                 <div class="col-4 mb-3 float-right" style="padding-left:50%">
 
-                                    <input type="submit" class="btn btn-outline-primary" id="claim"value="Add" />
+                                    <input type="submit" class="btn btn-outline-primary" id="claim" value="Add" />
 
                                 </div>
 
                             </div>
 
 
-                            
+
                         </div>
 
                     </div>
@@ -102,6 +102,7 @@
             color: black;
         }
 </style>
+
 <script src="~/Scripts/jquery-3.6.0.js"></script>
 
 <script type="text/javascript">
@@ -201,7 +202,7 @@
             closeAllLists(e.target);
         });
 
-        
+
     }
 
     /*An array containing all the country names in the world:*/
@@ -214,18 +215,18 @@
     //var duration = document.getElementById('myInput2');
     //var star = document.getElementById('myResult');
     //var res = document.getElementById('res');
-    //act.onkeyup = autoCal();    
+    //act.onkeyup = autoCal();
     //duration.onkeyup = autoCal();
     //function autoCal() {
     //    res.value = act.value;
 
-        
+
     //}
 
     $(document).ready(function () {
         $("#myInput2").on('input', function () {
-            if ($("#myInput").val() == "Blind Mans Buff" || $("#myInput").val() == "Blind Man's Buff" ) {
-                $('#myResult').val(Math.round($(this).val() * 228  / 3000));
+            if ($("#myInput").val() == "Blind Mans Buff" || $("#myInput").val() == "Blind Man's Buff") {
+                $('#myResult').val(Math.round($(this).val() * 228 / 3000));
             }
             if ($("#myInput").val() == "Dodgeball") {
                 $('#myResult').val(Math.round($(this).val() * 144 / 3000));
@@ -234,13 +235,13 @@
                 $('#myResult').val(Math.round($(this).val() * 480 / 3000));
             }
             if ($("#myInput").val() == "Duck, Duck, Goose") {
-                $('#myResult').val(Math.round($(this).val() * 150  / 3000));
+                $('#myResult').val(Math.round($(this).val() * 150 / 3000));
             }
             if ($("#myInput").val() == "Four Square") {
                 $('#myResult').val(Math.round($(this).val() * 170 / 3000));
             }
             if ($("#myInput").val() == "Hide & Seek") {
-                $('#myResult').val(Math.round($(this).val() * 100  / 3000));
+                $('#myResult').val(Math.round($(this).val() * 100 / 3000));
             }
             if ($("#myInput").val() == "Hopscotch") {
                 $('#myResult').val(Math.round($(this).val() * 196 / 3000));
@@ -261,7 +262,7 @@
                 $('#myResult').val(Math.round($(this).val() * 200 / 3000));
             }
             if ($("#myInput").val() == "Ring a Ring o' Roses") {
-                $('#myResult').val(Math.round($(this).val() * 160  / 3000));
+                $('#myResult').val(Math.round($(this).val() * 160 / 3000));
             }
             if ($("#myInput").val() == "Skipping Rope") {
                 $('#myResult').val(Math.round($(this).val() * 125 / 1000));
@@ -338,16 +339,16 @@
             if ($("#myInput").val() == "Volleyball") {
                 $('#myResult').val(Math.round($(this).val() * 160 / 3000));
             }
-            
 
-            
+
+
         });
     });
 </script>
 
 
 <style>
-   
+
     /*the container must be positioned relative:*/
     .autocomplete {
         position: relative;
@@ -388,3 +389,4 @@
         color: #ffffff;
     }
 </style>
+

@@ -22,7 +22,7 @@
                             </p>
 
 
-                            <div class="row">
+                            <div class="row  block-testimonial">
 
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -37,8 +37,8 @@
 
                                 @*@Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "col-4 mb-3" })
 
-                                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "col-4 mb-3" } })
-                                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })*@
+        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "col-4 mb-3" } })
+        @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })*@
 
 
 
@@ -53,10 +53,9 @@
 
 
                                 <div class="col-3 mb-3 btn btn-outline-primary">@Html.ActionLink("Back to List", "Index")</div>
-
                                 <div class="col-4 mb-3 float-right" style="padding-left:50%">
 
-                                    <input type="submit" class="btn btn-outline-primary" id="claim" value="Add" style="color:lightskyblue"/>
+                                    <input type="submit" class="btn btn-outline-primary" id="claim" value="Add" />
 
                                 </div>
 

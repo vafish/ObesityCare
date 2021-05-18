@@ -232,13 +232,13 @@ namespace ObesityCare.Controllers
                         db_claim.Claim.Add(m_claim);
                         db_claim.SaveChanges();
                     }
-                    ViewBag.Message = String.Format("The has been exchanged successfully!", DateTime.Now.ToString());
+                    ViewBag.Message = String.Format(m_reward.Name + " has been exchanged successfully!");
                     return View(m_reward);
                 }
                 else
                 {
                     ViewData["totalstar"] = u_star.Amount;
-                    ViewBag.Message = String.Format("You need more stars to exchange ", reward.Name);
+                    ViewBag.Message = String.Format("You need more stars to exchange " + m_reward.Name);
                     //System.Windows.Forms.MessageBox.Show("");
                     return View(m_reward);
                 }
